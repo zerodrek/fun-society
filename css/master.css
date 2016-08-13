@@ -1,0 +1,73 @@
+@font-face {
+    font-family: "PressStart2P";
+    src: url('../font/PressStart2P.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Arcade-N';
+    src:url('../font/Arcade-N.ttf.woff') format('woff'),
+        url('../font/Arcade-N.ttf.svg#Arcade-N') format('svg'),
+        url('../font/Arcade-N.ttf.eot'),
+        url('../font/Arcade-N.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+}
+body {
+    background: url(../img/back.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+h1 {
+    font-size: 28px;
+    font-family: Arcade-N, sans-serif;
+    text-align: center;
+}
+#main-start {
+    margin: 125px auto;
+}
+#re-start {
+    margin: 40px auto;
+}
+.btn-lg {
+    margin: 0 auto;
+    max-width: 25%;
+}
+.btn-md {
+    margin: 20px auto;
+    max-width: 90%;
+    height: 60px;
+}
+#to-results {
+    margin: 40px auto;
+    max-width: 25%;
+}
+.jumbotron {
+    margin: 40px auto;
+    width: 80%;
+    height: 725px;
+}
+.info {
+    margin: 20px 0;
+    text-align: center;
+}
+#answers {
+    margin: 20px 0;
+}
+#gif {
+    margin: 30px auto;
+}
+@media screen and (min-width: 768px) {
+    .jumbotron h1 {
+        font-size: 40px;
+    }
+}
