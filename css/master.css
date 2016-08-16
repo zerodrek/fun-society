@@ -23,6 +23,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding-top: 80px;
 }
 h1 {
     font-size: 28px;
