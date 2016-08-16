@@ -41,15 +41,20 @@ h1 {
     text-align: center;
 }
 
+.icons {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+}
+
 #main-start {
-    margin: 125px auto;
+    margin: 40px auto;
 }
 #re-start {
     margin: 40px auto;
 }
 .btn-lg {
-    margin: 0 auto;
-    max-width: 25%;
+    margin: 10px auto;
 }
 .btn-md {
     margin: 20px auto;
@@ -63,7 +68,7 @@ h1 {
 .jumbotron {
     margin: 40px auto;
     width: 80%;
-    height: 725px;
+    
 }
 .info {
     margin: 20px 0;
