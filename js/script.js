@@ -70,14 +70,14 @@ $(document).ready(function() {
         onQuestion = true;
         questionTimer();
         resetAnswerTimer();
-        $('#countdown').html('Time Remaining: 30 seconds')
+        $('#countdown').html('Time Remaining: 30 seconds');
         $('#answer').hide();
         $('#game-display').show();
         if (answeredQuestions === 6) {
             displayResults();
         } else if (answeredQuestions === 5) {
             $('#question-text').html(availableQuestions[5].question.text);
-            answer = availableQuestions[5].question.correctAnswer
+            answer = availableQuestions[5].question.correctAnswer;
             for (let i = 0; i < availableQuestions[5].question.answers.length; i++) {
                 j = $('<button>');
                 j.addClass('btn btn-md btn-default btn-block answer');
@@ -86,7 +86,7 @@ $(document).ready(function() {
             }
         } else if (answeredQuestions === 4) {
             $('#question-text').html(availableQuestions[4].question.text);
-            answer = availableQuestions[4].question.correctAnswer
+            answer = availableQuestions[4].question.correctAnswer;
             for (let i = 0; i < availableQuestions[4].question.answers.length; i++) {
                 j = $('<button>');
                 j.addClass('btn btn-md btn-default btn-block answer');
@@ -95,7 +95,7 @@ $(document).ready(function() {
             }
         } else if (answeredQuestions === 3) {
             $('#question-text').html(availableQuestions[3].question.text);
-            answer = availableQuestions[3].question.correctAnswer
+            answer = availableQuestions[3].question.correctAnswer;
             for (let i = 0; i < availableQuestions[3].question.answers.length; i++) {
                 j = $('<button>');
                 j.addClass('btn btn-md btn-default btn-block answer');
@@ -104,7 +104,7 @@ $(document).ready(function() {
             }
         } else if (answeredQuestions === 2) {
             $('#question-text').html(availableQuestions[2].question.text);
-            answer = availableQuestions[2].question.correctAnswer
+            answer = availableQuestions[2].question.correctAnswer;
             for (let i = 0; i < availableQuestions[2].question.answers.length; i++) {
                 j = $('<button>');
                 j.addClass('btn btn-md btn-default btn-block answer');
@@ -113,7 +113,7 @@ $(document).ready(function() {
             }
         } else if (answeredQuestions === 1) {
             $('#question-text').html(availableQuestions[1].question.text);
-            answer = availableQuestions[1].question.correctAnswer
+            answer = availableQuestions[1].question.correctAnswer;
             for (let i = 0; i < availableQuestions[1].question.answers.length; i++) {
                 j = $('<button>');
                 j.addClass('btn btn-md btn-default btn-block answer');
