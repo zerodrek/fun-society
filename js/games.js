@@ -1,4 +1,16 @@
 $(document).ready(function() {
+    // FIREBASE
+    // Initialize Firebase
+    // var config = {
+    //     apiKey: "AIzaSyAumrxjoe5hs1KPyl_dPdzL4Dl9n8ctRao",
+    //     authDomain: "fun-society.firebaseapp.com",
+    //     databaseURL: "https://fun-society.firebaseio.com",
+    //     storageBucket: "fun-society.appspot.com",
+    // };
+    // firebase.initializeApp(config);
+    //
+    // var database = firebase.database();
+
     // FUNCTIONS
     // -----------------------------------------------------------------------
 
@@ -195,6 +207,9 @@ $(document).ready(function() {
         $('#results').show();
         $('#outro').html("All done, here's how you did!");
         $('#end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
+
+        points = numRight*10;
+        console.log(points);
     }
 
     // Initialize the game with a start page ----------------------------
@@ -217,6 +232,7 @@ $(document).ready(function() {
         numWrong = 0;
         numUnanswered = 0;
         answeredQuestions = 0;
+        points='';
         $('.answer').remove();
 
         // Shuffle questions ---------------------------------------
@@ -225,8 +241,6 @@ $(document).ready(function() {
         for (let i = 0; i < availableQuestions.length; i++) {
             shuffle(availableQuestions[i].question.answers);
         }
-
-        console.log(availableQuestions.indexOf());
 
         $('#start').hide();
         $('#results').hide();
