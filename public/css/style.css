@@ -4,10 +4,12 @@
     font-weight: normal;
     font-style: normal;
 }
-html, body {
-    height: 100%;
+html {
+    position: relative;
+    min-height: 100%;
 }
 body {
+    margin-bottom: 60px;
     background: url(../img/back.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -15,9 +17,28 @@ body {
     background-size: cover;
     padding-top: 80px;
 }
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+    text-align: center;
+  margin: 20px 0;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
 .navbar-brand {
-     padding: 4px 10px 4px;
- }
+    padding: 4px 10px 4px;
+}
 .navbar-brand>img {
     display: inline;
     margin-right: 10px;
@@ -55,9 +76,6 @@ body {
     margin: 40px auto;
     max-width: 25%;
 }
-.jumbotron {
-    margin: 40px auto;
-}
 .sidescore {
     margin-top: 40px;
     margin-right: 20px;
@@ -76,12 +94,8 @@ body {
 .gif {
     margin: 30px auto;
 }
-footer {
-    height: 75px;
-    background-color: yellow;
-}
-.copyright {
-    float: right;
-    margin-right: 400px;
-    vertical-align: bottom;
+@media screen and (max-width: 768px) {
+    body > .container {
+      padding: 0 15px 0;
+    }
 }
