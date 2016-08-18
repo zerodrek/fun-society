@@ -46,6 +46,7 @@ let questions = [{
         answers: ['Donkey Kong', 'Wimpy', 'Bagman', 'Q*bert'],
         correctAnswer: 'Q*bert'
     },
-}]
+}];
 
-new Quiz(questions);
+gamesQuiz = new Quiz(questions);
+console.log(gamesQuiz);
