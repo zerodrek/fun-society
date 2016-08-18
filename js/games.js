@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // FIREBASE ///////////////////////////////////////////////////////
+    // FIREBASE
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyAumrxjoe5hs1KPyl_dPdzL4Dl9n8ctRao",
@@ -10,79 +10,6 @@ $(document).ready(function() {
     firebase.initializeApp(config);
 
     var database = firebase.database();
-
-    // FIREBASE AUTHENTICATION ////////////////////////////////////////    //User Authentication - Email/Password
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-    });
-
-    // Sign in modal
-    $('#sign-in').on("click", function() {
-        $("#signinModal").modal();
-    });
-    // Sign in redirect
-    $("#github-sign-in").on("click", function() {
-        firebase.auth().signInWithRedirect(githubProvider);
-    });
-    $("#twitter-sign-in").on("click", function() {
-        firebase.auth().signInWithRedirect(twitterProvider);
-    });
-    // Get redirect result
-    firebase.auth().getRedirectResult().then(function(result) {
-        if (result.credential) {
-            // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-            var githubToken = result.credential.accessToken;
-            var twitterToken = result.credential.accessToken;
-            var twitterSecret = result.credential.secret;
-            // ...
-            // Link multiple Auth Providers -------------------------------------
-            var githubCredential = firebase.auth.GithubAuthProvider.credential(
-                githubToken);
-            var twitterCredential = firebase.auth.TwitterAuthProvider.credential(twitterToken, twitterSecret);
-            console.log(twitterCredential);
-            // Pass the AuthCredential to signed-in user's link method
-            auth.currentUser.link(twitterCredential).then(function(user) {
-                console.log("Account linking success", user);
-            }, function(error) {
-                console.log("Account linking error", error);
-            });
-        }
-        // The signed-in user info.
-        var user = result.user;
-    }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-    });
-    // Get current user -------------------------------------------------
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            $('#sign-in').hide();
-            $('#signed-in').show();
-            $('#user').html(user.displayName);
-        } else {
-            // No user is signed in.
-            $('#signed-in').hide();
-            $('#sign-in').show();
-        }
-    });
-    // Sign out ---------------------------------------------------------
-    $('#sign-out').on('click', function() {
-        firebase.auth().signOut().then(function() {
-            // Sign-out successful.
-        }, function(error) {
-            // An error happened.
-        });
-    });
 
     // FUNCTIONS
     // -----------------------------------------------------------------------
@@ -124,12 +51,13 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 5;
+        answerTime = 2;
     }
 
     function stopTimer() {
         clearInterval(counter);
     }
+
     // Fisher-Yates shuffle
     function shuffle(array) {
         let m = array.length,
@@ -279,9 +207,37 @@ $(document).ready(function() {
         $('#results').show();
         $('#outro').html("All done, here's how you did!");
         $('#end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
+        // Multiply numRight o equal score
+        points = numRight * 100;
+        // Variable for firebase obj
+        var scores = {
+            points: points,
+        };
+        // Push score to firebase
+        database.ref().push(scores);
+        // Log
+        console.log('Points: ' + points);
 
-        points = numRight * 10;
-        console.log(points);
+    }
+
+    function sortPoints() {
+        database.ref().on("value", function(snapshot) {
+            globalPointsArray = [];
+            var dbObj = snapshot.val();
+            var objKeys = Object.keys(dbObj);
+            for (let i = 0; i < objKeys.length; i++) {
+                globalPoints = dbObj[objKeys[i]].points;
+                globalPointsArray.push(globalPoints);
+            }
+            sortedPoints = globalPointsArray.sort(function(a, b) {
+                return b - a;
+            });
+            console.log(sortedPoints);
+        }, function(errorObject) {
+
+            console.log("The read failed: " + errorObject.code);
+
+        });
     }
 
     // Initialize the game with a start page ----------------------------
@@ -297,7 +253,7 @@ $(document).ready(function() {
     // When Start is clicked display the game and start the timer -------
     $(document).on('click', '.start-game', function() {
         questionTime = 30;
-        answerTime = 5;
+        answerTime = 2;
         counter = '';
         onQuestion = false;
         numRight = 0;
@@ -341,4 +297,5 @@ $(document).ready(function() {
     // -----------------------------------------------------------------------
 
     initialize();
+    sortPoints();
 });
