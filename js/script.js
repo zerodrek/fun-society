@@ -11,70 +11,61 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-    // FIREBASE AUTHENTICATION ////////////////////////////////////////    //User Authentication - Email/Password
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
+    // FIREBASE AUTHENTICATION ////////////////////////////////////////
+    // Sign up modal
+    $('#sign-up').on("click", function() {
+        $("#signupModal").modal();
     });
+    // Create new user
+    $("#signupBtn").on("click", function() {
 
-    // Sign in modal
-    $('#sign-in').on("click", function() {
-        $("#signinModal").modal();
-    });
-    // Sign in redirect
-    $("#github-sign-in").on("click", function() {
-        firebase.auth().signInWithRedirect(githubProvider);
-    });
-    $("#twitter-sign-in").on("click", function() {
-        firebase.auth().signInWithRedirect(twitterProvider);
-    });
-    // Get redirect result
-    firebase.auth().getRedirectResult().then(function(result) {
-        if (result.credential) {
-            // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-            var githubToken = result.credential.accessToken;
-            var twitterToken = result.credential.accessToken;
-            var twitterSecret = result.credential.secret;
+        // Grabs user input
+        // var userName = $("#userName").val().trim();
+        var emailAddress = $("#emailAddress").val().trim();
+        var userPass = $("#userPass").val().trim();
+
+        // Creates local "temporary" object for holding train data
+        // var newUser = {
+        //     username: userName,
+        //     email: emailAddress,
+        //     password: userPass
+        // };
+        //
+        // // Uploads train data to the database
+        // database.ref().push(newUser);
+
+        //User Authentication - Email/Password
+        firebase.auth().createUserWithEmailAndPassword(emailAddress, userPass).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
             // ...
-            // Link multiple Auth Providers -------------------------------------
-            var githubCredential = firebase.auth.GithubAuthProvider.credential(
-                githubToken);
-            var twitterCredential = firebase.auth.TwitterAuthProvider.credential(twitterToken, twitterSecret);
-            console.log(twitterCredential);
-            // Pass the AuthCredential to signed-in user's link method
-            auth.currentUser.link(twitterCredential).then(function(user) {
-                console.log("Account linking success", user);
-            }, function(error) {
-                console.log("Account linking error", error);
-            });
-        }
-        // The signed-in user info.
-        var user = result.user;
-    }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
+        });
+        // Confirm Add Train Modal
+        $("#subModal").modal();
+
+        // Clears all of the text-boxes
+        // $("#userName").val("");
+        // $("#trainDestination").val("");
+        // $("#firstTime").val("");
+        // $("#trainFrequency").val("");
+
+        // Prevents moving to new page
+        return false;
     });
     // Get current user -------------------------------------------------
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            $('#sign-in').hide();
-            $('#signed-in').show();
-            $('#user').html(user.displayName);
-        } else {
-            // No user is signed in.
-            $('#signed-in').hide();
-            $('#sign-in').show();
-        }
-    });
+    // firebase.auth().onAuthStateChanged(function(user) {
+    //     if (user) {
+    //         // User is signed in.
+    //         $('#sign-up').hide();
+    //         $('#signed-in').show();
+    //         $('#user').html(user.displayName);
+    //     } else {
+    //         // No user is signed in.
+    //         $('#signed-in').hide();
+    //         $('#sign-up').show();
+    //     }
+    // });
     // Sign out ---------------------------------------------------------
     $('#sign-out').on('click', function() {
         firebase.auth().signOut().then(function() {
