@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
+    <title>Fun Society</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Retro Gaming Trivia</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
     <script type="text/javascript" src="js/jquery-3.1.0.min.js">
@@ -15,19 +15,71 @@
 <body>
 
     <div class="container-fluid">
+        <!-- Navbar -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="index.html">
+					<!-- Replace this railway image -->
+						<img alt="Logo" id="logo" src="img/fun_society.png"></a>
+						<h1 class="text-center" id="header-text">Fun Society</h1>
+					<button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				</div>
+				<div class="collapse navbar-collapse navbar-right account" id="navbar-collapse">
+					<button id="sign-in" type="button" class="btn btn-default navbar-btn">Sign in</button>
+					<ul id="signed-in" class="nav navbar-nav navbar-right">
+						<li id="fat-menu" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="user"></span><span class="caret"></span> </a>
+							<ul class="dropdown-menu" aria-labelledby="drop3">
+								<li><a href="#">View High Scores</a></li>
+								<li id="sign-out"><a href="#">Sign out</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<button id="highscores" type="button" class="btn btn-xs btn-primary navbar-btn navbar-right">View High Scores</button>
+			</div>
+		</nav>
         <div class="row">
             <div class="col-sm-12">
                 <div class="jumbotron">
                     <div class="row">
+                        <h1></h1>
+                        <hr />
+
                         <div class="col-sm-12">
-                            <h1>Retro Gaming Trivia</h1>
+                            <h1>Choose a Category to Test Your Knowledge:</h1>
                             <hr />
-                            <div id="start">
-                                <img class="img-responsive" src="img/games.png" alt="Retro Games" />
-                                <div id="main-start">
-                                    <button type="button" class="btn btn-lg btn-success btn-block start-game">Start</button>
-                                </div>
-                            </div>
+
+								<!-- Table could be better than rows and columns -->
+	                            <div class="col-sm-6">      
+		                            <div id="television">
+		                                <button class="btn btn-lg btn-block start-game" ><img class="icons img-responsive" src="img/television_icon.png" alt="Television" />
+		                                <h3 class="text-center">Television</h3></button>
+		                            </div>
+	                            </div>
+		                            
+	                            <div class="col-sm-6">
+		                            <div id="movies">
+		                                <button class="btn btn-lg btn-block start-game" ><img class="icons img-responsive" src="img/movies_icon.png" alt="Movies" />
+		                                <h3 class="text-center">Movies</h3></button>
+		                            </div>
+	                            </div>
+                            
+                            	<div class="col-sm-6">
+		                            <div id="games">
+		                                <button class="btn btn-lg btn-block start-game" ><img class="icons img-responsive" src="img/games_icon.png" alt="Games" />
+		                                <h3 class="text-center">Games</h3></button>
+		                            </div>
+	                            </div>
+		                            
+	                            <div class="col-sm-6">
+		                            <div id="music">
+		                                <button class="btn btn-lg btn-block start-game" ><img class="icons img-responsive" src="img/music_icon.png" alt="Music" />
+		                                <h3 class="text-center">Music</h3></button>
+		                            </div>
+	                            </div>
+                            
+
                         </div>
                         <div id="game-display" class="col-sm-12 info">
                             <h3 id="countdown"></h3>
@@ -51,8 +103,84 @@
                     </div>
                 </div>
             </div>
+
+            <!-- <div class="col-lg-2 sidescore">
+                <div class="panel panel-default">
+                	<div class="panel-heading">
+                		<h3 id="highScoresHeader">High Scores</h3>
+                	</div>
+                	<div>
+                		<table id="highScores" class="table table-bordered">
+                			<thead>
+	                			<tr>
+	                				<th>Rank</th>
+	                				<th>Player</th>
+	            					<th>Score</th>
+	        					</tr>
+	        					
+	        					<tr>
+	        						<td>1.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+	    						<tr>
+	        						<td>2.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+		    						<tr>
+	        						<td>3.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+	    						<tr>
+	        						<td>4.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+	    						<tr>
+	        						<td>5.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+	    						<tr>
+	        						<td>6.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+	    						<tr>
+	        						<td>7.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+	    						<tr>
+	        						<td>8.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+	    						<tr>
+	        						<td>9.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+	    						<tr>
+	        						<td>10.</td>
+	        						<td></td>
+	        						<td></td>
+	    						</tr>
+                			</thead>
+                		</table>
+                	</div>
+                </div>
+            </div> -->
         </div>
     </div>
+    <footer>
+    	<div>
+    		<div id="contact"><button class="btn btn-lg btn-success btn-block contact">Contact</button></div>
+    		<div id="copyright"><h4>&copy Copyright 2016 Fun Society</h4></div>
+    	</div>
+    </footer>
 
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/questions.js"></script>
