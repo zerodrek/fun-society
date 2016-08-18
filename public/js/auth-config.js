@@ -27,13 +27,13 @@ firebase.auth().getRedirectResult().then(function(result) {
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
-        $('#sign-in').hide();
-        $('#signed-in').show();
-        $('#user').html(user.displayName);
+        $('.sign-in').hide();
+        $('.signed-in').show();
+        $('.user').html(user.displayName);
     } else {
         // No user is signed in.
-        $('#signed-in').hide();
-        $('#sign-in').show();
+        $('.signed-in').hide();
+        $('.sign-in').show();
     }
 });
 // Sign out ---------------------------------------------------------
