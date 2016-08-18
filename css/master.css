@@ -66,11 +66,6 @@ h1 {
     margin: 40px auto;
     max-width: 25%;
 }
-
-.maindiv {
-    width: 80%;
-}
-
 .jumbotron {
     margin: 40px auto;
     width: 80%;
@@ -79,7 +74,7 @@ h1 {
 
 .sidescore {
     margin-top: 40px;
-    /*margin-right: 20px;*/
+    margin-right: 20px;
 }
 
 #highScoresHeader {
