@@ -7,7 +7,7 @@ function Quiz(questions) {
 let questions = [{
     question: {
         text: 'Who is Mario\'s dinosaur friend?',
-        gif: "https://api.giphy.com/v1/gifs/search?q=mario-betrayal&api_key=dc6zaTOxFJmzC",
+        gif: "https://media.giphy.com/media/3o7TKVhFvrfc9xz0aY/giphy.gif",
         answers: ['Rex', 'Luigi', 'Toshi', 'Yoshi'],
         correctAnswer: 'Yoshi'
     },

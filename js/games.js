@@ -207,33 +207,41 @@ $(document).ready(function() {
         $('#results').show();
         $('#outro').html("All done, here's how you did!");
         $('#end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
-
+        // Multiply numRight o equal score
         points = numRight * 100;
-
+        // Variable for firebase obj
         var scores = {
             points: points,
         };
-
+        // Push score to firebase
         database.ref().push(scores);
-
+        // Log
         console.log('Points: ' + points);
 
     }
 
-    // Initialize the game with a start page ----------------------------
-    function initialize() {
+    function sortPoints() {
         database.ref().on("value", function(snapshot) {
+            globalPointsArray = [];
             var dbObj = snapshot.val();
             var objKeys = Object.keys(dbObj);
-            console.log(objKeys);
-            // console.log(dbObj['-KPGOjwiNp9WzN9nQ01S'].points);
-
+            for (let i = 0; i < objKeys.length; i++) {
+                globalPoints = dbObj[objKeys[i]].points;
+                globalPointsArray.push(globalPoints);
+            }
+            sortedPoints = globalPointsArray.sort(function(a, b) {
+                return b - a;
+            });
+            console.log(sortedPoints);
         }, function(errorObject) {
 
             console.log("The read failed: " + errorObject.code);
 
         });
+    }
 
+    // Initialize the game with a start page ----------------------------
+    function initialize() {
         $('#game-display').hide();
         $('#answer').hide();
         $('#results').hide();
@@ -289,4 +297,5 @@ $(document).ready(function() {
     // -----------------------------------------------------------------------
 
     initialize();
+    sortPoints();
 });
