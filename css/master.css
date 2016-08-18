@@ -45,6 +45,7 @@ h1 {
     height: 200px;
     width: 200px;
     margin: 0 auto;
+    padding: 25px;
 }
 
 #main-start {
@@ -65,11 +66,27 @@ h1 {
     margin: 40px auto;
     max-width: 25%;
 }
-.jumbotron {
-    margin: 40px auto;
+
+.maindiv {
     width: 80%;
+}
+
+.jumbotron {
+    margin: 40px 20% 20% 10%;
+    width: 70%;
     
 }
+
+.sidescore {
+    margin-top: 40px;
+    /*margin-right: 20px;*/
+}
+
+#highScoresHeader {
+    text-align: center;
+    font-weight: 700;
+}
+
 .info {
     margin: 20px 0;
     text-align: center;
