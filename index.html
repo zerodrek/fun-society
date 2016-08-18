@@ -16,88 +16,63 @@
 
     <div class="container-fluid">
         <!-- Navbar -->
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="index.html">
-					<!-- Replace this railway image -->
-						<img alt="Logo" id="logo" src="img/fun_society.png"></a>
-						<h1 class="text-center" id="header-text">Fun Society</h1>
-					<button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				</div>
-				<div class="collapse navbar-collapse navbar-right account" id="navbar-collapse">
-					<button id="sign-in" type="button" class="btn btn-default navbar-btn">Sign in</button>
-					<ul id="signed-in" class="nav navbar-nav navbar-right">
-						<li id="fat-menu" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="user"></span><span class="caret"></span> </a>
-							<ul class="dropdown-menu" aria-labelledby="drop3">
-								<li><a href="#">View High Scores</a></li>
-								<li id="sign-out"><a href="#">Sign out</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<button id="highscores" type="button" class="btn btn-xs btn-primary navbar-btn navbar-right">View High Scores</button>
-			</div>
-		</nav>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Replace this railway image -->
+                        <img alt="Logo" id="logo" src="img/fun_society.png"></a>
+                    <h1 class="text-center" id="header-text">Fun Society</h1>
+                    <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                </div>
+                <div class="collapse navbar-collapse navbar-right account" id="navbar-collapse">
+                    <button id="sign-in" type="button" class="btn btn-default navbar-btn">Sign in</button>
+                    <ul id="signed-in" class="nav navbar-nav navbar-right">
+                        <li id="fat-menu" class="dropdown"> <a href="#" class="dropdown-toggle" id="drop3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="user"></span><span class="caret"></span> </a>
+                            <ul class="dropdown-menu" aria-labelledby="drop3">
+                                <li><a href="#">View High Scores</a></li>
+                                <li id="sign-out"><a href="#">Sign out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <button id="highscores" type="button" class="btn btn-xs btn-primary navbar-btn navbar-right">View High Scores</button>
+            </div>
+        </nav>
         <div class="row">
             <div class="col-sm-12">
                 <div class="jumbotron">
                     <div class="row">
-                        <h1></h1>
-                        <hr />
-
                         <div class="col-sm-12">
                             <h1>Choose a Category to Test Your Knowledge:</h1>
-                            <hr />
-
-								<!-- Table could be better than rows and columns -->
-	                            <div class="col-sm-6">      
-		                            <div id="television">
-		                                <button class="btn btn-lg btn-block start-game" ><img class="icons img-responsive" src="img/television_icon.png" alt="Television" />
-		                                <h3 class="text-center">Television</h3></button>
-		                            </div>
-	                            </div>
-		                            
-	                            <div class="col-sm-6">
-		                            <div id="movies">
-		                                <button class="btn btn-lg btn-block start-game" ><img class="icons img-responsive" src="img/movies_icon.png" alt="Movies" />
-		                                <h3 class="text-center">Movies</h3></button>
-		                            </div>
-	                            </div>
-                            
-                            	<div class="col-sm-6">
-		                            <div id="games">
-		                                <button class="btn btn-lg btn-block start-game" ><img class="icons img-responsive" src="img/games_icon.png" alt="Games" />
-		                                <h3 class="text-center">Games</h3></button>
-		                            </div>
-	                            </div>
-		                            
-	                            <div class="col-sm-6">
-		                            <div id="music">
-		                                <button class="btn btn-lg btn-block start-game" ><img class="icons img-responsive" src="img/music_icon.png" alt="Music" />
-		                                <h3 class="text-center">Music</h3></button>
-		                            </div>
-	                            </div>
-                            
-
                         </div>
-                        <div id="game-display" class="col-sm-12 info">
-                            <h3 id="countdown"></h3>
-                            <h2 id="question-text"></h2>
-                            <div id="answers">
+                    </div>
+                    <div class="row">
+                        <!-- Table could be better than rows and columns -->
+                        <div class="col-sm-6">
+                            <div id="television">
+                                <button type="button" class="btn btn-lg btn-block start-game"><img class="icons img-responsive" src="img/television_icon.png" alt="Television" />
+                                    <h3 class="text-center">Television</h3></button>
                             </div>
                         </div>
-                        <div id="answer" class="col-sm-12 info">
-                            <h3 id="choice"></h3>
-                            <h2 id="correct-answer"></h2>
-                            <img id="gif" class="img-responsive" />
+                        <div class="col-sm-6">
+                            <div id="movies">
+                                <button type="button" class="btn btn-lg btn-block start-game"><img class="icons img-responsive" src="img/movies_icon.png" alt="Movies" />
+                                    <h3 class="text-center">Movies</h3></button>
+                            </div>
                         </div>
-                        <div id="results" class="col-sm-12">
-                            <img class="img-responsive" src="img/games.png" alt="Retro Games" />
-                            <h2 id="outro"></h2>
-                            <h3 id="end-results"></h3>
-                            <div id="re-start">
-                                <button type="button" class="btn btn-lg btn-success btn-block start-game">Start Over?</button>
+
+                        <div class="col-sm-6">
+                            <div id="games">
+                                <button type="button" class="btn btn-lg btn-block start-game"><img class="icons img-responsive" src="img/games_icon.png" alt="Games" />
+                                    <h3 class="text-center">Games</h3></button>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div id="music">
+                                <button type="button" class="btn btn-lg btn-block start-game"><img class="icons img-responsive" src="img/music_icon.png" alt="Music" />
+                                    <h3 class="text-center">Music</h3></button>
                             </div>
                         </div>
                     </div>
@@ -117,7 +92,7 @@
 	                				<th>Player</th>
 	            					<th>Score</th>
 	        					</tr>
-	        					
+
 	        					<tr>
 	        						<td>1.</td>
 	        						<td></td>
@@ -176,10 +151,13 @@
         </div>
     </div>
     <footer>
-    	<div>
-    		<div id="contact"><button class="btn btn-lg btn-success btn-block contact">Contact</button></div>
-    		<div id="copyright"><h4>&copy Copyright 2016 Fun Society</h4></div>
-    	</div>
+        <div>
+            <div id="contact">
+                <button type="button" class="btn btn-lg btn-success btn-block contact">Contact</button>
+            </div>
+            <div id="copyright">
+                <h4>&copy Copyright 2016 Fun Society</h4></div>
+        </div>
     </footer>
 
     <script type="text/javascript" src="js/script.js"></script>
