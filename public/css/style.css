@@ -50,6 +50,9 @@ body > .container {
     font-size: 15px;
     font-family: Arcade-N, sans-serif;
 }
+.pull-right {
+    margin-left: 10px;
+}
 .header-text {
     font-family: Arcade-N, sans-serif;
     text-align: center;
