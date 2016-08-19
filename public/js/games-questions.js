@@ -49,4 +49,3 @@ let questions = [{
 }];
 
 gamesQuiz = new Quiz(questions);
-console.log(gamesQuiz);
