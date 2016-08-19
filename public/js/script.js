@@ -139,85 +139,36 @@ $(document).ready(function() {
         $('.game-display').hide();
         $('.answer').show();
         if (answeredQuestions === 6) {
-<<<<<<< HEAD
-            $('#correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
+
+            $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
             url: availableQuestions[5].question.gif,
-            $('#gif').attr('src', url);
+            $('.gif').attr('src', url);
       
         } else if (answeredQuestions === 5) {
             url: availableQuestions[4].question.gif,
-            $('#correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
-            $('#gif').attr('src', url);
+            $('.correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
+            $('.gif').attr('src', url);
         
         } else if (answeredQuestions === 4) {
             url: availableQuestions[3].question.gif,
-            $('#correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
-            $('#gif').attr('src', response.data[0].images.fixed_height.url);
+            $('.correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
+            $('.gif').attr('src', response.data[0].images.fixed_height.url);
             
         } else if (answeredQuestions === 3) {
             url: availableQuestions[2].question.gif,
-            $('#correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
-            $('#gif').attr('src', url);
+            $('.correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
+            $('.gif').attr('src', url);
             
         } else if (answeredQuestions === 2) {
             url: availableQuestions[1].question.gif,
-            $('#correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
-            $('#gif').attr('src', url);
+            $('.correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
+            $('.gif').attr('src', url);
         }
         
         } else if (answeredQuestions === 1) {
             url= availableQuestions[0].question.gif,
-            $('#correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
-            $('#gif').attr('src', url);       
-=======
-            $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
-            $.ajax({
-                url: availableQuestions[5].question.gif,
-                method: 'GET'
-            }).done(function(response) {
-                $('.gif').attr('src', response.data[0].images.fixed_height.url);
-            });
-        } else if (answeredQuestions === 5) {
-            $('.correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
-            $.ajax({
-                url: availableQuestions[4].question.gif,
-                method: 'GET'
-            }).done(function(response) {
-                $('.gif').attr('src', response.data[0].images.fixed_height.url);
-            });
-        } else if (answeredQuestions === 4) {
-            $('.correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
-            $.ajax({
-                url: availableQuestions[3].question.gif,
-                method: 'GET'
-            }).done(function(response) {
-                $('.gif').attr('src', response.data[0].images.fixed_height.url);
-            });
-        } else if (answeredQuestions === 3) {
-            $('.correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
-            $.ajax({
-                url: availableQuestions[2].question.gif,
-                method: 'GET'
-            }).done(function(response) {
-                $('.gif').attr('src', response.data[0].images.fixed_height.url);
-            });
-        } else if (answeredQuestions === 2) {
-            $('.correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
-            $.ajax({
-                url: availableQuestions[1].question.gif,
-                method: 'GET'
-            }).done(function(response) {
-                $('.gif').attr('src', response.data[0].images.fixed_height.url);
-            });
-        } else if (answeredQuestions === 1) {
             $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
-            $.ajax({
-                url: availableQuestions[0].question.gif,
-                method: 'GET'
-            }).done(function(response) {
-                $('.gif').attr('src', response.data[0].images.fixed_height.url);
-            });
->>>>>>> master
+            $('.gif').attr('src', url);                   
         }
     }
 
