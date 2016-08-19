@@ -5,7 +5,7 @@ $(document).ready(function() {
     // FUNCTIONS
     // -----------------------------------------------------------------------
 
-    // Countdown timers for questions and asnwer ------------------------
+    // Countdown timers for questions and answer display ----------------
     function questionTimer() {
         counter = setInterval(decrement, 1000);
     }
@@ -143,32 +143,32 @@ $(document).ready(function() {
             $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
             url: availableQuestions[5].question.gif,
             $('.gif').attr('src', url);
-      
+
         } else if (answeredQuestions === 5) {
             url: availableQuestions[4].question.gif,
             $('.correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
             $('.gif').attr('src', url);
-        
+
         } else if (answeredQuestions === 4) {
             url: availableQuestions[3].question.gif,
             $('.correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
             $('.gif').attr('src', response.data[0].images.fixed_height.url);
-            
+
         } else if (answeredQuestions === 3) {
             url: availableQuestions[2].question.gif,
             $('.correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
             $('.gif').attr('src', url);
-            
+
         } else if (answeredQuestions === 2) {
             url: availableQuestions[1].question.gif,
             $('.correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
             $('.gif').attr('src', url);
         }
-        
+
         } else if (answeredQuestions === 1) {
             url= availableQuestions[0].question.gif,
             $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
-            $('.gif').attr('src', url);                   
+            $('.gif').attr('src', url);
         }
     }
 
