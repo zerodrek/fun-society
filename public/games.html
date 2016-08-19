@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse navbar-right" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Global High Scores</a></li>
-                        <li><a id="about" href="#">About</a></li>
+                        <li><a class="about" href="#">About</a></li>
                         <li><a href="mailto:admin@funsociety.club">Contact</a></li>
                         <button type="button" class="btn btn-default navbar-btn sign-in">Sign in</button>
                         <li id="fat-menu" class="dropdown signed-in"> <a href="#" class="dropdown-toggle" id="drop3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span> </a>
@@ -42,7 +42,7 @@
             </div>
         </nav>
         <!-- About Modal -->
-        <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -65,31 +65,35 @@
                 <div class="jumbotron">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h1>Gaming Trivia</h1>
-                            <hr />
+                            <!-- Quiz Start Page -->
                             <div class="start">
+                                <h1>Gaming Trivia</h1>
+                                <hr />
                                 <img class="img-responsive" src="img/games.png" alt="Retro Games" />
-                                <div id="main-start">
+                                <div class="main-start">
                                     <button type="button" class="btn btn-lg btn-success btn-block start-game">Start</button>
                                 </div>
                             </div>
                         </div>
-                        <div id="game-display" class="col-sm-12 info">
-                            <h3 id="countdown"></h3>
-                            <h2 id="question-text"></h2>
-                            <div id="answers">
+                        <!-- Question and Answers -->
+                        <div class="col-sm-12 game-display info">
+                            <h3 class="countdown"></h3>
+                            <h2 class="question-text"></h2>
+                            <div class="answers">
                             </div>
                         </div>
-                        <div id="answer" class="col-sm-12 info">
-                            <h3 id="choice"></h3>
-                            <h2 id="correct-answer"></h2>
-                            <img id="gif" class="img-responsive" />
+                        <!-- User Decision and GIF -->
+                        <div class="col-sm-12 answer info">
+                            <h3 class="decision"></h3>
+                            <h2 class="correct-answer"></h2>
+                            <img class="gif img-responsive" />
                         </div>
-                        <div id="results" class="col-sm-12 info">
+                        <!-- Complete Quiz Results -->
+                        <div class="col-sm-12 results info">
                             <img class="img-responsive" src="img/games.png" alt="Retro Games" />
-                            <h2 id="outro"></h2>
-                            <h3 id="end-results"></h3>
-                            <div id="re-start">
+                            <h2 class="outro"></h2>
+                            <h3 class="end-results"></h3>
+                            <div class="re-start">
                                 <button type="button" class="btn btn-lg btn-success btn-block start-game">Start Over?</button>
                             </div>
                         </div>
@@ -117,6 +121,6 @@
     <script type="text/javascript" src="js/auth-config.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/games-questions.js"></script>
-    </body>
+</body>
 
 </html>
