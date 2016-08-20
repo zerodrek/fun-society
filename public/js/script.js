@@ -166,7 +166,7 @@ $(document).ready(function() {
         // Multiply numRight to equal score
         points = numRight * 100;
         // Variable for firebase obj
-        var scores = {
+        var userScore = {
             points: points,
         };
         // Push score to firebase
