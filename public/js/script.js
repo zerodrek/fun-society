@@ -5,7 +5,7 @@ $(document).ready(function() {
     // FUNCTIONS
     // -----------------------------------------------------------------------
 
-    // Countdown timers for questions and asnwer ------------------------
+    // Countdown timers for questions and answer display ----------------
     function questionTimer() {
         counter = setInterval(decrement, 1000);
     }
@@ -139,113 +139,110 @@ $(document).ready(function() {
         $('.game-display').hide();
         $('.answer').show();
         if (answeredQuestions === 6) {
-
+            url = availableQuestions[5].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
-            url= availableQuestions[5].question.gif;
             $('.gif').attr('src', url);
-      
+
         } else if (answeredQuestions === 5) {
-            url= availableQuestions[4].question.gif;
+            url = availableQuestions[4].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
             $('.gif').attr('src', url);
-        
+
         } else if (answeredQuestions === 4) {
-            url= availableQuestions[3].question.gif;
+            url = availableQuestions[3].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
             $('.gif').attr('src', response.data[0].images.fixed_height.url);
-            
+
         } else if (answeredQuestions === 3) {
-            url= availableQuestions[2].question.gif;
+            url = availableQuestions[2].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
             $('.gif').attr('src', url);
-            
+
         } else if (answeredQuestions === 2) {
-            url= availableQuestions[1].question.gif;
+            url = availableQuestions[1].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
             $('.gif').attr('src', url);
-        }
-        
-        else if (answeredQuestions === 1) {
-            url= availableQuestions[0].question.gif;
-            $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
-            $('.gif').attr('src', url);                   
-        }
+        } else if (answeredQuestions === 1) {
+        url = availableQuestions[0].question.gif;
+        $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
+        $('.gif').attr('src', url);
+    }
+}
+
+// Display results --------------------------------------------------
+function displayResults() {
+    stopTimer();
+    $('.game-display').hide();
+    $('.answer').hide();
+    $('.results').show();
+    $('.outro').html("All done, here's how you did!");
+    $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
+
+    points = numRight * 100;
+    console.log(points);
+}
+
+// Initialize the game with a start page ----------------------------
+function initialize() {
+    $('.game-display').hide();
+    $('.answer').hide();
+    $('.results').hide();
+}
+
+// PROCESSES
+// -----------------------------------------------------------------------
+
+// When Start is clicked display the game and start the timer -------
+$(document).on('click', '.start-game', function() {
+    questionTime = 30;
+    answerTime = 5;
+    counter = '';
+    onQuestion = false;
+    numRight = 0;
+    numWrong = 0;
+    numUnanswered = 0;
+    answeredQuestions = 0;
+    points = '';
+    $('.choice').remove();
+
+    // Shuffle questions ---------------------------------------
+    availableQuestions = shuffle(questions);
+    // Shuffle question's answers ------------------------------
+    for (let i = 0; i < availableQuestions.length; i++) {
+        shuffle(availableQuestions[i].question.answers);
     }
 
-    // Display results --------------------------------------------------
-    function displayResults() {
-        stopTimer();
-        $('.game-display').hide();
-        $('.answer').hide();
-        $('.results').show();
-        $('.outro').html("All done, here's how you did!");
-        $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
+    $('.start').hide();
+    $('.results').hide();
+    nextQuestion();
+});
 
-        points = numRight * 100;
-        console.log(points);
+// Check if selected answer is wrong/right --------------------------
+$(document).on('click', '.choice', function() {
+    onQuestion = false;
+    $('.choice').remove();
+    answeredQuestions++;
+    if (this.innerHTML === answer) {
+        numRight++;
+        $('.decision').html("That's right!");
+    } else {
+        numWrong++;
+        $('.decision').html("Sorry, that's incorrect. :(");
     }
+    stopTimer();
+    resetQuestionTimer();
+    answerTimer();
+    displayAnswer();
+});
 
-    // Initialize the game with a start page ----------------------------
-    function initialize() {
-        $('.game-display').hide();
-        $('.answer').hide();
-        $('.results').hide();
-    }
+// EXTRAS
+// -----------------------------------------------------------------------
+$('.contact').on("click", function() {
+    ('.contactModal').modal();
+});
 
-    // PROCESSES
-    // -----------------------------------------------------------------------
+// INITIALIZE
+// -----------------------------------------------------------------------
 
-    // When Start is clicked display the game and start the timer -------
-    $(document).on('click', '.start-game', function() {
-        questionTime = 30;
-        answerTime = 5;
-        counter = '';
-        onQuestion = false;
-        numRight = 0;
-        numWrong = 0;
-        numUnanswered = 0;
-        answeredQuestions = 0;
-        points = '';
-        $('.choice').remove();
-
-        // Shuffle questions ---------------------------------------
-        availableQuestions = shuffle(questions);
-        // Shuffle question's answers ------------------------------
-        for (let i = 0; i < availableQuestions.length; i++) {
-            shuffle(availableQuestions[i].question.answers);
-        }
-
-        $('.start').hide();
-        $('.results').hide();
-        nextQuestion();
-    });
-
-    // Check if selected answer is wrong/right --------------------------
-    $(document).on('click', '.choice', function() {
-        onQuestion = false;
-        $('.choice').remove();
-        answeredQuestions++;
-        if (this.innerHTML === answer) {
-            numRight++;
-            $('.decision').html("That's right!");
-        } else {
-            numWrong++;
-            $('.decision').html("Sorry, that's incorrect. :(");
-        }
-        stopTimer();
-        resetQuestionTimer();
-        answerTimer();
-        displayAnswer();
-    });
-
-    // EXTRAS
-    // -----------------------------------------------------------------------
-    $('.contact').on("click", function() {
-        ('.contactModal').modal();
-    });
-
-    // INITIALIZE
-    // -----------------------------------------------------------------------
-
-    initialize();
+initialize();
 });
