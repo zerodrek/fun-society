@@ -1,7 +1,7 @@
 // Firebase Authentication ----------------------------------------------
 var provider = new firebase.auth.GoogleAuthProvider();
 // Sign in redirect
-$("#sign-in").on("click", function() {
+$(".sign-in").on("click", function() {
     firebase.auth().signInWithRedirect(provider);
 });
 // Get redirect result ---------------------------------------------------
