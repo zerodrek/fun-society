@@ -37,20 +37,26 @@ function signOut() {
         // An error happened.
     });
 }
-// Sign in Display -----------------------------------------------------
-// Get current user --------------------------------------------
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        // User is signed in.
-        $('.sign-in').remove();
-        $('.site-nav').append($usrSignOut);
-        $('.user').html(user.displayName);
-    } else {
-        // No user is signed in.
-        $('.signed-in').remove();
-        $('.site-nav').append($usrSignIn);
-    }
-});
+var initAuth = function() {
+    // Sign in Display -----------------------------------------------------
+    // Get current user --------------------------------------------
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            $('.sign-in').remove();
+            $('.site-nav').append($usrSignOut);
+            $('.user').html(user.displayName);
+        } else {
+            // No user is signed in.
+            $('.signed-in').remove();
+            $('.site-nav').append($usrSignIn);
+        }
+    });
 
-$(document).on("click", ".sign-in", signIn);
-$(document).on("click", ".sign-out", signOut);
+    $(document).on("click", ".sign-in", signIn);
+    $(document).on("click", ".sign-out", signOut);
+};
+
+window.onload = function() {
+    initAuth();
+};
