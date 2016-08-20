@@ -1,7 +1,4 @@
 $(document).ready(function() {
-    // FIREBASE ///////////////////////////////////////////////////////
-    var db = firebase.database();
-
     // FUNCTIONS
     // -----------------------------------------------------------------------
 
@@ -142,101 +139,137 @@ $(document).ready(function() {
             url = availableQuestions[5].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
             $('.gif').attr('src', url);
-
         } else if (answeredQuestions === 5) {
             url = availableQuestions[4].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
             $('.gif').attr('src', url);
-
         } else if (answeredQuestions === 4) {
             url = availableQuestions[3].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
-            $('.gif').attr('src', response.data[0].images.fixed_height.url);
-
+            $('.gif').attr('src', url);
         } else if (answeredQuestions === 3) {
             url = availableQuestions[2].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
             $('.gif').attr('src', url);
-
         } else if (answeredQuestions === 2) {
             url = availableQuestions[1].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
             $('.gif').attr('src', url);
         } else if (answeredQuestions === 1) {
-        url = availableQuestions[0].question.gif;
-        $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
-        $('.gif').attr('src', url);
-    }
-}
-
-// Display results --------------------------------------------------
-function displayResults() {
-    stopTimer();
-    $('.game-display').hide();
-    $('.answer').hide();
-    $('.results').show();
-    $('.outro').html("All done, here's how you did!");
-    $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
-
-    points = numRight * 100;
-    console.log(points);
-}
-
-// Initialize the game with a start page ----------------------------
-function initialize() {
-    $('.game-display').hide();
-    $('.answer').hide();
-    $('.results').hide();
-}
-
-// PROCESSES
-// -----------------------------------------------------------------------
-
-// When Start is clicked display the game and start the timer -------
-$(document).on('click', '.start-game', function() {
-    questionTime = 30;
-    answerTime = 5;
-    counter = '';
-    onQuestion = false;
-    numRight = 0;
-    numWrong = 0;
-    numUnanswered = 0;
-    answeredQuestions = 0;
-    points = '';
-    $('.choice').remove();
-
-    // Shuffle questions ---------------------------------------
-    availableQuestions = shuffle(questions);
-    // Shuffle question's answers ------------------------------
-    for (let i = 0; i < availableQuestions.length; i++) {
-        shuffle(availableQuestions[i].question.answers);
+            url = availableQuestions[0].question.gif;
+            $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
+            $('.gif').attr('src', url);
+        }
     }
 
-    $('.start').hide();
-    $('.results').hide();
-    nextQuestion();
-});
-
-// Check if selected answer is wrong/right --------------------------
-$(document).on('click', '.choice', function() {
-    onQuestion = false;
-    $('.choice').remove();
-    answeredQuestions++;
-    if (this.innerHTML === answer) {
-        numRight++;
-        $('.decision').html("That's right!");
-    } else {
-        numWrong++;
-        $('.decision').html("Sorry, that's incorrect. :(");
+    // Calculate Game Points and push to firebase
+    function calcPoints() {
+        // Multiply numRight to equal score
+        points = numRight * 100;
+        // Variable for firebase obj
+        var scores = {
+            points: points,
+        };
+        // Push score to firebase
+        db.ref().push(scores);
+        // Log
+        console.log('Points: ' + points);
     }
-    stopTimer();
-    resetQuestionTimer();
-    answerTimer();
-    displayAnswer();
-});
 
-// INITIALIZE
-// -----------------------------------------------------------------------
+    // Sort points
+    function sortPoints() {
+        db.ref().on("value", function(snapshot) {
+            globalPointsArray = [];
+            var dbObj = snapshot.val();
+            var objKeys = Object.keys(dbObj);
+            for (let i = 0; i < objKeys.length; i++) {
+                globalPoints = dbObj[objKeys[i]].points;
+                globalPointsArray.push(globalPoints);
+            }
+            sortedPoints = globalPointsArray.sort(function(a, b) {
+                return b - a;
+            });
+            console.log(sortedPoints);
+        }, function(errorObject) {
 
-initialize();
+            console.log("The read failed: " + errorObject.code);
+
+        });
+    }
+
+    // Display results --------------------------------------------------
+    function displayResults() {
+        stopTimer();
+        calcPoints();
+        $('.game-display').hide();
+        $('.answer').hide();
+        $('.results').show();
+        $('.outro').html("All done, here's how you did!");
+        $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
+    }
+
+    // Initialize the game with a start page ----------------------------
+    function initialize() {
+        $('.game-display').hide();
+        $('.answer').hide();
+        $('.results').hide();
+        sortPoints();
+    }
+
+    // PROCESSES
+    // -----------------------------------------------------------------------
+
+    // When Start is clicked display the game and start the timer -------
+    $(document).on('click', '.start-game', function() {
+        questionTime = 30;
+        answerTime = 5;
+        counter = '';
+        onQuestion = false;
+        numRight = 0;
+        numWrong = 0;
+        numUnanswered = 0;
+        answeredQuestions = 0;
+        points = '';
+        $('.choice').remove();
+
+        // Shuffle questions ---------------------------------------
+        availableQuestions = shuffle(questions);
+        // Shuffle question's answers ------------------------------
+        for (let i = 0; i < availableQuestions.length; i++) {
+            shuffle(availableQuestions[i].question.answers);
+        }
+
+        $('.start').hide();
+        $('.results').hide();
+        nextQuestion();
+    });
+
+    // Check if selected answer is wrong/right --------------------------
+    $(document).on('click', '.choice', function() {
+        onQuestion = false;
+        $('.choice').remove();
+        answeredQuestions++;
+        if (this.innerHTML === answer) {
+            numRight++;
+            $('.decision').html("That's right!");
+        } else {
+            numWrong++;
+            $('.decision').html("Sorry, that's incorrect. :(");
+        }
+        stopTimer();
+        resetQuestionTimer();
+        answerTimer();
+        displayAnswer();
+    });
+
+    // EXTRAS
+    // -----------------------------------------------------------------------
+    $('.contact').on("click", function() {
+        ('.contactModal').modal();
+    });
+
+    // INITIALIZE
+    // -----------------------------------------------------------------------
+
+    initialize();
 });
