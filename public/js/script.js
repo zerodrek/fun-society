@@ -235,12 +235,6 @@ $(document).on('click', '.choice', function() {
     displayAnswer();
 });
 
-// EXTRAS
-// -----------------------------------------------------------------------
-$('.contact').on("click", function() {
-    ('.contactModal').modal();
-});
-
 // INITIALIZE
 // -----------------------------------------------------------------------
 
