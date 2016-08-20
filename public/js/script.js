@@ -147,10 +147,6 @@ $(document).ready(function() {
             url = availableQuestions[3].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
             $('.gif').attr('src', url);
-<<<<<<< HEAD
-
-=======
->>>>>>> master
         } else if (answeredQuestions === 3) {
             url = availableQuestions[2].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
@@ -163,53 +159,8 @@ $(document).ready(function() {
             url = availableQuestions[0].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
             $('.gif').attr('src', url);
-    }
-}
-
-// Display results --------------------------------------------------
-function displayResults() {
-    stopTimer();
-    $('.game-display').hide();
-    $('.answer').hide();
-    $('.results').show();
-    $('.outro').html("All done, here's how you did!");
-    $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
-
-    points = numRight * 100;
-    console.log(points);    
-}
-
-// Initialize the game with a start page ----------------------------
-function initialize() {
-    $('.game-display').hide();
-    $('.answer').hide();
-    $('.results').hide();
-}
-
-// PROCESSES
-// -----------------------------------------------------------------------
-
-// When Start is clicked display the game and start the timer -------
-$(document).on('click', '.start-game', function() {
-    questionTime = 30;
-    answerTime = 5;
-    counter = '';
-    onQuestion = false;
-    numRight = 0;
-    numWrong = 0;
-    numUnanswered = 0;
-    answeredQuestions = 0;
-    points = '';
-    $('.choice').remove();
-
-    // Shuffle questions ---------------------------------------
-    availableQuestions = shuffle(questions);
-    // Shuffle question's answers ------------------------------
-    for (let i = 0; i < availableQuestions.length; i++) {
-        shuffle(availableQuestions[i].question.answers);
         }
     }
-
     // Calculate Game Points and push to firebase
     function calcPoints() {
         // Multiply numRight to equal score
@@ -223,7 +174,6 @@ $(document).on('click', '.start-game', function() {
         // Log
         console.log('Points: ' + points);
     }
-
     // Sort points
     function sortPoints() {
         db.ref().on("value", function(snapshot) {
@@ -239,12 +189,9 @@ $(document).on('click', '.start-game', function() {
             });
             console.log(sortedPoints);
         }, function(errorObject) {
-
             console.log("The read failed: " + errorObject.code);
-
         });
     }
-
     // Display results --------------------------------------------------
     function displayResults() {
         stopTimer();
@@ -255,7 +202,6 @@ $(document).on('click', '.start-game', function() {
         $('.outro').html("All done, here's how you did!");
         $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
     }
-
     // Initialize the game with a start page ----------------------------
     function initialize() {
         $('.game-display').hide();
@@ -263,10 +209,8 @@ $(document).on('click', '.start-game', function() {
         $('.results').hide();
         sortPoints();
     }
-
     // PROCESSES
     // -----------------------------------------------------------------------
-
     // When Start is clicked display the game and start the timer -------
     $(document).on('click', '.start-game', function() {
         questionTime = 30;
@@ -279,14 +223,12 @@ $(document).on('click', '.start-game', function() {
         answeredQuestions = 0;
         points = '';
         $('.choice').remove();
-
         // Shuffle questions ---------------------------------------
         availableQuestions = shuffle(questions);
         // Shuffle question's answers ------------------------------
         for (let i = 0; i < availableQuestions.length; i++) {
             shuffle(availableQuestions[i].question.answers);
         }
-
         $('.start').hide();
         $('.results').hide();
         nextQuestion();
