@@ -57,6 +57,9 @@ body > .container {
     font-family: Arcade-N, sans-serif;
     text-align: center;
 }
+.sign-in {
+    margin-right: 15px;
+}
 .icons {
     margin: 0 auto;
     max-width: 150px;
