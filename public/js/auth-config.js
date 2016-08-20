@@ -1,5 +1,8 @@
 // FIREBASE AUTHENTICATION //////////////////////////////////////////////
 
+$usrSignIn = ('<button type="button" class="btn btn-default navbar-btn sign-in">Sign in</button>');
+$usrSignOut = ('<li id="fat-menu" class="dropdown signed-in"><a href="#" class="dropdown-toggle" id="drop3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="drop3"><li class="usr-scores"><a href="#">View Your High Scores</a></li><li class="sign-out"><a href="#">Sign out</a></li></ul></li>');
+
 // Sign In -------------------------------------------------------------
 function signIn() {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -35,25 +38,19 @@ function signOut() {
     });
 }
 // Sign in Display -----------------------------------------------------
-function initAuth() {
-    // Get current user --------------------------------------------
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            $('.sign-in').hide();
-            $('.signed-in').show();
-            $('.user').html(user.displayName);
-        } else {
-            // No user is signed in.
-            $('.signed-in').hide();
-            $('.sign-in').show();
-        }
-    });
+// Get current user --------------------------------------------
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+        $('.sign-in').remove();
+        $('.site-nav').append($usrSignOut);
+        $('.user').html(user.displayName);
+    } else {
+        // No user is signed in.
+        $('.signed-in').remove();
+        $('.site-nav').append($usrSignIn);
+    }
+});
 
-    $(document).on("click", ".sign-in", signIn);
-    $(document).on("click", ".sign-out", signOut);
-}
-
-window.onload = function() {
-    initAuth();
-};
+$(document).on("click", ".sign-in", signIn);
+$(document).on("click", ".sign-out", signOut);
