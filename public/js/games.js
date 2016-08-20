@@ -1,15 +1,15 @@
 $(document).ready(function() {
     // FIREBASE
     // Initialize Firebase
-    // var config = {
-    //     apiKey: "AIzaSyAumrxjoe5hs1KPyl_dPdzL4Dl9n8ctRao",
-    //     authDomain: "fun-society.firebaseapp.com",
-    //     databaseURL: "https://fun-society.firebaseio.com",
-    //     storageBucket: "fun-society.appspot.com",
-    // };
-    // firebase.initializeApp(config);
-    //
-    // var database = firebase.database();
+    var config = {
+        apiKey: "AIzaSyAumrxjoe5hs1KPyl_dPdzL4Dl9n8ctRao",
+        authDomain: "fun-society.firebaseapp.com",
+        databaseURL: "https://fun-society.firebaseio.com",
+        storageBucket: "fun-society.appspot.com",
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
 
     // FUNCTIONS
     // -----------------------------------------------------------------------
@@ -51,7 +51,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 5;
+        answerTime = 2;
     }
 
     function stopTimer() {
@@ -207,9 +207,37 @@ $(document).ready(function() {
         $('#results').show();
         $('#outro').html("All done, here's how you did!");
         $('#end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
+        // Multiply numRight o equal score
+        points = numRight * 100;
+        // Variable for firebase obj
+        var scores = {
+            points: points,
+        };
+        // Push score to firebase
+        database.ref().push(scores);
+        // Log
+        console.log('Points: ' + points);
 
-        points = numRight*10;
-        console.log(points);
+    }
+
+    function sortPoints() {
+        database.ref().on("value", function(snapshot) {
+            globalPointsArray = [];
+            var dbObj = snapshot.val();
+            var objKeys = Object.keys(dbObj);
+            for (let i = 0; i < objKeys.length; i++) {
+                globalPoints = dbObj[objKeys[i]].points;
+                globalPointsArray.push(globalPoints);
+            }
+            sortedPoints = globalPointsArray.sort(function(a, b) {
+                return b - a;
+            });
+            console.log(sortedPoints);
+        }, function(errorObject) {
+
+            console.log("The read failed: " + errorObject.code);
+
+        });
     }
 
     // Initialize the game with a start page ----------------------------
@@ -225,14 +253,14 @@ $(document).ready(function() {
     // When Start is clicked display the game and start the timer -------
     $(document).on('click', '.start-game', function() {
         questionTime = 30;
-        answerTime = 5;
+        answerTime = 2;
         counter = '';
         onQuestion = false;
         numRight = 0;
         numWrong = 0;
         numUnanswered = 0;
         answeredQuestions = 0;
-        points='';
+        points = '';
         $('.answer').remove();
 
         // Shuffle questions ---------------------------------------
@@ -269,4 +297,5 @@ $(document).ready(function() {
     // -----------------------------------------------------------------------
 
     initialize();
+    sortPoints();
 });
