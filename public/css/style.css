@@ -99,7 +99,7 @@ body> .container {
 .table {
     margin-bottom: 0;
 }
-th {
+th, td {
     text-align: center;
 }
 .info {
