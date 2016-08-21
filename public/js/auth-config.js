@@ -7,11 +7,11 @@ $usrSignOut = ('<li id="fat-menu" class="dropdown signed-in"><a href="#" class="
 /**
  * Writes the user's data to the database.
  */
-function writeUserData(userId, name) {
-    firebase.database().ref('users/' + userId).update({
-        username: name
-    });
-}
+// function writeUserData(userId) {
+//     firebase.database().ref('users/' + userId).update({
+//         name
+//     });
+// }
 /**
  * The ID of the currently signed-in User. We keep track of this to detect Auth state change events that are just
  * programmatic token refresh but not a User status change.
@@ -33,7 +33,7 @@ function onAuthStateChanged(user) {
         $('.sign-in').remove();
         $('.site-nav').append($usrSignOut);
         $('.user').html(user.displayName);
-        writeUserData(user.uid, user.displayName);
+        // writeUserData(user.uid, user.displayName);
     } else {
         // No user is signed in.
         $('.signed-in').remove();

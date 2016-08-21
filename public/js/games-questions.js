@@ -1,3 +1,5 @@
+userRef = firebase.database().ref('users/');
+
 /**
  * Constructor for quiz questions.
  */
@@ -50,7 +52,7 @@ let questions = [{
         answers: ['Donkey Kong', 'Wimpy', 'Bagman', 'Q*bert'],
         correctAnswer: 'Q*bert'
     },
-}]
+}];
 
 new Quiz(questions);
 
@@ -60,7 +62,7 @@ new Quiz(questions);
 function setScore(gmScore) {
     // Multiply numRight to equal score
     gmScore = numRight * 100;
-    firebase.database().ref('users/' + userId).push({
+    firebase.database().ref('users/' + currentUID + '/' + name).update({
         gmScore: gmScore
     });
 }
