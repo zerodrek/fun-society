@@ -10,19 +10,14 @@ html {
 }
 body {
     margin-bottom: 60px;
-    background: url(../img/back.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     padding-top: 80px;
 }
-body > .container {
-  padding: 60px 15px 0;
+body> .container {
+    padding: 15px 0;
 }
 .container .text-muted {
     text-align: center;
-  margin: 20px 0;
+    margin: 20px 0;
 }
 .footer {
     position: absolute;
@@ -32,9 +27,9 @@ body > .container {
     height: 60px;
     background-color: #f5f5f5;
 }
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+.footer> .container {
+    padding-right: 15px;
+    padding-left: 15px;
 }
 .navbar-brand {
     padding: 4px 10px 4px;
@@ -59,6 +54,20 @@ body > .container {
 }
 .sign-in {
     margin-right: 15px;
+}
+.games {
+    background: url(../img/games.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.movies {
+    background: url(../img/movies.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .icons {
     margin: 0 auto;
@@ -101,11 +110,7 @@ body > .container {
     margin: 30px auto;
 }
 @media screen and (max-width: 768px) {
-    body > .container {
-      padding: 0 15px 0;
+    body> .container {
+        padding: 0 15px 0;
     }
-}
-#moviesPic{
-    background-image: url(../img/movies.jpg) ;
-    height: 90px;       
 }
