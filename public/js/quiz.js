@@ -3,7 +3,9 @@ $(document).ready(function() {
     // FUNCTIONS
     // -----------------------------------------------------------------------
 
-    // Countdown timers for questions and answer display ----------------
+    /**
+     * Countdown timers for questions and answer display.
+     */
     function questionTimer() {
         counter = setInterval(decrement, 1000);
     }
@@ -65,7 +67,9 @@ $(document).ready(function() {
         return array;
     }
 
-    // Switch to next available question --------------------------------
+    /**
+     * Switch to next available question based on number of questions answered.
+     */
     function nextQuestion() {
         onQuestion = true;
         questionTimer();
@@ -132,7 +136,9 @@ $(document).ready(function() {
         }
     }
 
-    // Display correct answer -------------------------------------------
+    /**
+     * Display correct answer.
+     */
     function displayAnswer() {
         $('.game-display').hide();
         $('.answer').show();
@@ -163,24 +169,10 @@ $(document).ready(function() {
         }
     }
 
-    // Calculate Game Points and push to firebase
-    function calcPoints() {
-        // Multiply numRight to equal score
-        points = numRight * 100;
-        // Variable for firebase obj
-        var score = {
-            points: points,
-        };
-        // Push score to firebase
-        db.ref().push(score);
-        // Log
-        console.log('Points: ' + points);
-    }
-
     // Display results --------------------------------------------------
     function displayResults() {
         stopTimer();
-        calcPoints();
+        setScore();
         $('.game-display').hide();
         $('.answer').hide();
         $('.results').show();

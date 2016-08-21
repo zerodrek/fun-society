@@ -1,4 +1,5 @@
-// FIREBASE AUTHENTICATION //////////////////////////////////////////////
+// FIREBASE AUTHENTICATION
+// -----------------------------------------------------------------------
 
 $usrSignIn = ('<a class="btn btn-default navbar-btn sign-in">Sign in</a>');
 $usrSignOut = ('<li id="fat-menu" class="dropdown signed-in"><a href="#" class="dropdown-toggle" id="drop3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="drop3"><li class="usr-scores"><a href="#">View Your High Scores</a></li><li class="sign-out"><a href="#">Sign out</a></li></ul></li>');
@@ -6,13 +7,9 @@ $usrSignOut = ('<li id="fat-menu" class="dropdown signed-in"><a href="#" class="
 /**
  * Writes the user's data to the database.
  */
-function writeUserData(userId, name, gmPoints, tvPoints, mvPoints, muPoints) {
-    firebase.database().ref('users/' + userId).set({
-        username: name,
-        gmPoints: [],
-        tvPoints: [],
-        mvPoints: [],
-        muPoints: []
+function writeUserData(userId, name) {
+    firebase.database().ref('users/' + userId).update({
+        username: name
     });
 }
 /**
@@ -25,8 +22,8 @@ var currentUID;
  * Triggers every time there is a change in the Firebase auth state (i.e. user signed-in or user signed out).
  */
 function onAuthStateChanged(user) {
-    // Sign in Display -----------------------------------------------------
-    // Get current user --------------------------------------------
+    // Sign in Display
+    // Get current user
     if (user && currentUID === user.uid || !user && currentUID === null) {
         return;
     }
@@ -43,7 +40,6 @@ function onAuthStateChanged(user) {
         $('.site-nav').append($usrSignIn);
     }
 }
-
 /**
  * User sign in.
  */
