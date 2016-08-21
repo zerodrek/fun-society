@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     // FUNCTIONS
     // -----------------------------------------------------------------------
 
@@ -39,7 +40,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 5;
+        answerTime = 1;
     }
 
     function stopTimer() {
@@ -166,14 +167,15 @@ $(document).ready(function() {
         // Multiply numRight to equal score
         points = numRight * 100;
         // Variable for firebase obj
-        var userScore = {
+        var score = {
             points: points,
         };
         // Push score to firebase
-        db.ref().push(scores);
+        db.ref().push(score);
         // Log
         console.log('Points: ' + points);
     }
+<<<<<<< HEAD:public/js/script.js
     // Sort points
     function sortPoints() {
         db.ref().on("value", function(snapshot) {
@@ -192,6 +194,9 @@ $(document).ready(function() {
             console.log("The read failed: " + errorObject.code);
         });
     }
+=======
+
+>>>>>>> master:public/js/quiz.js
     // Display results --------------------------------------------------
     function displayResults() {
         stopTimer();
@@ -202,6 +207,7 @@ $(document).ready(function() {
         $('.outro').html("All done, here's how you did!");
         $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
     }
+<<<<<<< HEAD:public/js/script.js
     // Initialize the game with a start page ----------------------------
     function initialize() {
         $('.game-display').hide();
@@ -213,8 +219,16 @@ $(document).ready(function() {
     // -----------------------------------------------------------------------
     // When Start is clicked display the game and start the timer -------
     $(document).on('click', '.start-game', function() {
+=======
+
+    // PROCESSES
+    // -----------------------------------------------------------------------
+
+    // When Quiz button is clicked display the game and start the timer -------
+    function startQuiz() {
+>>>>>>> master:public/js/quiz.js
         questionTime = 30;
-        answerTime = 5;
+        answerTime = 1;
         counter = '';
         onQuestion = false;
         numRight = 0;
@@ -222,17 +236,28 @@ $(document).ready(function() {
         numUnanswered = 0;
         answeredQuestions = 0;
         points = '';
+<<<<<<< HEAD:public/js/script.js
         $('.choice').remove();
+=======
+
+>>>>>>> master:public/js/quiz.js
         // Shuffle questions ---------------------------------------
         availableQuestions = shuffle(questions);
         // Shuffle question's answers ------------------------------
         for (let i = 0; i < availableQuestions.length; i++) {
             shuffle(availableQuestions[i].question.answers);
         }
+<<<<<<< HEAD:public/js/script.js
         $('.start').hide();
+=======
+
+        $('.choice').remove();
+        $('.answer').hide();
+>>>>>>> master:public/js/quiz.js
         $('.results').hide();
+        $('.game-display').show();
         nextQuestion();
-    });
+    }
 
     // Check if selected answer is wrong/right --------------------------
     $(document).on('click', '.choice', function() {
@@ -252,14 +277,11 @@ $(document).ready(function() {
         displayAnswer();
     });
 
-    // EXTRAS
-    // -----------------------------------------------------------------------
-    $('.contact').on("click", function() {
-        ('.contactModal').modal();
+    $(document).on("click", ".start-game", function() {
+        startQuiz();
     });
 
     // INITIALIZE
     // -----------------------------------------------------------------------
-
-    initialize();
+    startQuiz();
 });

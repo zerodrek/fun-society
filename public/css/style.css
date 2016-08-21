@@ -95,7 +95,7 @@ body > .container {
     text-align: center;
 }
 .answers {
-    margin: 60px 0;
+    margin: 60px 0 20px 0;
 }
 .gif {
     margin: 30px auto;
@@ -104,4 +104,8 @@ body > .container {
     body > .container {
       padding: 0 15px 0;
     }
+}
+#moviesPic{
+    background-image: url(../img/movies.jpg) ;
+    height: 90px;       
 }
