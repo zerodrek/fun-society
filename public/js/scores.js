@@ -39,8 +39,8 @@ $(document).ready(function() {
             };
             sortedScores(globalGmScoresArray);
             sortedScores(globalTvScoresArray);
-            console.log(globalGmScoresArray);
-            console.log(globalTvScoresArray);
+            console.log("Global Games Quiz Scores: " + globalGmScoresArray);
+            console.log("Global Televsion Quiz Scores: " + globalTvScoresArray);
             // Add each score into the associated table
             $('.scores').html('Games High Scores');
             $(".highScores > tbody").append("<tr><th>1</th><td>Name 01</td><td>" + globalGmScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalGmScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalGmScoresArray[2] + "</td>");
