@@ -114,8 +114,12 @@ body> .container {
 .gif {
     margin: 30px auto;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     body> .container {
         padding: 0 15px 0;
+    }
+    .sign-in {
+        margin-left: 15px;
+        margin-right: 0;
     }
 }
