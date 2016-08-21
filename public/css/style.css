@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'Arcade-N';
+    src: url('../font/Arcade-N.ttf.woff') format('woff'), url('../font/Arcade-N.ttf.svg#Arcade-N') format('svg'), url('../font/Arcade-N.ttf.eot'), url('../font/Arcade-N.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'True-Crimes';
+    src: url('../font/true-crimes.woff') format('woff'), url('../font/true-crimes.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px;
+    background: url(../img/back.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 80px;
+}
+body > .container {
+  padding: 20px 15px 0;
+}
+.container .text-muted {
+    text-align: center;
+  margin: 20px 0;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-brand {
+    padding: 4px 10px 4px;
+}
+.navbar-brand>img {
+    display: inline;
+    margin-right: 10px;
+}
+.logo {
+    height: 100%;
+}
+.logo-text {
+    font-size: 15px;
+    font-family: Arcade-N, sans-serif;
+}
+.pull-right {
+    margin-left: 10px;
+}
+.header-text {
+    font-family: Arcade-N, sans-serif;
+    text-align: center;
+}
+.sign-in {
+    margin-right: 15px;
+}
+.icons {
+    margin: 0 auto;
+    max-width: 150px;
+}
+.main-start {
+    margin: 40px auto;
+}
+.re-start {
+    margin: 40px auto;
+}
+.btn-lg {
+    margin: 10px auto;
+}
+.btn-md {
+    margin: 20px auto;
+    max-width: 90%;
+    height: 60px;
+}
+.to-results {
+    margin: 40px auto;
+    max-width: 25%;
+}
+.sidescore {
+    margin-top: 40px;
+    margin-right: 20px;
+}
+.highScoresHeader {
+    text-align: center;
+    font-weight: 700;
+}
+.info {
+    margin: 20px 0;
+    text-align: center;
+}
+.answers {
+    margin: 60px 0 20px 0;
+}
+.gif {
+    margin: 30px auto;
+}
+@media screen and (max-width: 768px) {
+    body > .container {
+      padding: 0 15px 0;
+    }
+}
+.moviesPic{
+    background-image: url(../img/movies.jpg) ;
+    border-radius: 10px 10px 0 0;
+    margin-right: 15px;
+    margin-left:  15px;
+    height: 90px;       
+}
+.gamesPic{
+    background-image: url(../img/videogame.jpg) ;
+    border-radius: 10px 10px 0 0;
+    margin-right: 15px;
+    margin-left:  15px;
+    height: 90px;       
+}
+.jumbotron{
+    padding-top: 0px;
+}
+.good-job{
+    align-content: center;
+}
+.header,.info{
+    margin-top: 5px;
+    font-family: 'True-Crimes';
+    text-align: center;
+}
