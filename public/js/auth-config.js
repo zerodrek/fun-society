@@ -44,12 +44,14 @@ function onAuthStateChanged(user) {
     }
 }
 
-// Sign In -------------------------------------------------------------
+/**
+ * User sign in.
+ */
 function signIn() {
     var provider = new firebase.auth.GoogleAuthProvider();
-    // Sign in redirect --------------------------------------------
+    // Sign in redirect
     firebase.auth().signInWithRedirect(provider);
-    // Get redirect result -----------------------------------------
+    // Get redirect result
     firebase.auth().getRedirectResult().then(function(result) {
         if (result.credential) {
             // This gives you a Google Access Token. You can use it to access the Google API.
@@ -69,7 +71,9 @@ function signIn() {
         // ...
     });
 }
-// Sign out -------------------------------------------------------------
+/**
+ * User sign out.
+ */
 function signOut() {
     firebase.auth().signOut().then(function() {
         location.reload();
@@ -78,7 +82,9 @@ function signOut() {
         // An error happened.
     });
 }
-
+/**
+ * Auth buttons.
+ */
 $(document).on("click", ".sign-in", signIn);
 $(document).on("click", ".sign-out", signOut);
 
