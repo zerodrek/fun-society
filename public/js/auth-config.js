@@ -6,9 +6,13 @@ $usrSignOut = ('<li id="fat-menu" class="dropdown signed-in"><a href="#" class="
 /**
  * Writes the user's data to the database.
  */
-function writeUserData(userId, name) {
+function writeUserData(userId, name, gmPoints, tvPoints, mvPoints, muPoints) {
     firebase.database().ref('users/' + userId).set({
-        username: name
+        username: name,
+        gmPoints: '',
+        tvPoints: '',
+        mvPoints: '',
+        muPoints: ''
     });
 }
 /**
