@@ -13,7 +13,7 @@ body {
     padding-top: 80px;
 }
 body> .container {
-    padding: 60px 15px 0;
+    padding: 15px 0;
 }
 .container .text-muted {
     text-align: center;
