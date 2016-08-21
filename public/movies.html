@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fun Society | Gaming Trivia</title>
+    <title>Fun Society | Movie Trivia</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -14,33 +14,29 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="movies">
    <div class="container">
-        <!-- Navbar -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <img class="logo" alt="Fun Society" src="img/fun_society.png"><span class="logo-text">Fun Society</span>
-                    </a>
-                    <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                </div>
-                <div class="collapse navbar-collapse navbar-right" id="navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Global High Scores</a></li>
-                        <li><a class="about" href="#">About</a></li>
-                        <li><a href="mailto:admin@funsociety.club">Contact</a></li>
-                        <button type="button" class="btn btn-default navbar-btn sign-in">Sign in</button>
-                        <li id="fat-menu" class="dropdown signed-in"> <a href="#" class="dropdown-toggle" id="drop3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span> </a>
-                            <ul class="dropdown-menu" aria-labelledby="drop3">
-                                <li><a id="userHighScores" href="#">View Your High Scores</a></li>
-                                <li id="sign-out"><a href="#">Sign out</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+       <!-- Navbar -->
+       <nav class="navbar navbar-default navbar-fixed-top">
+           <div class="container">
+               <div class="navbar-header">
+                   <a class="navbar-brand" href="index.html">
+                       <img class="logo" alt="Fun Society" src="img/fun_society.png"><span class="logo-text">Fun Society</span>
+                   </a>
+                   <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+               </div>
+               <div class="collapse navbar-collapse navbar-right" id="navbar-collapse">
+                   <ul class="nav navbar-nav navbar-right site-nav">
+                       <!-- "Global High Scores" Modal Trigger -->
+                       <li><a class="globalHighScores" href="#" data-toggle="modal" data-target=".globalHighScoresModal">Global High Scores</a></li>
+                       <!-- "About" Modal Trigger -->
+                       <li><a class="about" href="#" data-toggle="modal" data-target=".aboutModal">About</a></li>
+                       <!-- Contact E-Mail Link -->
+                       <li><a href="mailto:admin@funsociety.club">Contact</a></li>
+                   </ul>
+               </div>
+           </div>
+       </nav>
         <!-- About Modal -->
         <div class="modal fade aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -66,19 +62,6 @@
              <div id="moviesPic"></div>
                 <div class="jumbotron">
                     <div class="row">
-                        <div class="col-sm-12 text-center">
-                        <h1>Movies</h1>
-                       
-                          <!-- Quiz Start Page -->
-                            <div class="start text-center">
-                                <!-- <h1>Movies</h1> -->
-                                <hr />
-                                <!-- <img class="img-responsive" src="img/games.png" alt="Retro Games" /> -->
-                                <div class="main-start">
-                                    <button type="button" class="btn btn-lg btn-success btn-block start-game">Start</button>
-                                </div>
-                            </div>
-                        </div>
                         <!-- Question and Answers -->
                         <div class="col-sm-12 game-display info">
                             <h3 class="countdown"></h3>
@@ -98,19 +81,15 @@
                             <h2 class="outro"></h2>
                             <h3 class="end-results"></h3>
                             <div class="re-start">
-                                <button type="button" class="btn btn-lg btn-success btn-block start-game">Start Over?</button>
+                                <button type="button" class="btn btn-lg btn-success btn-block start-game">Play Again?</button>
                             </div>
                         </div>
                     </div>
-
                 </div>
-               
             </div>
-
         </div>
-
     </div>
-
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p class="text-muted">&copy; Copyright 2016 - Fun Society</p>
@@ -128,8 +107,9 @@
     <!-- JavaScript -->
     <script type="text/javascript" src="js/creds.js"></script>
     <script type="text/javascript" src="js/auth-config.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/games-questions.js"></script>
+    <script type="text/javascript" src="js/quiz.js"></script>
+    <script type="text/javascript" src="js/movies-questions.js"></script>
+    <script type="text/javascript" src="js/points.js"></script>
 </body>
 
 </html>

@@ -9,20 +9,20 @@ html {
     min-height: 100%;
 }
 body {
-    margin-bottom: 60px;
     background: url(../img/back.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin-bottom: 60px;
     padding-top: 80px;
 }
-body > .container {
-  padding: 60px 15px 0;
+body> .container {
+    padding: 15px 0;
 }
 .container .text-muted {
     text-align: center;
-  margin: 20px 0;
+    margin: 20px 0;
 }
 .footer {
     position: absolute;
@@ -32,9 +32,9 @@ body > .container {
     height: 60px;
     background-color: #f5f5f5;
 }
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+.footer> .container {
+    padding-right: 15px;
+    padding-left: 15px;
 }
 .navbar-brand {
     padding: 4px 10px 4px;
@@ -60,6 +60,20 @@ body > .container {
 .sign-in {
     margin-right: 15px;
 }
+.games {
+    background: url(../img/games.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.movies {
+    background: url(../img/movies.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .icons {
     margin: 0 auto;
     max-width: 150px;
@@ -82,13 +96,11 @@ body > .container {
     margin: 40px auto;
     max-width: 25%;
 }
-.sidescore {
-    margin-top: 40px;
-    margin-right: 20px;
+.table {
+    margin-bottom: 0;
 }
-.highScoresHeader {
+th, td {
     text-align: center;
-    font-weight: 700;
 }
 .info {
     margin: 20px 0;
@@ -100,12 +112,12 @@ body > .container {
 .gif {
     margin: 30px auto;
 }
-@media screen and (max-width: 768px) {
-    body > .container {
-      padding: 0 15px 0;
+@media screen and (max-width: 767px) {
+    body> .container {
+        padding: 0 15px 0;
     }
-}
-#moviesPic{
-    background-image: url(../img/movies.jpg) ;
-    height: 90px;       
+    .sign-in {
+        margin-left: 15px;
+        margin-right: 0;
+    }
 }
