@@ -9,10 +9,10 @@ $usrSignOut = ('<li id="fat-menu" class="dropdown signed-in"><a href="#" class="
 function writeUserData(userId, name, gmPoints, tvPoints, mvPoints, muPoints) {
     firebase.database().ref('users/' + userId).set({
         username: name,
-        gmPoints: '',
-        tvPoints: '',
-        mvPoints: '',
-        muPoints: ''
+        gmPoints: [],
+        tvPoints: [],
+        mvPoints: [],
+        muPoints: []
     });
 }
 /**
