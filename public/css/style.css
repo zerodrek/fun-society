@@ -96,13 +96,11 @@ body> .container {
     margin: 40px auto;
     max-width: 25%;
 }
-.sidescore {
-    margin-top: 40px;
-    margin-right: 20px;
+.table {
+    margin-bottom: 0;
 }
-.highScoresHeader {
+th {
     text-align: center;
-    font-weight: 700;
 }
 .info {
     margin: 20px 0;
