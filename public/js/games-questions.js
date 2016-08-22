@@ -1,9 +1,15 @@
-// Constructor for questions -----------------------------------------------
+userRef = firebase.database().ref('users/');
+
+/**
+ * Constructor for quiz questions.
+ */
 function Quiz(questions) {
     this.questions = questions;
     return this;
 }
-// Create the questions for the game ---------------------------------------
+/**
+ * Create the questions for the quiz.
+ */
 let questions = [{
     question: {
         text: 'Who is Mario\'s dinosaur friend?',
@@ -46,6 +52,17 @@ let questions = [{
         answers: ['Donkey Kong', 'Wimpy', 'Bagman', 'Q*bert'],
         correctAnswer: 'Q*bert'
     },
-}]
+}];
 
 new Quiz(questions);
+
+/**
+ * Calculate quiz points and push to firebase.
+ */
+function setScore(gmScore) {
+    // Multiply numRight to equal score
+    gmScore = numRight * 100;
+    firebase.database().ref('users/' + currentUID + '/' + name).update({
+        gmScore: gmScore
+    });
+}

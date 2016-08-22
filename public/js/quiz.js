@@ -1,8 +1,11 @@
 $(document).ready(function() {
+
     // FUNCTIONS
     // -----------------------------------------------------------------------
 
-    // Countdown timers for questions and answer display ----------------
+    /**
+     * Countdown timers for questions and answer display.
+     */
     function questionTimer() {
         counter = setInterval(decrement, 1000);
     }
@@ -39,7 +42,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 5;
+        answerTime = 1;
     }
 
     function stopTimer() {
@@ -64,7 +67,9 @@ $(document).ready(function() {
         return array;
     }
 
-    // Switch to next available question --------------------------------
+    /**
+     * Switch to next available question based on number of questions answered.
+     */
     function nextQuestion() {
         onQuestion = true;
         questionTimer();
@@ -131,7 +136,9 @@ $(document).ready(function() {
         }
     }
 
-    // Display correct answer -------------------------------------------
+    /**
+     * Display correct answer.
+     */
     function displayAnswer() {
         $('.game-display').hide();
         $('.answer').show();
@@ -162,45 +169,10 @@ $(document).ready(function() {
         }
     }
 
-    // Calculate Game Points and push to firebase
-    function calcPoints() {
-        // Multiply numRight to equal score
-        points = numRight * 100;
-        // Variable for firebase obj
-        var userScore = {
-            points: points,
-        };
-        // Push score to firebase
-        db.ref().push(scores);
-        // Log
-        console.log('Points: ' + points);
-    }
-
-    // Sort points
-    function sortPoints() {
-        db.ref().on("value", function(snapshot) {
-            globalPointsArray = [];
-            var dbObj = snapshot.val();
-            var objKeys = Object.keys(dbObj);
-            for (let i = 0; i < objKeys.length; i++) {
-                globalPoints = dbObj[objKeys[i]].points;
-                globalPointsArray.push(globalPoints);
-            }
-            sortedPoints = globalPointsArray.sort(function(a, b) {
-                return b - a;
-            });
-            console.log(sortedPoints);
-        }, function(errorObject) {
-
-            console.log("The read failed: " + errorObject.code);
-
-        });
-    }
-
     // Display results --------------------------------------------------
     function displayResults() {
         stopTimer();
-        calcPoints();
+        setScore();
         $('.game-display').hide();
         $('.answer').hide();
         $('.results').show();
@@ -208,21 +180,13 @@ $(document).ready(function() {
         $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
     }
 
-    // Initialize the game with a start page ----------------------------
-    function initialize() {
-        $('.game-display').hide();
-        $('.answer').hide();
-        $('.results').hide();
-        sortPoints();
-    }
-
     // PROCESSES
     // -----------------------------------------------------------------------
 
-    // When Start is clicked display the game and start the timer -------
-    $(document).on('click', '.start-game', function() {
+    // When Quiz button is clicked display the game and start the timer -------
+    function startQuiz() {
         questionTime = 30;
-        answerTime = 5;
+        answerTime = 1;
         counter = '';
         onQuestion = false;
         numRight = 0;
@@ -230,7 +194,6 @@ $(document).ready(function() {
         numUnanswered = 0;
         answeredQuestions = 0;
         points = '';
-        $('.choice').remove();
 
         // Shuffle questions ---------------------------------------
         availableQuestions = shuffle(questions);
@@ -239,10 +202,12 @@ $(document).ready(function() {
             shuffle(availableQuestions[i].question.answers);
         }
 
-        $('.start').hide();
+        $('.choice').remove();
+        $('.answer').hide();
         $('.results').hide();
+        $('.game-display').show();
         nextQuestion();
-    });
+    }
 
     // Check if selected answer is wrong/right --------------------------
     $(document).on('click', '.choice', function() {
@@ -262,14 +227,11 @@ $(document).ready(function() {
         displayAnswer();
     });
 
-    // EXTRAS
-    // -----------------------------------------------------------------------
-    $('.contact').on("click", function() {
-        ('.contactModal').modal();
+    $(document).on("click", ".start-game", function() {
+        startQuiz();
     });
 
     // INITIALIZE
     // -----------------------------------------------------------------------
-
-    initialize();
+    startQuiz();
 });

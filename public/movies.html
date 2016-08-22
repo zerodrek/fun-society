@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fun Society</title>
+    <title>Fun Society | Movie Trivia</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <div class="container">
-        <!-- Navbar -->
+<body class="movies">
+   <div class="container">
+       <!-- Navbar -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,7 +39,7 @@
                             <ul class="dropdown-menu">
                                 <li class="television-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Television High Scores</a></li>
                                 <li class="movies-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Movies High Scores</a></li>
-                                <li><a class="games-scores" href="#" data-toggle="modal" data-target=".globalHighScoresModal">Games High Scores</a></li>
+                                <li class="games-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Games High Scores</a></li>
                                 <li class="music-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Music High Scores</a></li>
                             </ul>
                         </li>
@@ -53,37 +53,8 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-        <!-- "Global High Scores" Modal -->
-        <div class="modal fade globalHighScoresModal" tabindex="-1" role="dialog" aria-labelledby="globalHighScoresModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h5 class="modal-title scores"></h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover highScores">
-                                <thead>
-                                    <tr>
-                                        <th class="col-sm-1">Rank</th>
-                                        <th>Player</th>
-                                        <th>Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- "About" Modal -->
-        <div class="modal fade aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal">
+        <!-- About Modal -->
+        <div class="modal fade aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -92,8 +63,7 @@
                         <h5 class="modal-title">About Fun Society</h5>
                     </div>
                     <div class="modal-body">
-                        <p>Fun Society is an escape from the everyday world. We've created an oasis where you can enjoy the diversions in life.</p>
-                        <p>Take a break and play some games with us!</p>
+                        <p>Information about us goes here...</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
@@ -101,43 +71,33 @@
                 </div>
             </div>
         </div>
-        <!-- Quiz Selection -->
+
+        <!-- Game Quiz -->
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 ">
+             <div id="moviesPic"></div>
                 <div class="jumbotron">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <h4 class="header-text">Choose a Category to Test Your Knowledge:</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div id="television">
-                                <a href="television.html" class="btn btn-default btn-lg btn-block start-game"><img class="icons img-responsive" src="img/television_icon.png" alt="Television" />
-                                    <h3>Television</h3>
-                                </a>
+                        <!-- Question and Answers -->
+                        <div class="col-sm-12 game-display info">
+                            <h3 class="countdown"></h3>
+                            <h2 class="question-text"></h2>
+                            <div class="answers">
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div id="movies">
-                                <a href="movies.html" class="btn btn-default btn-lg btn-block start-game"><img class="icons img-responsive" src="img/movies_icon.png" alt="Movies" />
-                                    <h3>Movies</h3>
-                                </a>
-                            </div>
+                        <!-- User Decision and GIF -->
+                        <div class="col-sm-12 answer info">
+                            <h3 class="decision"></h3>
+                            <h2 class="correct-answer"></h2>
+                            <img class="gif img-responsive" />
                         </div>
-                        <div class="col-sm-6">
-                            <div id="games">
-                                <a href="games.html" class="btn btn-default btn-lg btn-block start-game"><img class="icons img-responsive" src="img/games_icon.png" alt="Games" />
-                                    <h3>Games</h3>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <div id="music">
-                                <a href="music.html" class="btn btn-default btn-lg btn-block start-game-quiz"><img class="icons img-responsive" src="img/music_icon.png" alt="Music" />
-                                    <h3>Music</h3>
-                                </a>
+                        <!-- Complete Quiz Results -->
+                        <div class="col-sm-12 results info">
+                            <img class="img-responsive" src="img/games.png" alt="Retro Games" />
+                            <h2 class="outro"></h2>
+                            <h3 class="end-results"></h3>
+                            <div class="re-start">
+                                <button type="button" class="btn btn-lg btn-success btn-block start-game">Play Again?</button>
                             </div>
                         </div>
                     </div>
@@ -163,7 +123,9 @@
     <!-- JavaScript -->
     <script type="text/javascript" src="js/creds.js"></script>
     <script type="text/javascript" src="js/auth-config.js"></script>
-    <script type="text/javascript" src="js/scores.js"></script>
+    <script type="text/javascript" src="js/quiz.js"></script>
+    <script type="text/javascript" src="js/movies-questions.js"></script>
+    <script type="text/javascript" src="js/points.js"></script>
 </body>
 
 </html>
