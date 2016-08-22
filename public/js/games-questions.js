@@ -1,5 +1,3 @@
-userRef = firebase.database().ref('users/');
-
 /**
  * Constructor for quiz questions.
  */
@@ -59,10 +57,11 @@ new Quiz(questions);
 /**
  * Calculate quiz points and push to firebase.
  */
-function setScore(gmScore) {
+function setScore(userId, name, gmScore) {
     // Multiply numRight to equal score
     gmScore = numRight * 100;
-    firebase.database().ref('users/' + uid + '/name').push({
-        gmScore: gmScore
-    });
+        firebase.database().ref('users/' + userId).update({
+            name: name,
+            gmScore: gmScore
+        });
 }

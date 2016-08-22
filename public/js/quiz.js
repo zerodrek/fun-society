@@ -227,11 +227,10 @@ $(document).ready(function() {
         displayAnswer();
     });
 
+    // INITIALIZE
+    // -----------------------------------------------------------------------
     $(document).on("click", ".start-game", function() {
         startQuiz();
     });
-
-    // INITIALIZE
-    // -----------------------------------------------------------------------
-    startQuiz();
+    sortScores();
 });

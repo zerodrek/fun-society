@@ -1,7 +1,7 @@
 // FIREBASE AUTHENTICATION
 // -----------------------------------------------------------------------
 
-$usrSignIn = ('<a class="btn btn-default navbar-btn sign-in">Sign in</a>');
+$usrSignIn = ('<a class="btn btn-default navbar-btn sign-in">Sign in with Google</a>');
 $usrSignOut = ('<li class="dropdown"><a href="#" class="dropdown-toggle signed-in" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span></a><ul class="dropdown-menu"><li class="usr-scores"><a href="#">View Your High Scores</a></li><li class="sign-out"><a href="#">Sign out</a></li></ul></li>');
 
 /**
