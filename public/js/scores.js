@@ -1,8 +1,4 @@
 $(document).ready(function() {
-
-    // FUNCTIONS
-    // ------------------------------------------------------------------
-
     // Sort Scores
     function sortScores() {
         var globalGmScoresArray = [];
@@ -45,10 +41,8 @@ $(document).ready(function() {
             // Music
 
         }, function(errorObject) {
-
             console.log("The read failed: " + errorObject.code);
-
         });
     }
-
+    sortScores();
 });
