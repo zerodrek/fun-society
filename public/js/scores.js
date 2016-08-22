@@ -38,12 +38,10 @@ $(document).ready(function() {
              * Add each score into the associated table).
              */
             //Televsion
-            $('.tel-scores').html('Television High Scores');
-            $(".tel-high > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalTvScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalTvScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalTvScoresArray[2] + "</td>");
+            $(".tel-scores > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalTvScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalTvScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalTvScoresArray[2] + "</td>");
             // Movies
             // Games
-            $('.gam-scores').html('Games High Scores');
-            $(".gam-high > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalGmScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalGmScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalGmScoresArray[2] + "</td>");
+            $(".gam-scores > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalGmScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalGmScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalGmScoresArray[2] + "</td>");
             // Music
 
         }, function(errorObject) {
