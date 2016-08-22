@@ -62,7 +62,7 @@ new Quiz(questions);
 function setScore(gmScore) {
     // Multiply numRight to equal score
     gmScore = numRight * 100;
-    firebase.database().ref('users/' + currentUID + '/' + name).update({
+    firebase.database().ref('users/' + uid + '/name').push({
         gmScore: gmScore
     });
 }
