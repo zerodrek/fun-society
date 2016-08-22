@@ -6,5 +6,3 @@ var config = {
     storageBucket: "fun-society.appspot.com",
 };
 firebase.initializeApp(config);
-
-var db = firebase.database();

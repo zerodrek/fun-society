@@ -1,24 +1,12 @@
 // FIREBASE AUTHENTICATION
 // -----------------------------------------------------------------------
+var signedIn = false;
+var user;
+var userId;
+var username = null;
 
 $usrSignIn = ('<a class="btn btn-default navbar-btn sign-in">Sign in with Google</a>');
 $usrSignOut = ('<li class="dropdown"><a href="#" class="dropdown-toggle signed-in" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span></a><ul class="dropdown-menu"><li class="usr-scores"><a href="#">View Your High Scores</a></li><li class="sign-out"><a href="#">Sign out</a></li></ul></li>');
-
-/**
- * User state.
- */
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        // User is signed in.
-        $('.sign-in').remove();
-        $('.site-nav').append($usrSignOut);
-        $('.user').html(user.displayName);
-    } else {
-        // No user is signed in.
-        $('.signed-in').remove();
-        $('.site-nav').append($usrSignIn);
-    }
-});
 
 /**
  * User sign in.
@@ -60,7 +48,43 @@ function signOut() {
     });
 }
 /**
- * Auth buttons.
+ * Update user info in database.
  */
-$(document).on("click", ".sign-in", signIn);
-$(document).on("click", ".sign-out", signOut);
+function updateUsername(UserId, name) {
+    firebase.database().ref('users/' + userId).update({
+        name: name
+    });
+}
+/**
+ * User state.
+ */
+var initApp = function() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            currentUser = firebase.auth().currentUser;
+            userId = user.uid;
+            signedIn = true;
+            $('.sign-in').remove();
+            $('.site-nav').append($usrSignOut);
+            $('.user').html(user.displayName);
+            updateUsername(user.uid, user.displayName);
+        } else {
+            // No user is signed in.
+            signedIn = false;
+            $('.signed-in').remove();
+            $('.site-nav').append($usrSignIn);
+        }
+    }, function(error) {
+        console.log(error);
+    });
+    /**
+     * Auth buttons.
+     */
+    $(document).on("click", ".sign-in", signIn);
+    $(document).on("click", ".sign-out", signOut);
+};
+
+window.onload = function() {
+    initApp();
+};
