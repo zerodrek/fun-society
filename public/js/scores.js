@@ -1,26 +1,30 @@
 $(document).ready(function() {
+
+    var globalScoresRef = firebase.database().ref('users/');
+    var globalTvScoresArray = [];
+    var globalMvScoresArray = [];
+    var globalGmScoresArray = [];
+    var globalMuScoresArray = [];
+
+    var tvRank = 1;
+    var mvRank = 1;
+    var gmRank = 1;
+    var muRank = 1;
+
     /**
      * Sort Scores.
      */
     function sortScores() {
-        var globalGmScoresArray = [];
-        var globalTvScoresArray = [];
-        var globalScoresRef = firebase.database().ref('users/');
         globalScoresRef.on("value", function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
                 var usr = childSnapshot.val();
                 for (var key in usr) {
                     // skip loop if the property is from prototype
                     if (!usr.hasOwnProperty(key)) continue;
-                    var scores = usr[key];
-                    for (var prop in scores) {
-                        // skip loop if the property is from prototype
-                        if (!scores.hasOwnProperty(prop)) continue;
-                        if (prop === "gmScore") {
-                            globalGmScoresArray.push(scores[prop]);
-                        } else if (prop === "tvScore") {
-                            globalTvScoresArray.push(scores[prop]);
-                        }
+                    if (key === "gmScore") {
+                        globalGmScoresArray.push(usr[key]);
+                    } else if (key === "tvScore") {
+                        globalTvScoresArray.push(usr[key]);
                     }
                 }
             });
@@ -29,19 +33,33 @@ $(document).ready(function() {
                     return b - a;
                 });
             };
-            sortedScores(globalGmScoresArray);
             sortedScores(globalTvScoresArray);
-
+            sortedScores(globalMvScoresArray);
+            sortedScores(globalGmScoresArray);
+            sortedScores(globalMuScoresArray);
             /**
              * Add each score into the associated table.
              */
             //Televsion
-            $(".tel-scores > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalTvScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalTvScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalTvScoresArray[2] + "</td>");
+            for (var t = 0; t < globalTvScoresArray.length; t++) {
+                $(".tv-scores > tbody").append("<tr><th>" + tvRank + "</th><td>Name 01</td><td>" + globalTvScoresArray[t] + "</td>");
+                tvRank++;
+            }
             // Movies
+            for (var v = 0; v < globalTvScoresArray.length; v++) {
+                $(".mv-scores > tbody").append("<tr><th>" + mvRank + "</th><td>Name 01</td><td>" + globalMvScoresArray[v] + "</td>");
+                tvRank++;
+            }
             // Games
-            $(".gam-scores > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalGmScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalGmScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalGmScoresArray[2] + "</td>");
+            for (var g = 0; g < globalGmScoresArray.length; g++) {
+                $(".gm-scores > tbody").append("<tr><th>" + gmRank + "</th><td>Name 01</td><td>" + globalGmScoresArray[g] + "</td>");
+                gmRank++;
+            }
             // Music
-
+            for (var m = 0; m < globalTvScoresArray.length; m++) {
+                $(".mu-scores > tbody").append("<tr><th>" + muRank + "</th><td>Name 01</td><td>" + globalMuScoresArray[t] + "</td>");
+                tvRank++;
+            }
         }, function(errorObject) {
             console.log("The read failed: " + errorObject.code);
         });
