@@ -58,7 +58,7 @@ function updateUsername(UserId, name) {
 /**
  * User state.
  */
-var initApp = function() {
+var initAuth = function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
@@ -86,5 +86,5 @@ var initApp = function() {
 };
 
 window.onload = function() {
-    initApp();
+    initAuth();
 };
