@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    // Sort Scores
+    /**
+     * Sort Scores.
+     */
     function sortScores() {
         var globalGmScoresArray = [];
         var globalTvScoresArray = [];
@@ -31,7 +33,7 @@ $(document).ready(function() {
             sortedScores(globalTvScoresArray);
 
             /**
-             * Add each score into the associated table).
+             * Add each score into the associated table.
              */
             //Televsion
             $(".tel-scores > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalTvScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalTvScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalTvScoresArray[2] + "</td>");
