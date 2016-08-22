@@ -140,16 +140,12 @@ $(document).ready(function() {
              * Display correct answer.
              */
             function displayAnswer() {
+
                 $('.game-display').hide();
                 $('.answer').show();
                 if (answeredQuestions === 6) {
                     url = availableQuestions[5].question.gif;
-                    $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`); 
-                    /*$.ajax({-url: availableQuestions[5].question.descrip,
-                        -method: 'GET' -
-                    }).done(function(response) {
-                        -$('#gif').attr('src', response.data[0].images.fixed_height.url); -
-                    });*/
+                    $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
                     $('.gif').attr('src', url);
                 } else if (answeredQuestions === 5) {
                     url = availableQuestions[4].question.gif;
@@ -168,9 +164,9 @@ $(document).ready(function() {
                     $('.correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
                     $('.gif').attr('src', url);
                 } else if (answeredQuestions === 1) {
-                    url = availableQuestions[0].question.gif;
-                    $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
-                    $('.gif').attr('src', url);
+                    //url = availableQuestions[0].question.gif;
+                    //$('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
+                    //$('.gif').attr('src', url);
                 }
             }
             // Calculate Game Points and push to firebase
@@ -186,7 +182,7 @@ $(document).ready(function() {
                 // Log
                 console.log('Points: ' + points);
             }
-                // Sort points
+            // Sort points
             function sortPoints() {
                 db.ref().on("value", function(snapshot) {
                     globalPointsArray = [];
@@ -204,7 +200,7 @@ $(document).ready(function() {
                     console.log("The read failed: " + errorObject.code);
                 });
             }
-                // Display results --------------------------------------------------
+            // Display results --------------------------------------------------
             function displayResults() {
                 stopTimer();
                 setScore();
@@ -214,7 +210,7 @@ $(document).ready(function() {
                 $('.outro').html("All done, here's how you did!");
                 $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
             }
-                // Initialize the game with a start page ----------------------------
+            // Initialize the game with a start page ----------------------------
             function initialize() {
                 $('.game-display').hide();
                 $('.answer').hide();
@@ -239,18 +235,15 @@ $(document).ready(function() {
                     numWrong = 0;
                     numUnanswered = 0;
                     answeredQuestions = 0;
-                    points = ''; <<
-                    << << < HEAD: public / js / script.js
+                    points = '';
                     $('.choice').remove();
-                        // Shuffle questions ---------------------------------------
+                    // Shuffle questions ---------------------------------------
                     availableQuestions = shuffle(questions);
                     // Shuffle question's answers ------------------------------
                     for (let i = 0; i < availableQuestions.length; i++) {
                         shuffle(availableQuestions[i].question.answers);
                     }
-                    $('.start').hide(); ===
-                    === =
-
+                    $('.start').hide();
                     $('.choice').remove();
                     $('.answer').hide();
                     $('.results').hide();
