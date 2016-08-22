@@ -2,49 +2,30 @@
 // -----------------------------------------------------------------------
 
 $usrSignIn = ('<a class="btn btn-default navbar-btn sign-in">Sign in</a>');
-$usrSignOut = ('<li id="fat-menu" class="dropdown signed-in"><a href="#" class="dropdown-toggle" id="drop3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="drop3"><li class="usr-scores"><a href="#">View Your High Scores</a></li><li class="sign-out"><a href="#">Sign out</a></li></ul></li>');
+$usrSignOut = ('<li class="dropdown"><a href="#" class="dropdown-toggle signed-in" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span></a><ul class="dropdown-menu"><li class="usr-scores"><a href="#">View Your High Scores</a></li><li class="sign-out"><a href="#">Sign out</a></li></ul></li>');
 
 /**
- * Writes the user's data to the database.
+ * User state.
  */
-// function writeUserData(userId) {
-//     firebase.database().ref('users/' + userId).update({
-//         name
-//     });
-// }
-/**
- * The ID of the currently signed-in User. We keep track of this to detect Auth state change events that are just
- * programmatic token refresh but not a User status change.
- */
-var currentUID;
-
-/**
- * Triggers every time there is a change in the Firebase auth state (i.e. user signed-in or user signed out).
- */
-function onAuthStateChanged(user) {
-    // Sign in Display
-    // Get current user
-    if (user && currentUID === user.uid || !user && currentUID === null) {
-        return;
-    }
-    currentUID = user ? user.uid : null;
+firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         $('.sign-in').remove();
         $('.site-nav').append($usrSignOut);
         $('.user').html(user.displayName);
-        // writeUserData(user.uid, user.displayName);
     } else {
         // No user is signed in.
         $('.signed-in').remove();
         $('.site-nav').append($usrSignIn);
     }
-}
+});
+
 /**
  * User sign in.
  */
 function signIn() {
     var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/plus.login');
     // Sign in redirect
     firebase.auth().signInWithRedirect(provider);
     // Get redirect result
@@ -83,6 +64,3 @@ function signOut() {
  */
 $(document).on("click", ".sign-in", signIn);
 $(document).on("click", ".sign-out", signOut);
-
-// Listen for auth state changes
-firebase.auth().onAuthStateChanged(onAuthStateChanged);
