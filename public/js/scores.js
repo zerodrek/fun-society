@@ -1,15 +1,16 @@
 $(document).ready(function() {
+
     // FUNCTIONS
-    // -----------------------------------------------------------------------
+    // ------------------------------------------------------------------
 
     // Sort Scores
     function sortScores() {
-        globalGmScoresArray = [];
-        globalTvScoresArray = [];
-        globalScoresRef = firebase.database().ref('users/');
+        var globalGmScoresArray = [];
+        var globalTvScoresArray = [];
+        var globalScoresRef = firebase.database().ref('users/');
         globalScoresRef.on("value", function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
-                usr = childSnapshot.val();
+                var usr = childSnapshot.val();
                 for (var key in usr) {
                     // skip loop if the property is from prototype
                     if (!usr.hasOwnProperty(key)) continue;
@@ -32,15 +33,18 @@ $(document).ready(function() {
             };
             sortedScores(globalGmScoresArray);
             sortedScores(globalTvScoresArray);
-            console.log("Global Games Quiz Scores: " + globalGmScoresArray);
-            console.log("Global Televsion Quiz Scores: " + globalTvScoresArray);
 
-            // Add each score into the associated table)
-            $(document).on("click", ".game-scores", function() {
-                console.log('Game Scores!!');
-                $('.scores').html('Games High Scores');
-                $(".highScores > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalGmScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalGmScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalGmScoresArray[2] + "</td>");
-            });
+            /**
+             * Add each score into the associated table).
+             */
+            //Televsion
+            $('.tel-scores').html('Television High Scores');
+            $(".tel-high > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalTvScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalTvScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalTvScoresArray[2] + "</td>");
+            // Movies
+            // Games
+            $('.gam-scores').html('Games High Scores');
+            $(".gam-high > tbody").html("<tr><th>1</th><td>Name 01</td><td>" + globalGmScoresArray[0] + "<tr><th>2</th><td>Name 02</td><td>" + globalGmScoresArray[1] + "<tr><th>3</th><td>Name 03</td><td>" + globalGmScoresArray[2] + "</td>");
+            // Music
 
         }, function(errorObject) {
 
@@ -50,4 +54,5 @@ $(document).ready(function() {
     }
 
     sortScores();
+
 });
