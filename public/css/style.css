@@ -74,6 +74,20 @@ body> .container {
     -o-background-size: cover;
     background-size: cover;
 }
+.music {
+    background: url(../img/giant-speakers.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.television {
+    background: url(../img/future-tv.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .icons {
     margin: 0 auto;
     max-width: 150px;
