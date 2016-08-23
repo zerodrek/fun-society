@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Fun Society | Television Trivia</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="television">
+   <div class="container">
+       <!-- Navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img class="logo" alt="Fun Society" src="img/fun_society.png"><span class="logo-text">Fun Society</span>
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right site-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Global High Scores <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="television-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Television High Scores</a></li>
+                                <li class="movies-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Movies High Scores</a></li>
+                                <li class="games-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Games High Scores</a></li>
+                                <li class="music-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Music High Scores</a></li>
+                            </ul>
+                        </li>
+                        <!-- "About" Modal Trigger -->
+                        <li><a class="about" href="#" data-toggle="modal" data-target=".aboutModal">About</a></li>
+                        <!-- Contact E-Mail Link -->
+                        <li><a href="mailto:admin@funsociety.club">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!-- About Modal -->
+        <div class="modal fade aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">About Fun Society</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Fun Society is an escape from the everyday world. We've created an oasis where you can enjoy the diversions in life.</p>
+                        <p>Take a break and play some games with us!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Quiz -->
+        <div class="row">
+            <div class="col-sm-12 ">
+                <div id="televisionPic"></div>
+                    <div class="jumbotron">
+                        <div class="row">
+                            <!-- Question and Answers -->
+                            <div class="col-sm-12 game-display info">
+                                <h3 class="countdown"></h3>
+                                <h2 class="question-text"></h2>
+                                <div class="answers">
+                                </div>
+                            </div>
+                            <!-- User Decision and GIF -->
+                            <div class="col-sm-12 answer info">
+                                <h3 class="decision"></h3>
+                                <h2 class="correct-answer"></h2>
+                                <img class="gif img-responsive" />
+                            </div>
+                            <!-- Complete Quiz Results -->
+                            <div class="col-sm-12 results info">
+                                <img class="img-responsive" src="img/games.png" alt="Retro Games" />
+                                <h2 class="outro"></h2>
+                                <h3 class="end-results"></h3>
+                                <div class="re-start">
+                                    <button type="button" class="btn btn-lg btn-success btn-block start-game">Play Again?</button>
+                                </div> <!-- Close re-start -->
+                            </div> <!-- Close results info -->
+                        </div> <!-- Close div class row -->
+                    </div> <!-- Close jumbotron -->
+                </div> <!-- Close televisionPic -->
+            </div> <!-- Close col-sm-12 -->
+        </div> <!-- Close row -->
+    </div> <!-- Close container -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">&copy; Copyright 2016 - Fun Society</p>
+        </div>
+    </footer>
+    <!-- Jquery -->
+    <script src="js/vendor/jquery-3.1.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="js/creds.js"></script>
+    <script type="text/javascript" src="js/auth-config.js"></script>
+    <script type="text/javascript" src="js/quiz.js"></script>
+    <script type="text/javascript" src="js/television-questions.js"></script>
+    <script type="text/javascript" src="js/scores.js"></script>
+</body>
+
+</html>
