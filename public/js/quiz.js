@@ -1,8 +1,14 @@
 $(document).ready(function() {
+    // VARIABLES
+    // -----------------------------------------------------------------------
+    /**
+     * Set up refs for Database endpoints.
+     */
+    var db = firebase.database();
+    var userRef = db.ref('users/');
 
     // FUNCTIONS
     // -----------------------------------------------------------------------
-
     /**
      * Countdown timers for questions and answer display.
      */
@@ -52,13 +58,10 @@ $(document).ready(function() {
     function shuffle(array) {
         let m = array.length,
             t, i;
-
         // While there remain elements to shuffle…
         while (m) {
-
             // Pick a remaining element…
             i = Math.floor(Math.random() * m--);
-
             // And swap it with the current element.
             t = array[m];
             array[m] = array[i];
@@ -66,7 +69,6 @@ $(document).ready(function() {
         }
         return array;
     }
-
     /**
      * Switch to next available question based on number of questions answered.
      */
@@ -135,7 +137,6 @@ $(document).ready(function() {
             }
         }
     }
-
     /**
      * Display correct answer.
      */
@@ -168,11 +169,12 @@ $(document).ready(function() {
             $('.gif').attr('src', url);
         }
     }
-
-    // Display results --------------------------------------------------
+    /**
+     * Display results.
+     */
     function displayResults() {
         stopTimer();
-        setScore();
+        setScore(user.uid, user.displayName, gmScore);
         $('.game-display').hide();
         $('.answer').hide();
         $('.results').show();
@@ -182,8 +184,9 @@ $(document).ready(function() {
 
     // PROCESSES
     // -----------------------------------------------------------------------
-
-    // When Quiz button is clicked display the game and start the timer -------
+    /**
+     * When Quiz button is clicked display the game and start the timer.
+     */
     function startQuiz() {
         questionTime = 30;
         answerTime = 1;
@@ -195,9 +198,9 @@ $(document).ready(function() {
         answeredQuestions = 0;
         points = '';
 
-        // Shuffle questions ---------------------------------------
+        // Shuffle questions.
         availableQuestions = shuffle(questions);
-        // Shuffle question's answers ------------------------------
+        // Shuffle question's answers.
         for (let i = 0; i < availableQuestions.length; i++) {
             shuffle(availableQuestions[i].question.answers);
         }
@@ -208,8 +211,9 @@ $(document).ready(function() {
         $('.game-display').show();
         nextQuestion();
     }
-
-    // Check if selected answer is wrong/right --------------------------
+    /**
+     * Check if selected answer is wrong/right.
+     */
     $(document).on('click', '.choice', function() {
         onQuestion = false;
         $('.choice').remove();
@@ -227,11 +231,10 @@ $(document).ready(function() {
         displayAnswer();
     });
 
+    // INITIALIZE QUIZ
+    // -----------------------------------------------------------------------
     $(document).on("click", ".start-game", function() {
         startQuiz();
     });
-
-    // INITIALIZE
-    // -----------------------------------------------------------------------
     startQuiz();
 });
