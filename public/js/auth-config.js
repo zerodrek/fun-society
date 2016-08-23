@@ -6,7 +6,7 @@ var userId;
 var username = null;
 
 $usrSignIn = ('<a class="btn btn-default navbar-btn sign-in">Sign in with Google</a>');
-$usrSignOut = ('<li class="dropdown"><a href="#" class="dropdown-toggle signed-in" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span></a><ul class="dropdown-menu"><li class="usr-scores"><a href="#">View Your Scores</a></li><li class="sign-out"><a href="#">Sign out</a></li></ul></li>');
+$usrSignOut = ('<li class="dropdown"><a href="#" class="dropdown-toggle signed-in" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span><span class="caret"></span></a><ul class="dropdown-menu"><li><a href="#" data-toggle="modal" data-target=".yourScoresModal">View Your Scores</a></li><li class="sign-out"><a href="#">Sign out</a></li></ul></li>');
 
 /**
  * User sign in.
