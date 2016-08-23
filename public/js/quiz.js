@@ -174,7 +174,7 @@ $(document).ready(function() {
      */
     function displayResults() {
         stopTimer();
-        setScore(user.uid, user.displayName, gmScore);
+        // setScore(user.uid, user.displayName, gmScore);
         $('.game-display').hide();
         $('.answer').hide();
         $('.results').show();
