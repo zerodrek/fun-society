@@ -40,7 +40,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 1;
+        answerTime = 5;
     }
 
     function stopTimer() {
@@ -64,7 +64,22 @@ $(document).ready(function() {
         }
         return array;
     }
+// Conect to API 
+// function giphyApi(answerText){
 
+// var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + answerText + "&api_key=dc6zaTOxFJmzC&limit=10";
+ 
+//     $.ajax({
+//             url: queryURL, method: 'GET'
+//         })      
+//         .done(function(response){
+//         var responseResults = response.data;
+//         var backgroundBt = responseResults.images.fixed_height_small.url;
+            
+//            })
+//          return backgroundBt;
+// //----------end API
+// }
     // Switch to next available question --------------------------------
     function nextQuestion() {
         onQuestion = true;
@@ -73,6 +88,8 @@ $(document).ready(function() {
         $('.countdown').html('Time Remaining: 30 seconds');
         $('.answer').hide();
         $('.game-display').show();
+
+
         if (answeredQuestions === 6) {
             displayResults();
         } else if (answeredQuestions === 5) {
@@ -119,27 +136,37 @@ $(document).ready(function() {
                 j.addClass('btn btn-md btn-default btn-block choice');
                 j.text(availableQuestions[1].question.answers[i]);
                 $('.answers').append(j);
-            }
+            }   console.log("answer",answer);
         } else {
             $('.question-text').html(availableQuestions[0].question.text);
             answer = availableQuestions[0].question.correctAnswer;
+
+            console.log("answer",answer);
+            
             for (let i = 0; i < availableQuestions[0].question.answers.length; i++) {
                 j = $('<button>');
                 j.addClass('btn btn-md btn-default btn-block choice');
+                j.attr('background-image',url('http://imageshack.us/a/img856/3817/ticklf.png'));
+})
                 j.text(availableQuestions[0].question.answers[i]);
                 $('.answers').append(j);
+
+               
             }
         }
     }
+
 
     // Display correct answer -------------------------------------------
     function displayAnswer() {
         $('.game-display').hide();
         $('.answer').show();
+
         if (answeredQuestions === 6) {
             url = availableQuestions[5].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
             $('.gif').attr('src', url);
+
         } else if (answeredQuestions === 5) {
             url = availableQuestions[4].question.gif;
             $('.correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
@@ -161,6 +188,7 @@ $(document).ready(function() {
             $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
             $('.gif').attr('src', url);
         }
+        
     }
 
     // Calculate Game Points and push to firebase
