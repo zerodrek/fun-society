@@ -89,7 +89,7 @@ function displayAnswer() {
             url: availableQuestions[3].question.tv,
             method: 'GET'
         }).done(function(response) {
-            $('.tv-info').html("<p>Genre : " + response.genres + "</p><p>Rating: " + response.rating.average + "</p><p> Summery: " + response.summery + "</p>");
+            $('.tv-info').html("<p>Genre : " + response.genres + "</p><p>Rating: " + response.rating.average + "</p><p> Summary: " + response.summary + "</p>");
         });
     } else if (answeredQuestions === 3) {
         gif = availableQuestions[2].question.gif;
