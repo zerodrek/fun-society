@@ -4,16 +4,39 @@
     font-weight: normal;
     font-style: normal;
 }
+<<<<<<< HEAD
+@font-face {
+    font-family: 'True-Crimes';
+    src: url('../font/true-crimes.woff') format('woff'), url('../font/true-crimes.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+=======
+>>>>>>> master
 html {
     position: relative;
     min-height: 100%;
 }
 body {
+<<<<<<< HEAD
+    margin-bottom: 60px;
+=======
+>>>>>>> master
     background: url(../img/back.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+<<<<<<< HEAD
+    padding-top: 80px;
+}
+body > .container {
+  padding: 20px 15px 0;
+}
+.container .text-muted {
+    text-align: center;
+  margin: 20px 0;
+=======
     margin-bottom: 60px;
     padding-top: 80px;
 }
@@ -23,6 +46,7 @@ body> .container {
 .container .text-muted {
     text-align: center;
     margin: 20px 0;
+>>>>>>> master
 }
 .footer {
     position: absolute;
@@ -32,9 +56,15 @@ body> .container {
     height: 60px;
     background-color: #f5f5f5;
 }
+<<<<<<< HEAD
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+=======
 .footer> .container {
     padding-right: 15px;
     padding-left: 15px;
+>>>>>>> master
 }
 .navbar-brand {
     padding: 4px 10px 4px;
@@ -60,6 +90,8 @@ body> .container {
 .sign-in {
     margin-right: 15px;
 }
+<<<<<<< HEAD
+=======
 .games {
     background: url(../img/games.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -74,6 +106,7 @@ body> .container {
     -o-background-size: cover;
     background-size: cover;
 }
+>>>>>>> master
 .icons {
     margin: 0 auto;
     max-width: 150px;
@@ -96,11 +129,21 @@ body> .container {
     margin: 40px auto;
     max-width: 25%;
 }
+<<<<<<< HEAD
+.sidescore {
+    margin-top: 40px;
+    margin-right: 20px;
+}
+.highScoresHeader {
+    text-align: center;
+    font-weight: 700;
+=======
 .table {
     margin-bottom: 0;
 }
 th, td {
     text-align: center;
+>>>>>>> master
 }
 .info {
     margin: 20px 0;
@@ -112,6 +155,37 @@ th, td {
 .gif {
     margin: 30px auto;
 }
+<<<<<<< HEAD
+@media screen and (max-width: 768px) {
+    body > .container {
+      padding: 0 15px 0;
+    }
+}
+.moviesPic{
+    background-image: url(../img/movies.jpg) ;
+    border-radius: 10px 10px 0 0;
+    margin-right: 15px;
+    margin-left:  15px;
+    height: 90px;       
+}
+.gamesPic{
+    background-image: url(../img/videogame.jpg) ;
+    border-radius: 10px 10px 0 0;
+    margin-right: 15px;
+    margin-left:  15px;
+    height: 90px;       
+}
+.jumbotron{
+    padding-top: 0px;
+}
+.good-job{
+    align-content: center;
+}
+.header,.info{
+    margin-top: 5px;
+    font-family: 'True-Crimes';
+    text-align: center;
+=======
 @media screen and (max-width: 767px) {
     body> .container {
         padding: 0 15px 0;
@@ -120,4 +194,5 @@ th, td {
         margin-left: 15px;
         margin-right: 0;
     }
+>>>>>>> master
 }

@@ -6,3 +6,8 @@ var config = {
     storageBucket: "fun-society.appspot.com",
 };
 firebase.initializeApp(config);
+<<<<<<< HEAD
+
+var db = firebase.database();
+=======
+>>>>>>> master
