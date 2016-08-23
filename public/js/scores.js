@@ -21,10 +21,14 @@ $(document).ready(function() {
                 for (var key in usr) {
                     // skip loop if the property is from prototype
                     if (!usr.hasOwnProperty(key)) continue;
-                    if (key === "gmScore") {
-                        globalGmScoresArray.push(usr[key]);
-                    } else if (key === "tvScore") {
+                    if (key === "tvScore") {
                         globalTvScoresArray.push(usr[key]);
+                    } else if (key === "mvScore") {
+                        globalMvScoresArray.push(usr[key]);
+                    } else if (key === "gmScore") {
+                        globalGmScoresArray.push(usr[key]);
+                    } else if (key === "muScore") {
+                        globalMuScoresArray.push(usr[key]);
                     }
                 }
             });
@@ -37,6 +41,8 @@ $(document).ready(function() {
             sortedScores(globalMvScoresArray);
             sortedScores(globalGmScoresArray);
             sortedScores(globalMuScoresArray);
+
+            console.log('Game Scores: ' + globalGmScoresArray);
             /**
              * Add each score into the associated table.
              */
@@ -56,9 +62,9 @@ $(document).ready(function() {
                 gmRank++;
             }
             // Music
-            for (var m = 0; m < globalTvScoresArray.length; m++) {
-                $(".mu-scores > tbody").append("<tr><th>" + muRank + "</th><td>Name 01</td><td>" + globalMuScoresArray[t] + "</td>");
-                tvRank++;
+            for (var m = 0; m < globalMuScoresArray.length; m++) {
+                $(".mu-scores > tbody").append("<tr><th>" + muRank + "</th><td>Name 01</td><td>" + globalMuScoresArray[m] + "</td>");
+                muRank++;
             }
         }, function(errorObject) {
             console.log("The read failed: " + errorObject.code);
