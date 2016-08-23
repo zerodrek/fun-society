@@ -6,56 +6,49 @@ function Quiz(questions) {
 // Create the questions for the game ---------------------------------------
 let questions = [{
     question: {
-        text: 'Which of the following is a Stephen King movie about an inmate who escapes prison?',
-        gif: "https://media.giphy.com/media/AWJy0ZcCJmILe/giphy.gif",
-        movie: "http://www.omdbapi.com/?t=Shawshank-redemption&y=&plot=short&r=json",
-        answers: ['Prison Break', 'Shawshank Redemption', 'Escape Plan', 'The Longest Yard'],
-        correctAnswer: 'Shawshank Redemption'
+        text: 'Who sings Pretty Young Thing?',
+        gif: "https://media.giphy.com/media/Bm5MTQwc1A1r2/giphy.gif",
+        answers: ['Elivs', 'Michael Jackson', 'Janet Jackson', 'Elton John'],
+        correctAnswer: 'Michael Jackson'
     },
 }, {
     question: {
-        text: 'Which of these characters are NOT part of Dorothy\'s group in The Wizard of Oz?',
-        gif: "https://media.giphy.com/media/SKhNHgpJzthII/giphy.gif",
-        movie: "http://www.omdbapi.com/?t=wizard-of-oz&y=&plot=short&r=json",
-        answers: ['Scarecrow', 'Tin Woodman', 'Wicked Witch of the West', 'Cowardly Lion'],
-        correctAnswer: 'Wicked Witch of the West'
+        text: 'What was one of the Eagles most famous songs?',
+        gif: "https://media.giphy.com/media/g6HBNoB9h9F6/giphy.gif",
+        answers: ['Rock With You', 'Crazy Little Thing Called Love', 'Funkytown', 'Hotel California'],
+        correctAnswer: 'Hotel California'
     },
 }, {
     question: {
-        text: 'What is the famous saying of E.T?',
-        gif: "https://media.giphy.com/media/lNGDT0uHuvS0w/giphy.gif",
-        movie: "http://www.omdbapi.com/?t=e.t.&y=&plot=short&r=json",
-        answers: ['E.T. come home', 'E.T. go home', 'E.T. no home', 'E.T. phone home'],
-        correctAnswer: 'E.T. phone home'
+        text: 'Which one of these singers were NOT part of the Beatles?',
+        gif: "https://media.giphy.com/media/yrmb9TgQlb18k/giphy.gif",
+        answers: ['Frankie Valli', 'Ringo Starr', 'George Harrison', 'Paul McCartney'],
+        correctAnswer: 'Frankie Valli'
     },
 }, {
     question: {
-        text: 'Who is Luke\'s father in Star Wars?',
-        gif: "https://media.giphy.com/media/fInzUrMIM5Pm8/giphy.gif",
-        movie: "http://www.omdbapi.com/?t=star-wars&y=&plot=short&r=json",
-        answers: ['Darth Vader', 'Han Solo', 'Darth Sidious', 'Obi Wan'],
-        correctAnswer: 'Darth Vader'
+        text: "Which of the following was the first to be inducted into the Rock 'n' Roll Hall of Fame?",
+        gif: "https://media.giphy.com/media/l0G16XkIw4S22ASZy/giphy.gif",
+        answers: ['Metallica', 'ZZ Top', 'The Hollies', 'The Rolling Stones'],
+        correctAnswer: 'ZZ Top'
     },
 }, {
     question: {
-        text: 'Which car do they use in Back to the Future?',
-        gif: "https://media.giphy.com/media/B7nzZml6q1Oh2/giphy.gif",
-        movie: "http://www.omdbapi.com/?t=back-to-the-future&y=&plot=short&r=json",
-        answers: ['Thunderbird', 'Corvette', 'Mustang', 'DeLorean'],
-        correctAnswer: 'DeLorean'
+        text: 'Who was the first and original singer of AC/DC?',
+        gif: "https://media.giphy.com/media/LuQbUJgMqqTV6/giphy.gif",
+        answers: ['Bon Scott', 'Brian Johnson', 'Dave Evans', 'Malcom Young'],
+        correctAnswer: 'Dave Evans'
     },
 }, {
     question: {
-        text: 'What character does Harrison Ford play in Raiders of the Lost Ark?',
-        gif: "https://media.giphy.com/media/8BmxE7qErN5nO/giphy.gif",
-        movie: "http://www.omdbapi.com/?t=raiders-of-the-lost-ark&y=&plot=short&r=json",
-        answers: ['Han Solo', 'Indiana Jones', 'Jack Ryan', 'Rick Deckard'],
-        correctAnswer: 'Indian Jones'
+        text: 'Which artist was labeled as the "King of Pop"?',
+        gif: "https://media.giphy.com/media/WKtwyvR2SNEJy/giphy.gif",
+        answers: ['Michael Jackson', 'Prince', 'Justin Bieber', 'Justin Timberlake'],
+        correctAnswer: 'Michael Jackson'
     },
-}];
+}]
 
 new Quiz(questions);
-
 
 /**
  * Display correct answer.
