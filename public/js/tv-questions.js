@@ -66,60 +66,60 @@ new Quiz(questions);
                 $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
                 $('.gif').attr('src', gif);
                 $.ajax({
-                    url: availableQuestions[5].question.movie,
+                    url: availableQuestions[5].question.tv,
                     method: 'GET'
                 }).done(function(response) {
-                    $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                    $('.tv-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
                 });
             } else if (answeredQuestions === 5) {
                 gif = availableQuestions[4].question.gif;
                 $('.correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
                 $('.gif').attr('src', gif);
                 $.ajax({
-                url: availableQuestions[4].question.movie,
+                url: availableQuestions[4].question.tv,
                 method: 'GET'
             }).done(function(response) {
-                $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                $('.tv-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
             });
             } else if (answeredQuestions === 4) {
                 gif = availableQuestions[3].question.gif;
                 $('.correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
                 $('.gif').attr('src', gif);
                 $.ajax({
-                    url: availableQuestions[3].question.movie,
+                    url: availableQuestions[3].question.tv,
                     method: 'GET'
                 }).done(function(response) {
-                    $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                    $('.tv-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
                 });
                 } else if (answeredQuestions === 3) {
                     gif = availableQuestions[2].question.gif;
                     $('.correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
                     $('.gif').attr('src', gif);
                     $.ajax({
-                        url: availableQuestions[2].question.movie,
+                        url: availableQuestions[2].question.tv,
                         method: 'GET'
                     }).done(function(response) {
-                        $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                        $('.tv-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
                     });
                     } else if (answeredQuestions === 2) {
                         gif = availableQuestions[1].question.gif;
                         $('.correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
                         $('.gif').attr('src', gif);
                         $.ajax({
-                            url: availableQuestions[1].question.movie,
+                            url: availableQuestions[1].question.tv,
                             method: 'GET'
                     }).done(function(response) {
-                        $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                        $('.tv-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
                     });
                     } else if (answeredQuestions === 1) {
                         gif = availableQuestions[0].question.gif;
                         $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
                         $('.gif').attr('src', gif);
                         $.ajax({
-                            url: availableQuestions[0].question.movie,
+                            url: availableQuestions[0].question.tv,
                             method: 'GET'
                         }).done(function(response) {
-                            $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                            $('.tv-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
                         });
                     }
                 }
