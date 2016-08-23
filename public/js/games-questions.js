@@ -55,6 +55,76 @@ let questions = [{
 new Quiz(questions);
 
 /**
+ * Display correct answer.
+ */
+function displayAnswer() {
+    $('.game-display').hide();
+    $('.answer').show();
+    if (answeredQuestions === 6) {
+        gif = availableQuestions[5].question.gif;
+        $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
+        $('.gif').attr('src', gif);
+        $.ajax({
+            url: availableQuestions[5].question.movie,
+            method: 'GET'
+        }).done(function(response) {
+            $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+        });
+    } else if (answeredQuestions === 5) {
+        gif = availableQuestions[4].question.gif;
+        $('.correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
+        $('.gif').attr('src', gif);
+        $.ajax({
+            url: availableQuestions[4].question.movie,
+            method: 'GET'
+        }).done(function(response) {
+            $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+        });
+    } else if (answeredQuestions === 4) {
+        gif = availableQuestions[3].question.gif;
+        $('.correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
+        $('.gif').attr('src', gif);
+        $.ajax({
+            url: availableQuestions[3].question.movie,
+            method: 'GET'
+        }).done(function(response) {
+            $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+        });
+    } else if (answeredQuestions === 3) {
+        gif = availableQuestions[2].question.gif;
+        $('.correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
+        $('.gif').attr('src', gif);
+        $.ajax({
+            url: availableQuestions[2].question.movie,
+            method: 'GET'
+        }).done(function(response) {
+            $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+        });
+    } else if (answeredQuestions === 2) {
+        gif = availableQuestions[1].question.gif;
+        $('.correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
+        $('.gif').attr('src', gif);
+        $.ajax({
+            url: availableQuestions[1].question.movie,
+            method: 'GET'
+        }).done(function(response) {
+            $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+        });
+    } else if (answeredQuestions === 1) {
+        gif = availableQuestions[0].question.gif;
+        $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
+        $('.gif').attr('src', gif);
+        $.ajax({
+            url: availableQuestions[0].question.movie,
+            method: 'GET'
+        }).done(function(response) {
+            $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+        });
+    }
+}
+
+
+/**
  * Calculate quiz points writes the user's data to the database.
  */
 function setScore(userId, name, gmScore) {
