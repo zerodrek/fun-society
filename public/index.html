@@ -18,6 +18,7 @@
     <div class="container">
         <!-- Navbar -->
         <nav class="navbar navbar-default navbar-fixed-top">
+<<<<<<< HEAD
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
@@ -29,12 +30,40 @@
                     <ul class="nav navbar-nav navbar-right site-nav">
                         <!-- "Global High Scores" Modal Trigger -->
                         <li><a class="globalHighScores" href="#" data-toggle="modal" data-target=".globalHighScoresModal">Global High Scores</a></li>
+=======
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img class="logo" alt="Fun Society" src="img/fun_society.png"><span class="logo-text">Fun Society</span>
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right site-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Global High Scores <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target=".globalTvHighScoresModal">Television High Scores</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".globalMvHighScoresModal">Movies High Scores</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".globalGmHighScoresModal">Games High Scores</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".globalMuHighScoresModal">Music High Scores</a></li>
+                            </ul>
+                        </li>
+>>>>>>> master
                         <!-- "About" Modal Trigger -->
                         <li><a class="about" href="#" data-toggle="modal" data-target=".aboutModal">About</a></li>
                         <!-- Contact E-Mail Link -->
                         <li><a href="mailto:admin@funsociety.club">Contact</a></li>
                     </ul>
                 </div>
+<<<<<<< HEAD
             </div>
         </nav>
 
@@ -121,6 +150,129 @@
         </div> <!-- Close .modal -->
 
         <!-- About Modal -->
+=======
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!-- "Global Television High Scores" Modal -->
+        <div class="modal fade globalTvHighScoresModal" tabindex="-1" role="dialog" aria-labelledby="globalTvHighScoresModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Television High Scores</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover tv-scores">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1">Rank</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- "Global Movies High Scores" Modal -->
+        <div class="modal fade globalMvHighScoresModal" tabindex="-1" role="dialog" aria-labelledby="globalMvHighScoresModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Movies High Scores</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover mv-scores">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1">Rank</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- "Global Games High Scores" Modal -->
+        <div class="modal fade globalGmHighScoresModal" tabindex="-1" role="dialog" aria-labelledby="globalGmHighScoresModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Games High Scores</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover gm-scores">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1">Rank</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- "Global Music High Scores" Modal -->
+        <div class="modal fade globalMuHighScoresModal" tabindex="-1" role="dialog" aria-labelledby="globalMuHighScoresModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Music High Scores</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover mu-scores">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1">Rank</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- "About" Modal -->
+>>>>>>> master
         <div class="modal fade aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal">
             <div class="modal-dialog" role="document">
                 <!-- Modal content-->
@@ -130,7 +282,12 @@
                         <h5 class="modal-title">About Fun Society</h5>
                     </div>
                     <div class="modal-body">
+<<<<<<< HEAD
                         <p>Information about us goes here...</p>
+=======
+                        <p>Fun Society is an escape from the everyday world. We've created an oasis where you can enjoy the diversions in life.</p>
+                        <p>Take a break and play some games with us!</p>
+>>>>>>> master
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
@@ -138,49 +295,84 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
         <!-- Quiz Selection -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="jumbotron">
                     <div class="row">
                         <div class="col-sm-12">
+<<<<<<< HEAD
                             <h3 class="header-text">Choose a Category to Test Your Knowledge:</h3>
+=======
+                            <h4 class="header-text">Choose a Category to Test Your Knowledge:</h4>
+>>>>>>> master
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div id="television">
+<<<<<<< HEAD
                                 <button type="button" class="btn btn-default btn-lg btn-block start-game"><img class="icons img-responsive" src="img/television_icon.png" alt="Television" />
                                     <h3>Television</h3></button>
+=======
+                                <a href="television.html" class="btn btn-default btn-lg btn-block start-game"><img class="icons img-responsive" src="img/television_icon.png" alt="Television" />
+                                    <h3>Television</h3>
+                                </a>
+>>>>>>> master
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div id="movies">
                                 <a href="movies.html" class="btn btn-default btn-lg btn-block start-game"><img class="icons img-responsive" src="img/movies_icon.png" alt="Movies" />
+<<<<<<< HEAD
                                     <h3>Movies</h3></a>
+=======
+                                    <h3>Movies</h3>
+                                </a>
+>>>>>>> master
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div id="games">
                                 <a href="games.html" class="btn btn-default btn-lg btn-block start-game"><img class="icons img-responsive" src="img/games_icon.png" alt="Games" />
+<<<<<<< HEAD
                                     <h3>Games</h3></a>
+=======
+                                    <h3>Games</h3>
+                                </a>
+>>>>>>> master
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div id="music">
+<<<<<<< HEAD
                                 <button type="button" class="btn btn-default btn-lg btn-block start-game-quiz"><img class="icons img-responsive" src="img/music_icon.png" alt="Music" />
                                     <h3>Music</h3></button>
+=======
+                                <a href="music.html" class="btn btn-default btn-lg btn-block start-game-quiz"><img class="icons img-responsive" src="img/music_icon.png" alt="Music" />
+                                    <h3>Music</h3>
+                                </a>
+>>>>>>> master
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
 
 
         </div>
     </div>
+=======
+        </div>
+    </div>
+    <!-- Footer -->
+>>>>>>> master
     <footer class="footer">
         <div class="container">
             <p class="text-muted">&copy; Copyright 2016 - Fun Society</p>
@@ -198,7 +390,11 @@
     <!-- JavaScript -->
     <script type="text/javascript" src="js/creds.js"></script>
     <script type="text/javascript" src="js/auth-config.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript" src="js/points.js"></script>
+=======
+    <script type="text/javascript" src="js/scores.js"></script>
+>>>>>>> master
 </body>
 
 </html>
