@@ -40,7 +40,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 5;
+        answerTime = 1;
     }
 
     function stopTimer() {
@@ -146,8 +146,8 @@ $(document).ready(function() {
             for (let i = 0; i < availableQuestions[0].question.answers.length; i++) {
                 j = $('<button>');
                 j.addClass('btn btn-md btn-default btn-block choice');
-                j.attr('background-image',url('http://imageshack.us/a/img856/3817/ticklf.png'));
-})
+                // j.attr('background-image',url('http://imageshack.us/a/img856/3817/ticklf.png'));
+
                 j.text(availableQuestions[0].question.answers[i]);
                 $('.answers').append(j);
 
