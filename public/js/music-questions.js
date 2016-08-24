@@ -126,26 +126,17 @@ function displayAnswer() {
             method: 'GET'
         }).done(function(response) {
             $('.music-info').html("<p>" + response.artist.bio.summary + "</p>");
-            
+
         });
     }
 }
 /**
  * Calculate quiz points writes the user's data to the database.
  */
-<<<<<<< HEAD
-function setScore(userId, muScore) {
-    userRef.on("value", function(snapshot) {
-            firebase.database().ref('users/' + userId).update({
-                muScore: score
-            });
-=======
-
 function setScore(userId, muScore) {
     userRef.on("value", function(snapshot) {
         firebase.database().ref('users/' + userId).update({
             muScore: score
         });
->>>>>>> origin/master
     });
 }
