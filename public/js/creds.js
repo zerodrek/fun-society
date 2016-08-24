@@ -6,3 +6,6 @@ var config = {
     storageBucket: "fun-society.appspot.com",
 };
 firebase.initializeApp(config);
+
+db = firebase.database();
+userRef = firebase.database().ref('users/');
