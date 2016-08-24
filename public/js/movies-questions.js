@@ -125,6 +125,7 @@ function displayAnswer() {
         });
     }
 }
+<<<<<<< HEAD
 /**
  * Calculate quiz points writes the user's data to the database.
  */
@@ -135,3 +136,17 @@ function setScore(userId, mvScore) {
             });
     });
 }
+=======
+
+/**
+ * Calculate quiz points writes the user's data to the database.
+ */
+
+function setScore(userId, mvScore) {
+    userRef.on("value", function(snapshot) {
+        firebase.database().ref('users/' + userId).update({
+            mvScore: score
+        });
+    });
+}
+>>>>>>> origin/master
