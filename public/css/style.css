@@ -129,6 +129,15 @@ th, td {
 .gif {
     margin: 30px auto;
 }
+.img-responsive {
+    margin: 0 auto;
+}
+.answer-API {
+    padding-top: 40px;
+}
+.h1-results {
+    padding-top: 20px;
+}
 @media screen and (max-width: 767px) {
     body> .container {
         padding: 0 15px 0;
