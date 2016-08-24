@@ -17,6 +17,9 @@ body {
     margin-bottom: 60px;
     padding-top: 80px;
 }
+.hide {
+    display: none;
+}
 body> .container {
     padding: 15px 0;
 }
