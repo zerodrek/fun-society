@@ -33,7 +33,7 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right site-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Global High Scores <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -47,6 +47,14 @@
                         <li><a class="about" href="#" data-toggle="modal" data-target=".aboutModal">About</a></li>
                         <!-- Contact E-Mail Link -->
                         <li><a href="mailto:admin@funsociety.club">Contact</a></li>
+                        <li><button type="button" class="btn btn-default navbar-btn sign-in">Sign in with Google</button></li>
+                        <li class="dropdown signed-in"><a href="#" class="dropdown-toggle signed-in
+                            " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target=".yourScoresModal">View Your Scores</a></li>
+                                <li class="sign-out"><a href="#">Sign out</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -179,7 +187,8 @@
                         <h5 class="modal-title">What is Fun Society?</h5>
                     </div>
                     <div class="modal-body text-center">
-                        <p><strong>Fun Society</strong> is an escape from the everyday world.<br />An oasis where you can enjoy the diversions in life.</p>
+                        <p><strong>Fun Society</strong> is an escape from the everyday world.
+                            <br />An oasis where you can enjoy the diversions in life.</p>
                         <p>Take a break. Play some games with us!</p>
                         <p>Be sure to revisit every week when scores and quizes are reset and new challenges await.</p>
                     </div>
