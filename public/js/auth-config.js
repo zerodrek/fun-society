@@ -72,12 +72,14 @@ function onAuthStateChanged(user) {
         // User is signed in.
         currentUser = firebase.auth().currentUser;
         userId = user.uid;
+        signedIn = true;
         $('.sign-in').remove();
         $('.site-nav').append($usrSignOut);
         $('.user').html(user.displayName);
         updateUsername(user.uid, user.displayName);
     } else {
         // No user is signed in.
+        signedIn = false;
         $('.signed-in').remove();
         $('.site-nav').append($usrSignIn);
     }

@@ -19,7 +19,7 @@ $(document).ready(function() {
             snapshot.forEach(function(childSnapshot) {
                 var usr = childSnapshot.val();
                 // Current User Scores Array Push
-                if (currentUser.displayName === usr.name) {
+                if (signedIn && currentUser.displayName === usr.name) {
                     userScoresArray.push({
                         usrTvScore: usr.tvScore,
                         usrMvScore: usr.mvScore,
@@ -67,7 +67,9 @@ $(document).ready(function() {
              * Add each score into the associated table.
              */
             // Current User Scores
+            if (signedIn) {
                 $(".user-scores > tbody").append("<td>" + userScoresArray[0].usrTvScore + "</td><td>" + userScoresArray[0].usrMvScore + "</td><td>" + userScoresArray[0].usrGmScore + "</td><td>" + userScoresArray[0].usrMuScore + "</td>");
+            }
             //Televsion
             for (var t = 0; t < globalTvScoresArray.length; t++) {
                 $(".tv-scores > tbody").append("<tr><th>" + tvRank + "</th><td>" + globalTvScoresArray[t].name + "</td><td>" + globalTvScoresArray[t].score + "</td>");
