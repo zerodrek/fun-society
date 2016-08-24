@@ -1,12 +1,4 @@
 $(document).ready(function() {
-    // VARIABLES
-    // -----------------------------------------------------------------------
-    /**
-     * Set up refs for Database endpoints.
-     */
-    // var db = firebase.database();
-    // var userRef = db.ref('users/');
-
     // FUNCTIONS
     // -----------------------------------------------------------------------
     /**
