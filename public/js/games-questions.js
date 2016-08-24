@@ -72,7 +72,6 @@ function displayAnswer() {
         $('.gif').attr('src', gif);
         $.ajax({
             url: availableQuestions[5].question.game,
-            dataType: 'jsonp',
             method: 'GET',
         }).done(function(response) {
             $('.game-info').html("<p>" + response.plot + "</p><p>" + response.gameplay + "</p><p>" + response.levels + "</p>");
@@ -83,7 +82,6 @@ function displayAnswer() {
         $('.gif').attr('src', gif);
         $.ajax({
             url: availableQuestions[4].question.game,
-            dataType: 'jsonp',
             method: 'GET',
         }).done(function(response) {
             $('.game-info').html("<p>" + response.plot + "</p><p>" + response.gameplay + "</p><p>" + response.levels + "</p>");
@@ -94,7 +92,6 @@ function displayAnswer() {
         $('.gif').attr('src', gif);
         $.ajax({
             url: availableQuestions[3].question.game,
-            dataType: 'jsonp',
             method: 'GET',
         }).done(function(response) {
             $('.game-info').html("<p>" + response.plot + "</p><p>" + response.gameplay + "</p><p>" + response.levels + "</p>");
@@ -105,7 +102,6 @@ function displayAnswer() {
         $('.gif').attr('src', gif);
         $.ajax({
             url: availableQuestions[2].question.game,
-            dataType: 'jsonp',
             method: 'GET',
         }).done(function(response) {
             $('.game-info').html("<p>" + response.plot + "</p><p>" + response.gameplay + "</p><p>" + response.levels + "</p>");
@@ -116,7 +112,6 @@ function displayAnswer() {
         $('.gif').attr('src', gif);
         $.ajax({
             url: availableQuestions[1].question.game,
-            dataType: 'jsonp',
             method: 'GET',
         }).done(function(response) {
             $('.game-info').html("<p>" + response.plot + "</p><p>" + response.gameplay + "</p><p>" + response.levels + "</p>");
@@ -127,7 +122,6 @@ function displayAnswer() {
         $('.gif').attr('src', gif);
         $.ajax({
             url: availableQuestions[0].question.game,
-            dataType: 'jsonp',
             method: 'GET'
         }).done(function(response) {
             $('.game-info').html("<p>" + response.plot + "</p><p>" + response.gameplay + "</p><p>" + response.levels + "</p>");
