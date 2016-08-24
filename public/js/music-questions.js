@@ -65,8 +65,8 @@ new Quiz(questions);
  * Display correct answer.
  */
 function displayAnswer() {
-    $('.game-display').hide();
-    $('.answer').show();
+    $('.game-display').addClass('hide');
+    $('.answer').removeClass('hide');
     if (answeredQuestions === 6) {
         gif = availableQuestions[5].question.gif;
         $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);

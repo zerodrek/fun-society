@@ -69,8 +69,8 @@ $(document).ready(function() {
         questionTimer();
         resetAnswerTimer();
         $('.countdown').html('Time Remaining: 30 seconds');
-        $('.answer').hide();
-        $('.game-display').show();
+        $('.answer').addClass('hide');
+        $('.game-display').removeClass('hide');
         if (answeredQuestions === 6) {
             displayResults();
         } else if (answeredQuestions === 5) {
@@ -141,8 +141,8 @@ $(document).ready(function() {
             $('.re-start').prepend('<h4>Log in if you would like to save your scores</h4>');
         }
         $('.game-display').hide();
-        $('.answer').hide();
-        $('.results').show();
+        $('.answer').addClass('hide');
+        $('.results').removeClass('hide');
         $('.outro').html("All done, here's how you did!");
         $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}<br /><br /> <strong>Your Score</strong>: <strong>${score}</strong>`);
     }
@@ -171,9 +171,10 @@ $(document).ready(function() {
         }
 
         $('.choice').remove();
-        $('.answer').hide();
-        $('.results').hide();
-        $('.game-display').show();
+        $('.answer').addClass('hide');
+        $('.results').addClass('hide');
+        // $('.results').addClass('hide');
+        $('.game-display').removeClass('hide');
         nextQuestion();
     }
     /**
