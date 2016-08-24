@@ -12,7 +12,7 @@ let questions = [{
     question: {
         text: 'Who is Mario\'s dinosaur friend?',
         gif: "https://media.giphy.com/media/zJzQ8FyIbY8Y8/giphy.gif",
-        game: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/3105?fields=name%2Crelease_dates.date%2Crating%2Csummary&limit=10&offset=0&order=release_dates.date%3asce&search=super-mario-world',
+        game: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/1070?fields=name%2Crelease_dates.date%2Crating%2Csummary&limit=10&offset=0&order=release_dates.date%3asce&search=super-mario-world',
         answers: ['Rex', 'Luigi', 'Toshi', 'Yoshi'],
         correctAnswer: 'Yoshi'
     },
