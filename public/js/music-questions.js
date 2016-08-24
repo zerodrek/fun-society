@@ -75,7 +75,7 @@ function displayAnswer() {
             url: availableQuestions[5].question.bio,
             method: 'GET'
         }).done(function(response) {
-            $('.music-info').html("<p>Biography:" + response.artist.bio.summary + "</p>");
+            $('.music-info').html("<p>" + response.artist.bio.summary + "</p");
         });
     } else if (answeredQuestions === 5) {
         gif = availableQuestions[4].question.gif;
@@ -85,7 +85,7 @@ function displayAnswer() {
             url: availableQuestions[4].question.bio,
             method: 'GET'
         }).done(function(response) {
-            $('.music-info').html("<p>Biography:" + response.artist.bio.summary + "</p>");
+            $('.music-info').html("<p>" + response.artist.bio.summary + "</p");
         });
     } else if (answeredQuestions === 4) {
         gif = availableQuestions[3].question.gif;
@@ -95,7 +95,7 @@ function displayAnswer() {
             url: availableQuestions[3].question.bio,
             method: 'GET'
         }).done(function(response) {
-            $('.music-info').html("<p>Biography:" + response.artist.bio.summary + "</p>");
+            $('.music-info').html("<p>" + response.artist.bio.summary + "</p");
         });
     } else if (answeredQuestions === 3) {
         gif = availableQuestions[2].question.gif;
@@ -105,7 +105,7 @@ function displayAnswer() {
             url: availableQuestions[2].question.bio,
             method: 'GET'
         }).done(function(response) {
-            $('.music-info').html("<p>Biography:" + response.artist.bio.summary + "</p>");
+            $('.music-info').html("<p>" + response.artist.bio.summary + "</p");
         });
     } else if (answeredQuestions === 2) {
         gif = availableQuestions[1].question.gif;
@@ -115,7 +115,7 @@ function displayAnswer() {
             url: availableQuestions[1].question.bio,
             method: 'GET'
         }).done(function(response) {
-            $('.music-info').html("<p>Biography:" + response.artist.bio.summary + "</p>");
+            $('.music-info').html("<p>" + response.artist.bio.summary + "</p");
         });
     } else if (answeredQuestions === 1) {
         gif = availableQuestions[0].question.gif;
@@ -125,8 +125,8 @@ function displayAnswer() {
             url: availableQuestions[0].question.bio,
             method: 'GET'
         }).done(function(response) {
-            $('.music-info').html(response.artist.bio.summary);
-            console.log("BIO",response.artist.bio.summary);
+            $('.music-info').html("<p>" + response.artist.bio.summary + "</p");
+            
         });
     }
 }
