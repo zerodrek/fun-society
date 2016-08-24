@@ -130,4 +130,14 @@ function displayAnswer() {
         });
     }
 }
+/**
+ * Calculate quiz points writes the user's data to the database.
+ */
 
+function setScore(userId, muScore) {
+    userRef.on("value", function(snapshot) {
+        firebase.database().ref('users/' + userId).update({
+            muScore: score
+        });
+    });
+}
