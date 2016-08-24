@@ -4,8 +4,8 @@ $(document).ready(function() {
     /**
      * Set up refs for Database endpoints.
      */
-    var db = firebase.database();
-    var userRef = db.ref('users/');
+    // var db = firebase.database();
+    // var userRef = db.ref('users/');
 
     // FUNCTIONS
     // -----------------------------------------------------------------------
@@ -143,8 +143,7 @@ $(document).ready(function() {
     function displayResults() {
         stopTimer();
         score = numRight*100;
-        console.log(score);
-        // setScore(user.uid, user.displayName, gmScore);
+        setScore(currentUser.uid, score);
         $('.game-display').hide();
         $('.answer').hide();
         $('.results').show();

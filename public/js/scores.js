@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-    var globalScoresRef = firebase.database().ref('users/');
     var userScoresArray = [];
     var globalTvScoresArray = [];
     var globalMvScoresArray = [];
@@ -16,7 +15,7 @@ $(document).ready(function() {
      * Sort Scores.
      */
     function sortScores() {
-        globalScoresRef.on("value", function(snapshot) {
+        userRef.on("value", function(snapshot) {
             snapshot.forEach(function(childSnapshot) {
                 var usr = childSnapshot.val();
                 // Current User Scores Array Push
@@ -77,7 +76,7 @@ $(document).ready(function() {
             // Movies
             for (var v = 0; v < globalTvScoresArray.length; v++) {
                 $(".mv-scores > tbody").append("<tr><th>" + mvRank + "</th><td>" + globalMvScoresArray[v].name + "</td><td>" + globalMvScoresArray[v].score + "</td>");
-                tvRank++;
+                mvRank++;
             }
             // Games
             for (var g = 0; g < globalGmScoresArray.length; g++) {
