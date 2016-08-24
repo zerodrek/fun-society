@@ -142,8 +142,13 @@ $(document).ready(function() {
      */
     function displayResults() {
         stopTimer();
-        score = numRight*100;
-        setScore(currentUser.uid, score);
+        score = numRight * 100;
+        if (signedIn) {
+            setScore(currentUser.uid, score);
+        } else {
+            console.log('Not Signed In');
+            $('.re-start').prepend('<h4>Log in if you would like to save your scores</h4>');
+        }
         $('.game-display').hide();
         $('.answer').hide();
         $('.results').show();
