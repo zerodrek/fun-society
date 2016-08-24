@@ -123,7 +123,6 @@ function displayAnswer() {
         });
     }
 }
-console.log(signedIn);
 /**
  * Calculate quiz points writes the user's data to the database.
  */
