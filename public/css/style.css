@@ -88,6 +88,9 @@ body> .container {
     -o-background-size: cover;
     background-size: cover;
 }
+.gif{
+    height: 250px;
+}
 .icons {
     margin: 0 auto;
     max-width: 150px;

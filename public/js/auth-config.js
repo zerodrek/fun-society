@@ -56,33 +56,37 @@ function updateUsername(UserId, name) {
     });
 }
 /**
- * User state.
+ * The ID of the currently signed-in User. Keep track of this to detect Auth state change events that are just programmatic token refresh but not a User status change.
  */
-var initAuth = function() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            currentUser = firebase.auth().currentUser;
-            userId = user.uid;
-            $('.sign-in').remove();
-            $('.site-nav').append($usrSignOut);
-            $('.user').html(user.displayName);
-            updateUsername(user.uid, user.displayName);
-        } else {
-            // No user is signed in.
-            $('.signed-in').remove();
-            $('.site-nav').append($usrSignIn);
-        }
-    }, function(error) {
-        console.log(error);
-    });
+var currentUID;
+/**
+ * Triggers every time there is a change in the Firebase auth state (i.e. user signed-in or user signed out).
+ */
+function onAuthStateChanged(user) {
+    // Ignore token refresh events.
+    if (user && currentUID === user.uid || !user && currentUID === null) {
+        return;
+    }
+    currentUID = user ? user.uid : null;
+    if (user) {
+        // User is signed in.
+        currentUser = firebase.auth().currentUser;
+        userId = user.uid;
+        $('.sign-in').remove();
+        $('.site-nav').append($usrSignOut);
+        $('.user').html(user.displayName);
+        updateUsername(user.uid, user.displayName);
+    } else {
+        // No user is signed in.
+        $('.signed-in').remove();
+        $('.site-nav').append($usrSignIn);
+    }
     /**
      * Auth buttons.
      */
     $(document).on("click", ".sign-in", signIn);
     $(document).on("click", ".sign-out", signOut);
-};
+}
 
-window.onload = function() {
-    initAuth();
-};
+// Listen for auth state changes
+firebase.auth().onAuthStateChanged(onAuthStateChanged);

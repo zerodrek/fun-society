@@ -4,8 +4,8 @@ $(document).ready(function() {
     /**
      * Set up refs for Database endpoints.
      */
-    var db = firebase.database();
-    var userRef = db.ref('users/');
+    // var db = firebase.database();
+    // var userRef = db.ref('users/');
 
     // FUNCTIONS
     // -----------------------------------------------------------------------
@@ -137,56 +137,18 @@ $(document).ready(function() {
             }
         }
     }
-    // /**
-    //  * Display correct answer.
-    //  */
-    // function displayAnswer() {
-    //     $('.game-display').hide();
-    //     $('.answer').show();
-    //     if (answeredQuestions === 6) {
-    //         url = availableQuestions[5].question.gif;
-    //         $('.correct-answer').html(`The answer is: ${availableQuestions[5].question.correctAnswer}`);
-    //         $('.gif').attr('src', url);
-    //     } else if (answeredQuestions === 5) {
-    //         url = availableQuestions[4].question.gif;
-    //         $('.correct-answer').html(`The answer is: ${availableQuestions[4].question.correctAnswer}`);
-    //         $('.gif').attr('src', url);
-    //     } else if (answeredQuestions === 4) {
-    //         url = availableQuestions[3].question.gif;
-    //         $('.correct-answer').html(`The answer is: ${availableQuestions[3].question.correctAnswer}`);
-    //         $('.gif').attr('src', url);
-    //     } else if (answeredQuestions === 3) {
-    //         url = availableQuestions[2].question.gif;
-    //         $('.correct-answer').html(`The answer is: ${availableQuestions[2].question.correctAnswer}`);
-    //         $('.gif').attr('src', url);
-    //     } else if (answeredQuestions === 2) {
-    //         gif = availableQuestions[1].question.gif;
-    //         $('.correct-answer').html(`The answer is: ${availableQuestions[1].question.correctAnswer}`);
-    //         $('.gif').attr('src', gif);
-    //     } else if (answeredQuestions === 1) {
-    //         url = availableQuestions[0].question.gif;
-    //         $('.correct-answer').html(`The answer is: ${availableQuestions[0].question.correctAnswer}`);
-    //         $('.gif').attr('src', url);
-    //         $.ajax({
-    //             url: availableQuestions[0].question.movie,
-    //             method: 'GET'
-    //         }).done(function(response) {
-    //             $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
-    //
-    //         });
-    //     }
-    // }
     /**
      * Display results.
      */
     function displayResults() {
         stopTimer();
-        // setScore(user.uid, user.displayName, gmScore);
+        score = numRight*100;
+        setScore(currentUser.uid, score);
         $('.game-display').hide();
         $('.answer').hide();
         $('.results').show();
         $('.outro').html("All done, here's how you did!");
-        $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}`);
+        $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}<br /><br /> <strong>Your Score</strong>: <strong>${score}</strong>`);
     }
 
     // PROCESSES
@@ -203,7 +165,7 @@ $(document).ready(function() {
         numWrong = 0;
         numUnanswered = 0;
         answeredQuestions = 0;
-        points = '';
+        score = '';
 
         // Shuffle questions.
         availableQuestions = shuffle(questions);
