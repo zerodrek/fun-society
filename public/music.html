@@ -33,20 +33,28 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right site-nav">
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Global High Scores <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class="television-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Television High Scores</a></li>
-                                <li class="movies-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Movies High Scores</a></li>
-                                <li class="games-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Games High Scores</a></li>
-                                <li class="music-scores"><a href="#" data-toggle="modal" data-target=".globalHighScoresModal">Music High Scores</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".globalTvHighScoresModal">Television High Scores</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".globalMvHighScoresModal">Movies High Scores</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".globalGmHighScoresModal">Games High Scores</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".globalMuHighScoresModal">Music High Scores</a></li>
                             </ul>
                         </li>
                         <!-- "About" Modal Trigger -->
                         <li><a class="about" href="#" data-toggle="modal" data-target=".aboutModal">About</a></li>
                         <!-- Contact E-Mail Link -->
                         <li><a href="mailto:admin@funsociety.club">Contact</a></li>
+                        <li><button type="button" class="btn btn-default navbar-btn sign-in">Sign in with Google</button></li>
+                        <li class="dropdown signed-in"><a href="#" class="dropdown-toggle signed-in
+                            " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="user"></span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target=".yourScoresModal">View Your Scores</a></li>
+                                <li class="sign-out"><a href="#">Sign out</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
