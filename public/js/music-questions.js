@@ -10,7 +10,7 @@ var questions = [{
         gif: "https://media.giphy.com/media/Bm5MTQwc1A1r2/giphy.gif",
         answers: ['Elivs', 'Michael Jackson', 'Janet Jackson', 'Elton John'],
         correctAnswer: 'Michael Jackson',
-        bio: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Michael Jackson&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
+        bio: 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Michael Jackson&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
     },
 }, {
     question: {
@@ -18,7 +18,7 @@ var questions = [{
         gif: "https://media.giphy.com/media/g6HBNoB9h9F6/giphy.gif",
         answers: ['Rock With You', 'Crazy Little Thing Called Love', 'Funkytown', 'Hotel California'],
         correctAnswer: 'Hotel California',
-        bio: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Eagles&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
+        bio: 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Eagles&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
 
     },
 }, {
@@ -27,7 +27,7 @@ var questions = [{
         gif: "https://media.giphy.com/media/yrmb9TgQlb18k/giphy.gif",
         answers: ['Frankie Valli', 'Ringo Starr', 'George Harrison', 'Paul McCartney'],
         correctAnswer: 'Frankie Valli',
-        bio: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Frankie Valli&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
+        bio: 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Frankie Valli&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
 
     },
 }, {
@@ -36,7 +36,7 @@ var questions = [{
         gif: "https://media.giphy.com/media/l0G16XkIw4S22ASZy/giphy.gif",
         answers: ['Metallica', 'ZZ Top', 'The Hollies', 'The Rolling Stones'],
         correctAnswer: 'ZZ Top',
-        bio: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=ZZ Top&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
+        bio: 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=ZZ Top&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
 
     },
 }, {
@@ -45,7 +45,7 @@ var questions = [{
         gif: "https://media.giphy.com/media/LuQbUJgMqqTV6/giphy.gif",
         answers: ['Bon Scott', 'Brian Johnson', 'Dave Evans', 'Malcom Young'],
         correctAnswer: 'Dave Evans',
-        bio: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=AC/DC&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
+        bio: 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=AC/DC&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
 
     },
 }, {
@@ -54,7 +54,7 @@ var questions = [{
         gif: "https://media.giphy.com/media/WKtwyvR2SNEJy/giphy.gif",
         answers: ['Michael Jackson', 'Prince', 'Justin Bieber', 'Justin Timberlake'],
         correctAnswer: 'Michael Jackson',
-        bio: 'http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Michael Jackson&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
+        bio: 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Michael Jackson&api_key=746f649188f3ff1c10c12aa285575d2a&format=json'
 
     },
 }];
