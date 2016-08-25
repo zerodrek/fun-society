@@ -4,7 +4,7 @@ function Quiz(questions) {
     return this;
 }
 // Create the questions for the game ---------------------------------------
-let questions = [{
+var questions = [{
     question: {
         text: 'On the show Breaking Bad, the main character is a teacher. What is he doing illegally?',
         gif: "https://media.giphy.com/media/7as8S0friUyvS/giphy.gif",

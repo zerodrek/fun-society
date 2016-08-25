@@ -4,7 +4,7 @@ function Quiz(questions) {
     return this;
 }
 // Create the questions for the game ---------------------------------------
-let questions = [{
+var questions = [{
     question: {
         text: 'Which of the following is a Stephen King movie about an inmate who escapes prison?',
         gif: "https://media.giphy.com/media/AWJy0ZcCJmILe/giphy.gif",

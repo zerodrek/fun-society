@@ -48,7 +48,7 @@ $(document).ready(function() {
     }
     // Fisher-Yates shuffle
     function shuffle(array) {
-        let m = array.length,
+        var m = array.length,
             t, i;
         // While there remain elements to shuffle…
         while (m) {

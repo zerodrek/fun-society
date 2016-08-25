@@ -8,7 +8,7 @@ function Quiz(questions) {
 /**
  * Create the questions for the quiz.
  */
-let questions = [{
+ var questions = [{
     question: {
         text: 'Who is Mario\'s dinosaur friend?',
         gif: "https://media.giphy.com/media/zJzQ8FyIbY8Y8/giphy.gif",

@@ -4,7 +4,7 @@ function Quiz(questions) {
     return this;
 }
 // Create the questions for the game ---------------------------------------
-let questions = [{
+var questions = [{
     question: {
         text: 'Who sings Pretty Young Thing?',
         gif: "https://media.giphy.com/media/Bm5MTQwc1A1r2/giphy.gif",
