@@ -29,7 +29,7 @@ $(document).ready(function() {
         }
         if (onQuestion === true) {
             questionTime--;
-            $('.countdown').html(`Time Remaining: ${questionTime} seconds`);
+            $('.countdown').html("Time Remaining: " + questionTime + " seconds");
         } else {
             answerTime--;
         }
@@ -65,7 +65,7 @@ $(document).ready(function() {
      * Switch to next available question based on number of questions answered.
      */
     function nextQuestion() {
-        console.log(index);
+        console.log(currentQuiz);
         onQuestion = true;
         questionTimer();
         resetAnswerTimer();
@@ -83,8 +83,76 @@ $(document).ready(function() {
                 j.text(availableQuestions[index].question.answers[i]);
                 $('.answers').append(j);
             }
+        }
+    }
+    /**
+     * Display correct answer.
+     */
+    function displayAnswer() {
+        $('.game-display').addClass('hide');
+        $('.answer').removeClass('hide');
+        if (answeredQuestions <= 6) {
+            gif = availableQuestions[index].question.gif;
+            $('.correct-answer').html("The answer is: " + availableQuestions[index].question.correctAnswer);
+            $('.gif').attr('src', gif);
+            if (currentQuiz === "television") {
+                $.ajax({
+                    url: availableQuestions[index].question.tv,
+                    method: 'GET'
+                }).done(function(response) {
+                    $('.tv-info').html("<p>Network : " + response.network + "</p><p>Rating: " + response.rating + "</p><p> Summary: " + response.overview + "</p>");
+                });
+            } else if (currentQuiz === "movies") {
+                $.ajax({
+                    url: availableQuestions[index].question.movie,
+                    method: 'GET'
+                }).done(function(response) {
+                    $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                });
+            } else if (currentQuiz === "games") {
+                $.ajax({
+                    url: availableQuestions[index].question.game,
+                    method: 'GET',
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('X-Mashape-Key', '7fk8Bw6PnJmsh0TjOdbPX40q0ABKp1PfPZKjsnLQXNUocj9RjW');
+                    }
+                }).done(function(response) {
+                    $('.game-info').html("<p>" + response[index].name + "</p><p>Release Date: " + moment(response[index].release_dates[index].date).format('l') + "</p><p>" + response[index].summary + "</p>");
+                });
+            } else if (currentQuiz === "music") {
+                $.ajax({
+                    url: availableQuestions[index].question.bio,
+                    method: 'GET'
+                }).done(function(response) {
+                    $('.music-info').html("<p>" + response.artist.bio.summary + "</p>");
+                });
+            }
             index++;
         }
+    }
+    /**
+     * Calculate quiz points writes the user's data to the database.
+     */
+    function setScore(userId, score) {
+        userRef.on("value", function(snapshot) {
+            if (currentQuiz === "television") {
+                firebase.database().ref('users/' + userId).update({
+                    tvScore: score
+                });
+            } else if (currentQuiz === "movies") {
+                firebase.database().ref('users/' + userId).update({
+                    mvScore: score
+                });
+            } else if (currentQuiz === "games") {
+                firebase.database().ref('users/' + userId).update({
+                    gmScore: score
+                });
+            } else if (currentQuiz === "music") {
+                firebase.database().ref('users/' + userId).update({
+                    muScore: score
+                });
+            }
+        });
     }
     /**
      * Display results.
@@ -101,7 +169,7 @@ $(document).ready(function() {
         $('.answer').addClass('hide');
         $('.results').removeClass('hide');
         $('.outro').html("All done, here's how you did!");
-        $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}<br /><br /> <strong>Your Score</strong>: <strong>${score}</strong>`);
+        $('.end-results').html("Correct Answers: " + numRight + "<br />Incorrect Answers: " + numWrong + "<br />Unanswered: " + numUnanswered + "<br /><br /> <strong>Your Score</strong>: <strong>" + score + "</strong>");
     }
 
     // PROCESSES
@@ -127,7 +195,6 @@ $(document).ready(function() {
         for (let i = 0; i < availableQuestions.length; i++) {
             shuffle(availableQuestions[i].question.answers);
         }
-        console.log(availableQuestions);
         $('.choice').remove();
         $('.answer').addClass('hide');
         $('.results').addClass('hide');
