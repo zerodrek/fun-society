@@ -52,7 +52,7 @@ var questions = [{
         answers: ['He is a fraud', 'He owes someone a lot of money', 'He\'s a spay for another firm', 'He is secretly dating Jessica'],
         correctAnswer: 'He is a fraud'
     },
-}]
+}];
 
 new Quiz(questions);
 /**
