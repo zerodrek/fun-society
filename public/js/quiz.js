@@ -141,7 +141,8 @@ $(document).ready(function() {
                     url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=crying',
                     method: 'GET'
                 }).done(function(response) {
-                    $('.answer-API').html('<img class="img-responsive" src="'+response.data.fixed_height_downsampled_url+'" />');
+                    console.log(response);
+                    $('.answer-info').html('<img class="img-responsive" src="'+response.data.fixed_height_downsampled_url+'" />');
                 });
             }
         }
