@@ -124,7 +124,9 @@ $(document).ready(function() {
                         url: availableQuestions[index].question.bio,
                         method: 'GET'
                     }).done(function(response) {
-                        $('.music-info').html("<p>" + response.profile + "</p>");
+                        shortBio = response.profile.substring(0, 600);
+                        $('.music-info').html('<h4 class="info">Artist/Band Name: '+response.name+'</h4><p>' + shortBio + '</p>');
+                        $('.music-info > p').append(' <a href="'+response.uri+'" target="_blank">Read more...</a>');
                     });
                 }
                 index++;
