@@ -40,7 +40,11 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
+<<<<<<< HEAD
         answerTime = 20;
+=======
+        answerTime = 120;
+>>>>>>> master
     }
 
     function stopTimer() {
@@ -91,42 +95,51 @@ $(document).ready(function() {
         $('.game-display').addClass('hide');
         $('.answer').removeClass('hide');
         if (answeredQuestions <= 6) {
-            gif = availableQuestions[index].question.gif;
-            $('.correct-answer').html("The answer is: " + availableQuestions[index].question.correctAnswer);
-            $('.gif').attr('src', gif);
-            if (currentQuiz === "television") {
+            if (correct) {
+                gif = availableQuestions[index].question.gif;
+                $('.correct-answer').html("The answer is: " + availableQuestions[index].question.correctAnswer);
+                $('.gif').attr('src', gif);
+                if (currentQuiz === "television") {
+                    $.ajax({
+                        url: availableQuestions[index].question.tv,
+                        method: 'GET'
+                    }).done(function(response) {
+                        $('.tv-info').html("<p>Network : " + response.network + "</p><p>Rating: " + response.rating + "</p><p> Summary: " + response.overview + "</p>");
+                    });
+                } else if (currentQuiz === "movies") {
+                    $.ajax({
+                        url: availableQuestions[index].question.movie,
+                        method: 'GET'
+                    }).done(function(response) {
+                        $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                    });
+                } else if (currentQuiz === "games") {
+                    $.ajax({
+                        url: availableQuestions[index].question.game,
+                        method: 'GET',
+                        beforeSend: function(xhr) {
+                            xhr.setRequestHeader('X-Mashape-Key', '7fk8Bw6PnJmsh0TjOdbPX40q0ABKp1PfPZKjsnLQXNUocj9RjW');
+                        }
+                    }).done(function(response) {
+                        $('.game-info').html("<p>" + response[0].name + "</p><p>Year Released: " + moment(response[0].release_dates[0].date).format('YYYY') + "</p><p>" + response[0].summary + "</p>");
+                    });
+                } else if (currentQuiz === "music") {
+                    $.ajax({
+                        url: availableQuestions[index].question.bio,
+                        method: 'GET'
+                    }).done(function(response) {
+                        $('.music-info').html("<p>" + response.profile + "</p>");
+                    });
+                }
+                index++;
+            } else {
                 $.ajax({
-                    url: availableQuestions[index].question.tv,
+                    url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=crying',
                     method: 'GET'
                 }).done(function(response) {
-                    $('.tv-info').html("<p>Network : " + response.network + "</p><p>Rating: " + response.rating + "</p><p> Summary: " + response.overview + "</p>");
-                });
-            } else if (currentQuiz === "movies") {
-                $.ajax({
-                    url: availableQuestions[index].question.movie,
-                    method: 'GET'
-                }).done(function(response) {
-                    $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
-                });
-            } else if (currentQuiz === "games") {
-                $.ajax({
-                    url: availableQuestions[index].question.game,
-                    method: 'GET',
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader('X-Mashape-Key', '7fk8Bw6PnJmsh0TjOdbPX40q0ABKp1PfPZKjsnLQXNUocj9RjW');
-                    }
-                }).done(function(response) {
-                    $('.game-info').html("<p>" + response[0].name + "</p><p>Release Date: " + moment(response[0].release_dates[0].date).format('l') + "</p><p>" + response[0].summary + "</p>");
-                });
-            } else if (currentQuiz === "music") {
-                $.ajax({
-                    url: availableQuestions[index].question.bio,
-                    method: 'GET'
-                }).done(function(response) {
-                    $('.music-info').html("<p>" + response.profile + "</p>");
+                    $('.answer-API').html('<img class="img-responsive" src="'+response.data.fixed_height_downsampled_url+'" />');
                 });
             }
-            index++;
         }
     }
     /**
@@ -178,9 +191,14 @@ $(document).ready(function() {
      */
     function startQuiz() {
         questionTime = 30;
+<<<<<<< HEAD
         answerTime = 20;
+=======
+        answerTime = 120;
+>>>>>>> master
         counter = '';
         onQuestion = false;
+        correct = false;
         numRight = 0;
         numWrong = 0;
         numUnanswered = 0;
@@ -209,9 +227,11 @@ $(document).ready(function() {
         $('.choice').remove();
         answeredQuestions++;
         if (this.innerHTML === answer) {
+            correct = true;
             numRight++;
             $('.decision').html("That's right!");
         } else {
+            correct = false;
             numWrong++;
             $('.decision').html("Sorry, that's incorrect. :(");
         }
