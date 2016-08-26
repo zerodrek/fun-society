@@ -29,7 +29,7 @@ $(document).ready(function() {
         }
         if (onQuestion === true) {
             questionTime--;
-            $('.countdown').html(`Time Remaining: ${questionTime} seconds`);
+            $('.countdown').html("Time Remaining: " + questionTime + " seconds");
         } else {
             answerTime--;
         }
@@ -73,61 +73,85 @@ $(document).ready(function() {
         $('.game-display').removeClass('hide');
         if (answeredQuestions === 6) {
             displayResults();
-        } else if (answeredQuestions === 5) {
-            $('.question-text').html(availableQuestions[5].question.text);
-            answer = availableQuestions[5].question.correctAnswer;
-            for (let i = 0; i < availableQuestions[5].question.answers.length; i++) {
-                j = $('<button>');
-                j.addClass('btn btn-md btn-default btn-block choice');
-                j.text(availableQuestions[5].question.answers[i]);
-                $('.answers').append(j);
-            }
-        } else if (answeredQuestions === 4) {
-            $('.question-text').html(availableQuestions[4].question.text);
-            answer = availableQuestions[4].question.correctAnswer;
-            for (let i = 0; i < availableQuestions[4].question.answers.length; i++) {
-                j = $('<button>');
-                j.addClass('btn btn-md btn-default btn-block choice');
-                j.text(availableQuestions[4].question.answers[i]);
-                $('.answers').append(j);
-            }
-        } else if (answeredQuestions === 3) {
-            $('.question-text').html(availableQuestions[3].question.text);
-            answer = availableQuestions[3].question.correctAnswer;
-            for (let i = 0; i < availableQuestions[3].question.answers.length; i++) {
-                j = $('<button>');
-                j.addClass('btn btn-md btn-default btn-block choice');
-                j.text(availableQuestions[3].question.answers[i]);
-                $('.answers').append(j);
-            }
-        } else if (answeredQuestions === 2) {
-            $('.question-text').html(availableQuestions[2].question.text);
-            answer = availableQuestions[2].question.correctAnswer;
-            for (let i = 0; i < availableQuestions[2].question.answers.length; i++) {
-                j = $('<button>');
-                j.addClass('btn btn-md btn-default btn-block choice');
-                j.text(availableQuestions[2].question.answers[i]);
-                $('.answers').append(j);
-            }
-        } else if (answeredQuestions === 1) {
-            $('.question-text').html(availableQuestions[1].question.text);
-            answer = availableQuestions[1].question.correctAnswer;
-            for (let i = 0; i < availableQuestions[1].question.answers.length; i++) {
-                j = $('<button>');
-                j.addClass('btn btn-md btn-default btn-block choice');
-                j.text(availableQuestions[1].question.answers[i]);
-                $('.answers').append(j);
-            }
         } else {
-            $('.question-text').html(availableQuestions[0].question.text);
-            answer = availableQuestions[0].question.correctAnswer;
-            for (let i = 0; i < availableQuestions[0].question.answers.length; i++) {
+            $('.question-text').html(availableQuestions[index].question.text);
+            answer = availableQuestions[index].question.correctAnswer;
+            for (var i = 0; i < availableQuestions[index].question.answers.length; i++) {
                 j = $('<button>');
                 j.addClass('btn btn-md btn-default btn-block choice');
-                j.text(availableQuestions[0].question.answers[i]);
+                j.text(availableQuestions[index].question.answers[i]);
                 $('.answers').append(j);
             }
         }
+    }
+    /**
+     * Display correct answer.
+     */
+    function displayAnswer() {
+        $('.game-display').addClass('hide');
+        $('.answer').removeClass('hide');
+        if (answeredQuestions <= 6) {
+            gif = availableQuestions[index].question.gif;
+            $('.correct-answer').html("The answer is: " + availableQuestions[index].question.correctAnswer);
+            $('.gif').attr('src', gif);
+            if (currentQuiz === "television") {
+                $.ajax({
+                    url: availableQuestions[index].question.tv,
+                    method: 'GET'
+                }).done(function(response) {
+                    $('.tv-info').html("<p>Network : " + response.network + "</p><p>Rating: " + response.rating + "</p><p> Summary: " + response.overview + "</p>");
+                });
+            } else if (currentQuiz === "movies") {
+                $.ajax({
+                    url: availableQuestions[index].question.movie,
+                    method: 'GET'
+                }).done(function(response) {
+                    $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                });
+            } else if (currentQuiz === "games") {
+                $.ajax({
+                    url: availableQuestions[index].question.game,
+                    method: 'GET',
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('X-Mashape-Key', '7fk8Bw6PnJmsh0TjOdbPX40q0ABKp1PfPZKjsnLQXNUocj9RjW');
+                    }
+                }).done(function(response) {
+                    $('.game-info').html("<p>" + response[0].name + "</p><p>Release Date: " + moment(response[0].release_dates[0].date).format('l') + "</p><p>" + response[0].summary + "</p>");
+                });
+            } else if (currentQuiz === "music") {
+                $.ajax({
+                    url: availableQuestions[index].question.bio,
+                    method: 'GET'
+                }).done(function(response) {
+                    $('.music-info').html("<p>" + response.profile + "</p>");
+                });
+            }
+            index++;
+        }
+    }
+    /**
+     * Calculate quiz points writes the user's data to the database.
+     */
+    function setScore(userId, score) {
+        userRef.on("value", function(snapshot) {
+            if (currentQuiz === "television") {
+                firebase.database().ref('users/' + userId).update({
+                    tvScore: score
+                });
+            } else if (currentQuiz === "movies") {
+                firebase.database().ref('users/' + userId).update({
+                    mvScore: score
+                });
+            } else if (currentQuiz === "games") {
+                firebase.database().ref('users/' + userId).update({
+                    gmScore: score
+                });
+            } else if (currentQuiz === "music") {
+                firebase.database().ref('users/' + userId).update({
+                    muScore: score
+                });
+            }
+        });
     }
     /**
      * Display results.
@@ -144,7 +168,7 @@ $(document).ready(function() {
         $('.answer').addClass('hide');
         $('.results').removeClass('hide');
         $('.outro').html("All done, here's how you did!");
-        $('.end-results').html(`Correct Answers: ${numRight}<br />Incorrect Answers: ${numWrong}<br />Unanswered: ${numUnanswered}<br /><br /> <strong>Your Score</strong>: <strong>${score}</strong>`);
+        $('.end-results').html("Correct Answers: " + numRight + "<br />Incorrect Answers: " + numWrong + "<br />Unanswered: " + numUnanswered + "<br /><br /> <strong>Your Score</strong>: <strong>" + score + "</strong>");
     }
 
     // PROCESSES
@@ -164,12 +188,12 @@ $(document).ready(function() {
         score = '';
 
         // Shuffle questions.
+        index = 0;
         availableQuestions = shuffle(questions);
         // Shuffle question's answers.
         for (let i = 0; i < availableQuestions.length; i++) {
             shuffle(availableQuestions[i].question.answers);
         }
-
         $('.choice').remove();
         $('.answer').addClass('hide');
         $('.results').addClass('hide');
