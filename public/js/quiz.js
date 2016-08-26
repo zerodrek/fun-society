@@ -65,7 +65,6 @@ $(document).ready(function() {
      * Switch to next available question based on number of questions answered.
      */
     function nextQuestion() {
-        console.log(currentQuiz);
         onQuestion = true;
         questionTimer();
         resetAnswerTimer();
@@ -117,14 +116,14 @@ $(document).ready(function() {
                         xhr.setRequestHeader('X-Mashape-Key', '7fk8Bw6PnJmsh0TjOdbPX40q0ABKp1PfPZKjsnLQXNUocj9RjW');
                     }
                 }).done(function(response) {
-                    $('.game-info').html("<p>" + response[index].name + "</p><p>Release Date: " + moment(response[index].release_dates[index].date).format('l') + "</p><p>" + response[index].summary + "</p>");
+                    $('.game-info').html("<p>" + response[0].name + "</p><p>Release Date: " + moment(response[0].release_dates[0].date).format('l') + "</p><p>" + response[0].summary + "</p>");
                 });
             } else if (currentQuiz === "music") {
                 $.ajax({
                     url: availableQuestions[index].question.bio,
                     method: 'GET'
                 }).done(function(response) {
-                    $('.music-info').html("<p>" + response.artist.bio.summary + "</p>");
+                    $('.music-info').html("<p>" + response.profile + "</p>");
                 });
             }
             index++;
