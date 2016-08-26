@@ -30,6 +30,10 @@ body > .container {
 .jumbotron p {
     font-size: 16px;
 }
+h4 {
+    margin-top: 0;
+    text-align: center;
+}
 .footer {
     position: absolute;
     bottom: 0;
@@ -140,6 +144,9 @@ th, td {
 }
 .answer-API {
     padding-top: 40px;
+}
+.spotify {
+    max-width: 125px;
 }
 .h1-results {
     padding-top: 20px;
