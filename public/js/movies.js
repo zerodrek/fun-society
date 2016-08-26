@@ -39,7 +39,7 @@ function Quiz(questions) {
     },
 }, {
     question: {
-        text: 'Who is Luke\'s father in Star Wars?',
+        text: 'Who is Luke\'s Skywalker\'s father?',
         gif: "https://media.giphy.com/media/fInzUrMIM5Pm8/giphy.gif",
         movie: "https://www.omdbapi.com/?t=star-wars&y=&plot=short&r=json",
         answers: ['Darth Vader', 'Han Solo', 'Darth Sidious', 'Obi Wan'],
@@ -47,7 +47,7 @@ function Quiz(questions) {
     },
 }, {
     question: {
-        text: 'Which car do they use in Back to the Future?',
+        text: 'What car does Doc and Marty use in Back to the Future?',
         gif: "https://media.giphy.com/media/B7nzZml6q1Oh2/giphy.gif",
         movie: "https://www.omdbapi.com/?t=back-to-the-future&y=&plot=short&r=json",
         answers: ['Thunderbird', 'Corvette', 'Mustang', 'DeLorean'],
@@ -59,7 +59,7 @@ function Quiz(questions) {
         gif: "https://media.giphy.com/media/8BmxE7qErN5nO/giphy.gif",
         movie: "https://www.omdbapi.com/?t=raiders-of-the-lost-ark&y=&plot=short&r=json",
         answers: ['Han Solo', 'Indiana Jones', 'Jack Ryan', 'Rick Deckard'],
-        correctAnswer: 'Indian Jones'
+        correctAnswer: 'Indiana Jones'
     },
 }];
 new Quiz(questions);

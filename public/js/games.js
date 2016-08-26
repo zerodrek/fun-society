@@ -39,7 +39,7 @@ function Quiz(questions) {
     },
 }, {
     question: {
-        text: 'In Zelda, who is Link\'s fairy companion?',
+        text: 'Who is Link\'s fairy companion?',
         gif: "https://media.giphy.com/media/MSCmj0qsPPTDq/giphy.gif",
         game: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/1026?fields=name%2Crelease_dates.date%2Crating%2Csummary&limit=10&offset=0&order=release_dates.date%3asce&search=zelda',
         answers: ['Siri', 'Alexa', 'Cortana', 'Navi'],
