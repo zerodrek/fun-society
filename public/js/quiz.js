@@ -40,11 +40,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-<<<<<<< HEAD
-        answerTime = 20;
-=======
         answerTime = 120;
->>>>>>> master
     }
 
     function stopTimer() {
@@ -191,11 +187,7 @@ $(document).ready(function() {
      */
     function startQuiz() {
         questionTime = 30;
-<<<<<<< HEAD
-        answerTime = 20;
-=======
         answerTime = 120;
->>>>>>> master
         counter = '';
         onQuestion = false;
         correct = false;
