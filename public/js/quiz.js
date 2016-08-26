@@ -18,7 +18,7 @@ $(document).ready(function() {
             $('.choice').remove();
             answeredQuestions++;
             numUnanswered++;
-            $('.decision').html("You took to long to answer." + );
+            $('.decision').html("You took to long to answer. :/");
             stopTimer();
             resetQuestionTimer();
             answerTimer();
