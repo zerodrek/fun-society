@@ -121,12 +121,18 @@ $(document).ready(function() {
                     });
                 } else if (currentQuiz === "music") {
                     $.ajax({
-                        url: availableQuestions[index].question.bio,
+                        url: availableQuestions[index].question.music,
                         method: 'GET'
-                    }).done(function(response) {
-                        shortBio = response.profile.substring(0, 600);
-                        $('.music-info').html('<h4 class="info">Artist/Band Name: '+response.name+'</h4><p>' + shortBio + '</p>');
-                        $('.music-info > p').append(' <a href="'+response.uri+'" target="_blank">Read more...</a>');
+                    }).then(function(response) {
+                        shortBio = response.profile.substring(0, 250);
+                        $('.music-info').html('<h4>Artist/Band Name: '+response.name+'</h4><p>' + shortBio + '</p>');
+                        $('.music-info > p').append(' <a class="discogs" href="'+response.uri+'" target="_blank">Read more...</a>');
+                    });
+                    $.ajax({
+                        url: availableQuestions[index].question.spot,
+                        method: 'GET'
+                    }).then(function(response) {
+                        $('.spotify-link').html('<a href="'+response.external_urls.spotify+'" target="_blank"><img class="img-responsive spotify" src="../img/icon-spotify.png" alt="Listen on Spotify"></a></img>');
                     });
                 }
                 index++;
@@ -135,7 +141,8 @@ $(document).ready(function() {
                     url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=crying',
                     method: 'GET'
                 }).done(function(response) {
-                    $('.answer-API').html('<img class="img-responsive" src="'+response.data.fixed_height_downsampled_url+'" />');
+                    console.log(response);
+                    $('.answer-info').html('<img class="img-responsive" src="'+response.data.fixed_height_downsampled_url+'" />');
                 });
             }
         }

@@ -19,7 +19,8 @@ var questions = [{
         gif: "https://media.giphy.com/media/TK39HMqxwtpSg/giphy.gif",
         answers: ['Robert Trujillo', 'Jason Newsted', 'Dave Mustaine', 'Cliff Burton'],
         correctAnswer: 'Cliff Burton',
-        bio: 'https://api.discogs.com/artists/18839'
+        music: 'https://api.discogs.com/artists/18839',
+        spot: 'https://api.spotify.com/v1/artists/2ye2Wgw4gimLv2eAKyk1NB'
     },
 }, {
     question: {
@@ -27,7 +28,8 @@ var questions = [{
         gif: "https://media.giphy.com/media/g6HBNoB9h9F6/giphy.gif",
         answers: ['Rock With You', 'Crazy Little Thing Called Love', 'Funkytown', 'Hotel California'],
         correctAnswer: 'Hotel California',
-        bio: 'https://api.discogs.com/artists/255680'
+        music: 'https://api.discogs.com/artists/255680',
+        spot: 'https://api.spotify.com/v1/artists/0ECwFtbIWEVNwjlrfc6xoL'
 
     },
 }, {
@@ -36,7 +38,8 @@ var questions = [{
         gif: "https://media.giphy.com/media/yrmb9TgQlb18k/giphy.gif",
         answers: ['Frankie Valli', 'Ringo Starr', 'George Harrison', 'Paul McCartney'],
         correctAnswer: 'Frankie Valli',
-        bio: 'https://api.discogs.com/artists/82730'
+        music: 'https://api.discogs.com/artists/82730',
+        spot: 'https://api.spotify.com/v1/artists/3WrFJ7ztbogyGnTHbHJFl2'
 
     },
 }, {
@@ -45,7 +48,8 @@ var questions = [{
         gif: "https://media.giphy.com/media/l0G16XkIw4S22ASZy/giphy.gif",
         answers: ['Metallica', 'ZZ Top', 'The Hollies', 'The Rolling Stones'],
         correctAnswer: 'ZZ Top',
-        bio: 'https://api.discogs.com/artists/113655'
+        music: 'https://api.discogs.com/artists/113655',
+        spot: 'https://api.spotify.com/v1/artists/2AM4ilv6UzW0uMRuqKtDgN'
 
     },
 }, {
@@ -54,7 +58,8 @@ var questions = [{
         gif: "https://media.giphy.com/media/LuQbUJgMqqTV6/giphy.gif",
         answers: ['Bon Scott', 'Brian Johnson', 'Dave Evans', 'Malcom Young'],
         correctAnswer: 'Dave Evans',
-        bio: 'https://api.discogs.com/artists/84752'
+        music: 'https://api.discogs.com/artists/84752',
+        spot: 'https://api.spotify.com/v1/artists/711MCceyCBcFnzjGY4Q7Un'
 
     },
 }, {
@@ -63,7 +68,8 @@ var questions = [{
         gif: "https://media.giphy.com/media/WKtwyvR2SNEJy/giphy.gif",
         answers: ['Michael Jackson', 'Prince', 'Justin Bieber', 'Justin Timberlake'],
         correctAnswer: 'Michael Jackson',
-        bio: 'https://api.discogs.com/artists/15885'
+        music: 'https://api.discogs.com/artists/15885',
+        spot: 'https://api.spotify.com/v1/artists/3fMbdgg4jU18AjLCKBhRSm'
 
     },
 }];
