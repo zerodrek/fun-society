@@ -19,7 +19,7 @@ $(document).ready(function() {
             answeredQuestions++;
             numUnanswered++;
             $('.decision').html("You took to long to answer.  ");
-            $('.decision').append('<img class="reaction" src="http://emojipedia-us.s3.amazonaws.com/cache/9e/18/9e18d26e9d7129752e1428f33903a7ab.png" alt="Disappointed">');
+            $('.decision').append('<img class="reaction" src="https://emojipedia-us.s3.amazonaws.com/cache/9e/18/9e18d26e9d7129752e1428f33903a7ab.png" alt="Disappointed">');
             stopTimer();
             resetQuestionTimer();
             answerTimer();
@@ -145,7 +145,7 @@ $(document).ready(function() {
                 index++;
             } else {
                 $.ajax({
-                    url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=crying',
+                    url: 'https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=crying',
                     method: 'GET'
                 }).done(function(response) {
                     console.log(response);
@@ -238,12 +238,12 @@ $(document).ready(function() {
             correct = true;
             numRight++;
             $('.decision').html("That's right!  ");
-            $('.decision').append('<img class="reaction" src="http://emojipedia-us.s3.amazonaws.com/cache/e3/0d/e30d81886e8f990ff4bf775a0c157155.png" alt="cool">');
+            $('.decision').append('<img class="reaction" src="https://emojipedia-us.s3.amazonaws.com/cache/e3/0d/e30d81886e8f990ff4bf775a0c157155.png" alt="cool">');
         } else {
             correct = false;
             numWrong++;
             $('.decision').html("Sorry, that's incorrect.  ");
-            $('.decision').append('<img class="reaction" src="http://emojipedia-us.s3.amazonaws.com/cache/53/07/530796818fd9042a5d17364ea2210ba1.png" alt="crying">');
+            $('.decision').append('<img class="reaction" src="https://emojipedia-us.s3.amazonaws.com/cache/53/07/530796818fd9042a5d17364ea2210ba1.png" alt="crying">');
         }
         stopTimer();
         resetQuestionTimer();
