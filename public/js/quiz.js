@@ -89,7 +89,6 @@ $(document).ready(function() {
      * Display correct answer.
      */
     function displayAnswer() {
-        index++;
         $('.game-display').addClass('hide');
         $('.answer').removeClass('hide');
         if (answeredQuestions <= 6) {
@@ -102,18 +101,18 @@ $(document).ready(function() {
                         url: availableQuestions[index].question.tv,
                         method: 'GET'
                     }).done(function(response) {
-                        shortOver = response.Plot.substring(0,275);
+                        shortOver = response.Plot.substring(0, 275);
                         $('.tv-info').html("<h4>Television Rating : " + response.Rated + "</h4><h5>IMDB Rating: " + response.imdbRating + "</h5><p>" + shortOver + "</p>");
-                        $('.tv-info > p').append(' <a href="https://www.imdb.com/title/'+response.imdbID+'" target="_blank">Read more...</a>');
+                        $('.tv-info > p').append(' <a href="https://www.imdb.com/title/' + response.imdbID + '" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "movies") {
                     $.ajax({
                         url: availableQuestions[index].question.movie,
                         method: 'GET'
                     }).done(function(response) {
-                        shortOver = response.Plot.substring(0,275);
+                        shortOver = response.Plot.substring(0, 275);
                         $('.movie-info').html("<h4>Rating: " + response.Rated + "</h4><h5>IMDB Rating: " + response.imdbRating + "</h5><p>" + response.Plot + "</p>");
-                        $('.movie-info > p').append(' <a href="https://www.imdb.com/title/'+response.imdbID+'" target="_blank">Read more...</a>');
+                        $('.movie-info > p').append(' <a href="https://www.imdb.com/title/' + response.imdbID + '" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "games") {
                     $.ajax({
@@ -123,9 +122,9 @@ $(document).ready(function() {
                             xhr.setRequestHeader('X-Mashape-Key', '7fk8Bw6PnJmsh0TjOdbPX40q0ABKp1PfPZKjsnLQXNUocj9RjW');
                         }
                     }).done(function(response) {
-                        shortSum = response[0].summary.substring(0,275);
+                        shortSum = response[0].summary.substring(0, 275);
                         $('.game-info').html("<h4>Game: " + response[0].name + "</h4><h5>Year Released: " + moment(response[0].release_dates[0].date).format('YYYY') + "</h5><p>" + shortSum + "</p>");
-                        $('.game-info > p').append(' <a href="https://www.igdb.com/games/'+availableQuestions[index-1].question.name+'" target="_blank">Read more...</a>');
+                        $('.game-info > p').append(' <a href="https://www.igdb.com/games/' + availableQuestions[index - 1].question.name + '" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "music") {
                     $.ajax({
@@ -133,14 +132,14 @@ $(document).ready(function() {
                         method: 'GET'
                     }).then(function(response) {
                         shortBio = response.profile.substring(0, 250);
-                        $('.music-info').html('<h4>Artist/Band Name: ' + response.name + '</h4><p>' + shortBio + '</p>') ;
-                        $('.music-info > p').append(' <a href="'+response.uri+'" target="_blank">Read more...</a>');
+                        $('.music-info').html('<h4>Artist/Band Name: ' + response.name + '</h4><p>' + shortBio + '</p>');
+                        $('.music-info > p').append(' <a href="' + response.uri + '" target="_blank">Read more...</a>');
                     });
                     $.ajax({
                         url: availableQuestions[index].question.spot,
                         method: 'GET'
                     }).then(function(response) {
-                        $('.spotify-link').html('<a href="'+response.external_urls.spotify+'" target="_blank"><img class="img-responsive spotify" src="../img/icon-spotify.png" alt="Listen on Spotify"></a></img>');
+                        $('.spotify-link').html('<a href="' + response.external_urls.spotify + '" target="_blank"><img class="img-responsive spotify" src="../img/icon-spotify.png" alt="Listen on Spotify"></a></img>');
                     });
                 }
             } else {
@@ -148,10 +147,11 @@ $(document).ready(function() {
                     url: 'https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=crying',
                     method: 'GET'
                 }).done(function(response) {
-                    $('.answer-info').html('<img class="img-responsive" src="'+response.data.fixed_height_downsampled_url+'" />');
+                    $('.answer-info').html('<img class="img-responsive" src="' + response.data.fixed_height_downsampled_url + '" />');
                 });
             }
         }
+        index++;
     }
     /**
      * Calculate quiz points writes the user's data to the database.
