@@ -10,6 +10,7 @@ $(document).ready(function() {
     var mvRank = 1;
     var gmRank = 1;
     var muRank = 1;
+    var iterator = 0;
 
     /**
      * Sort Scores.
