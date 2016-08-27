@@ -61,6 +61,122 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
+        <!-- "Global Television High Scores" Modal -->
+        <div class="modal fade globalTvHighScoresModal" tabindex="-1" role="dialog" aria-labelledby="globalTvHighScoresModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Television High Scores</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover tv-scores">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1">Rank</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- "Global Movies High Scores" Modal -->
+        <div class="modal fade globalMvHighScoresModal" tabindex="-1" role="dialog" aria-labelledby="globalMvHighScoresModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Movies High Scores</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover mv-scores">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1">Rank</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- "Global Games High Scores" Modal -->
+        <div class="modal fade globalGmHighScoresModal" tabindex="-1" role="dialog" aria-labelledby="globalGmHighScoresModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Games High Scores</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover gm-scores">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1">Rank</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- "Global Music High Scores" Modal -->
+        <div class="modal fade globalMuHighScoresModal" tabindex="-1" role="dialog" aria-labelledby="globalMuHighScoresModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Music High Scores</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover mu-scores">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1">Rank</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- "About" Modal -->
         <div class="modal fade aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal">
             <div class="modal-dialog" role="document">
@@ -88,17 +204,17 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h5 class="modal-title">Your Scores</h5>
+                        <h5 class="modal-title">Your Scores This Week</h5>
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                            <table class="table table-hover mu-scores">
+                            <table class="table table-hover user-scores">
                                 <thead>
                                     <tr>
-                                        <th>Television</th>
-                                        <th>Movies</th>
-                                        <th>Games</th>
-                                        <th>Music</th>
+                                        <th class="col-sm-3">Television</th>
+                                        <th class="col-sm-3">Movies</th>
+                                        <th class="col-sm-3">Games</th>
+                                        <th class="col-sm-3">Music</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -112,7 +228,7 @@
                 </div>
             </div>
         </div>
-        <!-- Game Quiz -->
+        <!-- Quiz Selection -->
         <div class="row">
             <div class="col-sm-12 ">
                 <div id="moviesPic"></div>
