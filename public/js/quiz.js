@@ -42,7 +42,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 1;
+        answerTime = 10;
     }
 
     function stopTimer() {
@@ -206,7 +206,7 @@ $(document).ready(function() {
      */
     function startQuiz() {
         questionTime = 30;
-        answerTime = 1;
+        answerTime = 10;
         counter = '';
         onQuestion = false;
         correct = false;
