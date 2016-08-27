@@ -42,7 +42,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 10;
+        answerTime = 1;
     }
 
     function stopTimer() {
@@ -192,7 +192,7 @@ $(document).ready(function() {
         } else {
             $('.re-start').prepend('<h4>Log in if you would like to save your scores</h4>');
         }
-        $('.game-display').hide();
+        $('.game-display').addClass('hide');
         $('.answer').addClass('hide');
         $('.results').removeClass('hide');
         $('.outro').html("All done, here's how you did!");
@@ -206,7 +206,7 @@ $(document).ready(function() {
      */
     function startQuiz() {
         questionTime = 30;
-        answerTime = 10;
+        answerTime = 1;
         counter = '';
         onQuestion = false;
         correct = false;
@@ -226,7 +226,6 @@ $(document).ready(function() {
         $('.choice').remove();
         $('.answer').addClass('hide');
         $('.results').addClass('hide');
-        // $('.results').addClass('hide');
         $('.game-display').removeClass('hide');
         nextQuestion();
     }
