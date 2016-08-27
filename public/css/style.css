@@ -92,7 +92,7 @@ h4 {
     background-size: cover;
 }
 .television {
-    background: url(../img/future-tv.jpg) no-repeat center center fixed;
+    background: url(../img/television.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -103,7 +103,8 @@ h4 {
 }
 .icons {
     margin: 0 auto;
-    max-width: 150px;
+    padding: 10px 0;
+    max-height: 150px;
 }
 .main-start {
     margin: 40px auto;
