@@ -18,7 +18,8 @@ $(document).ready(function() {
             $('.choice').remove();
             answeredQuestions++;
             numUnanswered++;
-            $('.decision').html("You took to long to answer. :/");
+            $('.decision').html("You took to long to answer");
+            $('.decision').append('<img src = "https://cdn.shopify.com/s/files/1/1061/1924/files/Sad_Face_Emoji.png?9898922749706957214" width=45px height=45px>');
             stopTimer();
             resetQuestionTimer();
             answerTimer();
@@ -234,7 +235,8 @@ $(document).ready(function() {
         } else {
             correct = false;
             numWrong++;
-            $('.decision').html("Sorry, that's incorrect. :(");
+            $('.decision').html("Sorry, that's incorrect");
+            $('.decision').append('<img src = "http://emojipedia-us.s3.amazonaws.com/cache/77/4d/774daba0c37384f2edb4d931f898b0dc.png" width=45px height=45px>')
         }
         stopTimer();
         resetQuestionTimer();
