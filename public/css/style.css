@@ -30,7 +30,7 @@ body > .container {
 .jumbotron p {
     font-size: 16px;
 }
-h4 {
+h4, h5 {
     margin-top: 0;
     text-align: center;
 }
@@ -136,6 +136,9 @@ th, td {
 }
 .answers {
     margin: 60px 0 20px 0;
+}
+.reaction {
+    max-height: 30px;
 }
 .gif {
     margin: 30px auto;
