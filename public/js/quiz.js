@@ -15,6 +15,7 @@ $(document).ready(function() {
     function decrement() {
         if (questionTime === 0) {
             onQuestion = false;
+            correct = false;
             $('.choice').remove();
             answeredQuestions++;
             numUnanswered++;
@@ -66,6 +67,7 @@ $(document).ready(function() {
      * Switch to next available question based on number of questions answered.
      */
     function nextQuestion() {
+        index++;
         onQuestion = true;
         questionTimer();
         resetAnswerTimer();
@@ -92,7 +94,9 @@ $(document).ready(function() {
         $('.game-display').addClass('hide');
         $('.answer').removeClass('hide');
         if (answeredQuestions <= 6) {
-            if (correct) {
+            if (correct === true) {
+                $('.answer-info').removeClass('hide');
+                $('.wrong-answer').html('');
                 gif = availableQuestions[index].question.gif;
                 $('.correct-answer').html("The answer is: " + availableQuestions[index].question.correctAnswer);
                 $('.gif').attr('src', gif);
@@ -102,8 +106,8 @@ $(document).ready(function() {
                         method: 'GET'
                     }).done(function(response) {
                         shortOver = response.Plot.substring(0, 275);
-                        $('.tv-info').html("<h4>Television Rating : " + response.Rated + "</h4><h5>IMDB Rating: " + response.imdbRating + "</h5><p>" + shortOver + "</p>");
-                        $('.tv-info > p').append(' <a href="https://www.imdb.com/title/' + response.imdbID + '" target="_blank">Read more...</a>');
+                        $('.question-info').html("<h4>Television Rating : " + response.Rated + "</h4><h5>IMDB Rating: " + response.imdbRating + "</h5><p>" + shortOver + "</p>");
+                        $('.question-info > p').append(' <a href="https://www.imdb.com/title/' + response.imdbID + '" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "movies") {
                     $.ajax({
@@ -111,8 +115,8 @@ $(document).ready(function() {
                         method: 'GET'
                     }).done(function(response) {
                         shortOver = response.Plot.substring(0, 275);
-                        $('.movie-info').html("<h4>Rating: " + response.Rated + "</h4><h5>IMDB Rating: " + response.imdbRating + "</h5><p>" + response.Plot + "</p>");
-                        $('.movie-info > p').append(' <a href="https://www.imdb.com/title/' + response.imdbID + '" target="_blank">Read more...</a>');
+                        $('.question-info').html("<h4>Rating: " + response.Rated + "</h4><h5>IMDB Rating: " + response.imdbRating + "</h5><p>" + response.Plot + "</p>");
+                        $('.question-info > p').append(' <a href="https://www.imdb.com/title/' + response.imdbID + '" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "games") {
                     $.ajax({
@@ -123,8 +127,8 @@ $(document).ready(function() {
                         }
                     }).done(function(response) {
                         shortSum = response[0].summary.substring(0, 275);
-                        $('.game-info').html("<h4>Game: " + response[0].name + "</h4><h5>Year Released: " + moment(response[0].release_dates[0].date).format('YYYY') + "</h5><p>" + shortSum + "</p>");
-                        $('.game-info > p').append(' <a href="https://www.igdb.com/games/' + availableQuestions[index - 1].question.name + '" target="_blank">Read more...</a>');
+                        $('.question-info').html("<h4>Game: " + response[0].name + "</h4><h5>Year Released: " + moment(response[0].release_dates[0].date).format('YYYY') + "</h5><p>" + shortSum + "</p>");
+                        $('.question-info > p').append(' <a href="https://www.igdb.com/games/' + availableQuestions[index - 1].question.name + '" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "music") {
                     $.ajax({
@@ -132,8 +136,8 @@ $(document).ready(function() {
                         method: 'GET'
                     }).then(function(response) {
                         shortBio = response.profile.substring(0, 250);
-                        $('.music-info').html('<h4>Artist/Band Name: ' + response.name + '</h4><p>' + shortBio + '</p>');
-                        $('.music-info > p').append(' <a href="' + response.uri + '" target="_blank">Read more...</a>');
+                        $('.question-info').html('<h4>Artist/Band Name: ' + response.name + '</h4><p>' + shortBio + '</p>');
+                        $('.question-info > p').append(' <a href="' + response.uri + '" target="_blank">Read more...</a>');
                     });
                     $.ajax({
                         url: availableQuestions[index].question.spot,
@@ -142,16 +146,16 @@ $(document).ready(function() {
                         $('.spotify-link').html('<a href="' + response.external_urls.spotify + '" target="_blank"><img class="img-responsive spotify" src="../img/icon-spotify.png" alt="Listen on Spotify"></a></img>');
                     });
                 }
-            } else {
+            } else if (correct === false) {
+                $('.answer-info').addClass('hide');
                 $.ajax({
                     url: 'https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=crying',
                     method: 'GET'
                 }).done(function(response) {
-                    $('.answer-info').html('<img class="img-responsive" src="' + response.data.fixed_height_downsampled_url + '" />');
+                    $('.correct-answer').html('<img class="img-responsive" src="' + response.data.fixed_height_downsampled_url + '" alt="Wrong Answer GIF">');
                 });
             }
         }
-        index++;
     }
     /**
      * Calculate quiz points writes the user's data to the database.
@@ -213,7 +217,7 @@ $(document).ready(function() {
         score = '';
 
         // Shuffle questions.
-        index = 0;
+        index = -1;
         availableQuestions = shuffle(questions);
         // Shuffle question's answers.
         for (var i = 0; i < availableQuestions.length; i++) {
