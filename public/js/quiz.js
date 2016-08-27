@@ -19,7 +19,7 @@ $(document).ready(function() {
             answeredQuestions++;
             numUnanswered++;
             $('.decision').html("You took to long to answer.  ");
-            $('.decision').append('<img class="reaction src="http://emojipedia-us.s3.amazonaws.com/cache/9e/18/9e18d26e9d7129752e1428f33903a7ab.png" alt="Disappointed">');
+            $('.decision').append('<img class="reaction" src="http://emojipedia-us.s3.amazonaws.com/cache/9e/18/9e18d26e9d7129752e1428f33903a7ab.png" alt="Disappointed">');
             stopTimer();
             resetQuestionTimer();
             answerTimer();
@@ -101,14 +101,18 @@ $(document).ready(function() {
                         url: availableQuestions[index].question.tv,
                         method: 'GET'
                     }).done(function(response) {
-                        $('.tv-info').html("<p>Network : " + response.network + "</p><p>Rating: " + response.rating + "</p><p> Summary: " + response.overview + "</p>");
+                        shortOver = response.Plot.substring(0,275);
+                        $('.tv-info').html("<h4>Television Rating : " + response.Rated + "</h4><h5>IMDB Rating: " + response.imdbRating + "</h5><p>" + shortOver + "</p>");
+                        $('.tv-info > p').append(' <a href="https://www.imdb.com/title/'+response.imdbID+'" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "movies") {
                     $.ajax({
                         url: availableQuestions[index].question.movie,
                         method: 'GET'
                     }).done(function(response) {
-                        $('.movie-info').html("<p>Year Released: " + response.Year + "</p><p>Rating: " + response.Rated + "</p><p> Plot: " + response.Plot + "</p>");
+                        shortOver = response.Plot.substring(0,275);
+                        $('.movie-info').html("<h4>Rating: " + response.Rated + "</h4><h5>IMDB Rating: " + response.imdbRating + "</h5><p>" + response.Plot + "</p>");
+                        $('.movie-info > p').append(' <a href="https://www.imdb.com/title/'+response.imdbID+'" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "games") {
                     $.ajax({
@@ -118,7 +122,7 @@ $(document).ready(function() {
                             xhr.setRequestHeader('X-Mashape-Key', '7fk8Bw6PnJmsh0TjOdbPX40q0ABKp1PfPZKjsnLQXNUocj9RjW');
                         }
                     }).done(function(response) {
-                        shortSum = response[0].summary.substring(0,300);
+                        shortSum = response[0].summary.substring(0,275);
                         $('.game-info').html("<h4>Game: " + response[0].name + "</h4><h5>Year Released: " + moment(response[0].release_dates[0].date).format('YYYY') + "</h5><p>" + shortSum + "</p>");
                         $('.game-info > p').append(' <a href="https://www.igdb.com/games/'+availableQuestions[index-1].question.name+'" target="_blank">Read more...</a>');
                     });
