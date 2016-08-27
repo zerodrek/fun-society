@@ -41,7 +41,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 35;
+        answerTime = 15;
     }
 
     function stopTimer() {
@@ -203,7 +203,7 @@ $(document).ready(function() {
      */
     function startQuiz() {
         questionTime = 30;
-        answerTime = 35;
+        answerTime = 15;
         counter = '';
         onQuestion = false;
         correct = false;
