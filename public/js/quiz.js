@@ -41,7 +41,7 @@ $(document).ready(function() {
     }
 
     function resetAnswerTimer() {
-        answerTime = 15;
+        answerTime = 10;
     }
 
     function stopTimer() {
@@ -89,6 +89,7 @@ $(document).ready(function() {
      * Display correct answer.
      */
     function displayAnswer() {
+        index++;
         $('.game-display').addClass('hide');
         $('.answer').removeClass('hide');
         if (answeredQuestions <= 6) {
@@ -142,7 +143,6 @@ $(document).ready(function() {
                         $('.spotify-link').html('<a href="'+response.external_urls.spotify+'" target="_blank"><img class="img-responsive spotify" src="../img/icon-spotify.png" alt="Listen on Spotify"></a></img>');
                     });
                 }
-                index++;
             } else {
                 $.ajax({
                     url: 'https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=crying',
@@ -202,7 +202,7 @@ $(document).ready(function() {
      */
     function startQuiz() {
         questionTime = 30;
-        answerTime = 15;
+        answerTime = 10;
         counter = '';
         onQuestion = false;
         correct = false;
