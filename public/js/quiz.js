@@ -19,7 +19,7 @@ $(document).ready(function() {
             answeredQuestions++;
             numUnanswered++;
             $('.decision').html("You took to long to answer.  ");
-            $('.decision').append('<img src = "https://cdn.shopify.com/s/files/1/1061/1924/files/Sad_Face_Emoji.png?9898922749706957214" width=45px height=45px>');
+            $('.decision').append('<img class="reaction src="http://emojipedia-us.s3.amazonaws.com/cache/9e/18/9e18d26e9d7129752e1428f33903a7ab.png" alt="Disappointed">');
             stopTimer();
             resetQuestionTimer();
             answerTimer();
@@ -118,7 +118,9 @@ $(document).ready(function() {
                             xhr.setRequestHeader('X-Mashape-Key', '7fk8Bw6PnJmsh0TjOdbPX40q0ABKp1PfPZKjsnLQXNUocj9RjW');
                         }
                     }).done(function(response) {
-                        $('.game-info').html("<p>" + response[0].name + "</p><p>Year Released: " + moment(response[0].release_dates[0].date).format('YYYY') + "</p><p>" + response[0].summary + "</p>");
+                        shortSum = response[0].summary.substring(0,300);
+                        $('.game-info').html("<h4>Game: " + response[0].name + "</h4><h5>Year Released: " + moment(response[0].release_dates[0].date).format('YYYY') + "</h5><p>" + shortSum + "</p>");
+                        $('.game-info > p').append(' <a href="https://www.igdb.com/games/'+availableQuestions[index-1].question.name+'" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "music") {
                     $.ajax({
@@ -126,8 +128,8 @@ $(document).ready(function() {
                         method: 'GET'
                     }).then(function(response) {
                         shortBio = response.profile.substring(0, 250);
-                        $('.music-info').html('<h4>Artist/Band Name: '+response.name+'</h4><p>' + shortBio + '</p>');
-                        $('.music-info > p').append(' <a class="discogs" href="'+response.uri+'" target="_blank">Read more...</a>');
+                        $('.music-info').html('<h4>Artist/Band Name: ' + response.name + '</h4><p>' + shortBio + '</p>') ;
+                        $('.music-info > p').append(' <a href="'+response.uri+'" target="_blank">Read more...</a>');
                     });
                     $.ajax({
                         url: availableQuestions[index].question.spot,
@@ -232,12 +234,12 @@ $(document).ready(function() {
             correct = true;
             numRight++;
             $('.decision').html("That's right!  ");
-            $('.decision').append('<img src = "http://emojipedia-us.s3.amazonaws.com/cache/e3/0d/e30d81886e8f990ff4bf775a0c157155.png" width=45px height=45px>')
+            $('.decision').append('<img class="reaction" src="http://emojipedia-us.s3.amazonaws.com/cache/e3/0d/e30d81886e8f990ff4bf775a0c157155.png" alt="cool">');
         } else {
             correct = false;
             numWrong++;
             $('.decision').html("Sorry, that's incorrect.  ");
-            $('.decision').append('<img src = "http://emojipedia-us.s3.amazonaws.com/cache/77/4d/774daba0c37384f2edb4d931f898b0dc.png" width=45px height=45px>')
+            $('.decision').append('<img class="reaction" src="http://emojipedia-us.s3.amazonaws.com/cache/53/07/530796818fd9042a5d17364ea2210ba1.png" alt="crying">');
         }
         stopTimer();
         resetQuestionTimer();

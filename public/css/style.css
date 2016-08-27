@@ -30,7 +30,7 @@ body > .container {
 .jumbotron p {
     font-size: 16px;
 }
-h4 {
+h4, h5 {
     margin-top: 0;
     text-align: center;
 }
@@ -92,7 +92,7 @@ h4 {
     background-size: cover;
 }
 .television {
-    background: url(../img/future-tv.jpg) no-repeat center center fixed;
+    background: url(../img/television.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -103,7 +103,8 @@ h4 {
 }
 .icons {
     margin: 0 auto;
-    max-width: 150px;
+    padding: 10px 0;
+    max-height: 150px;
 }
 .main-start {
     margin: 40px auto;
@@ -135,6 +136,9 @@ th, td {
 }
 .answers {
     margin: 60px 0 20px 0;
+}
+.reaction {
+    max-height: 30px;
 }
 .gif {
     margin: 30px auto;
