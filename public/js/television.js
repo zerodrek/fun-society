@@ -41,11 +41,11 @@ var questions = [{
     },
 }, {
     question: {
-        text: 'Who does Dustin, Mike, and Lucas go searching for in the TV series, Stranger Things?',
-        gif: "https://media.giphy.com/media/l0MYMRR8vPtN7D5W8/giphy.gif",
-        tv: "https://api-public.guidebox.com/v1.43/US/rKv5kLVZwU3CmavYs4kgpqsHO8ORhaDG/show/37760",
-        answers: ['Jim Hopper', 'Karen Wheeler', 'Will Byers', 'Eleven ("El")'],
-        correctAnswer: 'Will Byers'
+        text: 'What is Michelle Tanner famous for saying on Full House?',
+        gif: "https://media.giphy.com/media/xTiTnG7GYgnEejzOdW/giphy.gif",
+        tv: "https://api-public.guidebox.com/v1.43/US/rKv5kLVZwU3CmavYs4kgpqsHO8ORhaDG/show/1663",
+        answers: ['"How you doin\'?"', '"You got it dude!"', '"What\'choo talkin\' \'bout, Willis?"', '"No way Jose!"'],
+        correctAnswer: '"You got it dude!"'
     },
 }, {
     question: {
