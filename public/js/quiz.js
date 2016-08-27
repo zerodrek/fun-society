@@ -217,7 +217,7 @@ $(document).ready(function() {
         index = 0;
         availableQuestions = shuffle(questions);
         // Shuffle question's answers.
-        for (let i = 0; i < availableQuestions.length; i++) {
+        for (var i = 0; i < availableQuestions.length; i++) {
             shuffle(availableQuestions[i].question.answers);
         }
         $('.choice').remove();
