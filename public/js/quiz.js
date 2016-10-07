@@ -128,7 +128,7 @@ $(document).ready(function() {
                     }).done(function(response) {
                         shortSum = response[0].summary.substring(0, 275);
                         $('.question-info').html("<h4>Game: " + response[0].name + "</h4><h5>Year Released: " + moment(response[0].release_dates[0].date).format('YYYY') + "</h5><p>" + shortSum + "</p>");
-                        $('.question-info > p').append(' <a href="https://www.igdb.com/games/' + availableQuestions[index - 1].question.name + '" target="_blank">Read more...</a>');
+                        $('.question-info > p').append(' <a href="https://www.igdb.com/games/' + availableQuestions[index].question.name + '" target="_blank">Read more...</a>');
                     });
                 } else if (currentQuiz === "music") {
                     $.ajax({
@@ -190,7 +190,7 @@ $(document).ready(function() {
         if (signedIn) {
             setScore(currentUser.uid, score);
         } else {
-            $('.re-start').prepend('<h4>Log in if you would like to save your scores</h4>');
+            $('.re-start').prepend('<h4>Sign in if you would like to save your scores</h4>');
         }
         $('.game-display').addClass('hide');
         $('.answer').addClass('hide');
