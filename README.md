@@ -26,6 +26,6 @@ Fun Society uses [Firebase](https://firebase.google.com) to manage user accounts
 
 
 ---
-
-Live site available at : http://www.funsociety.club
+## Live
+http://www.funsociety.club
 
