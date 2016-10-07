@@ -4,7 +4,7 @@ Fun Society was created as an escape from the everyday world. An oasis where you
 ---
 
 ## Tech Overview
-Fun Society uses [Firebase](https://firebase.google.com) to manage user accounts and scores and APIs to display info related to questions.
+Fun Society uses [Firebase](https://firebase.google.com) to manage user accounts and scores and APIs to display info related to the trivia questions.
 
 ## APIs Used
 
