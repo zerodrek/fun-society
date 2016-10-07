@@ -126,7 +126,7 @@ $(document).ready(function() {
                             xhr.setRequestHeader('X-Mashape-Key', '7fk8Bw6PnJmsh0TjOdbPX40q0ABKp1PfPZKjsnLQXNUocj9RjW');
                         }
                     }).done(function(response) {
-                        shortSum = response[0].summary.substring(0, 275);
+                        shortSum = response[0].summary.substring(0, 350);
                         $('.question-info').html("<h4>Game: " + response[0].name + "</h4><h5>Year Released: " + moment(response[0].release_dates[0].date).format('YYYY') + "</h5><p>" + shortSum + "</p>");
                         $('.question-info > p').append(' <a href="https://www.igdb.com/games/' + availableQuestions[index].question.name + '" target="_blank">Read more...</a>');
                     });
